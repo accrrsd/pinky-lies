@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TweenPropsRes" format=3 uid="uid://bpfo2aglb3vjd"]
+
+[ext_resource type="Script" uid="uid://cb43553475evj" path="res://1_code/resources/TweenPropsRes.gd" id="1_u0xut"]
+
+[resource]
+script = ExtResource("1_u0xut")
+property = "visible"
+start_value = null
+final_value = false
+duration = 0.0
+metadata/_custom_type_script = "uid://cb43553475evj"

@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" format=3 uid="uid://c2xiapy73xs3i"]
+
+[ext_resource type="FontFile" uid="uid://52i2f63yg1on" path="res://2_general/assets/fonts/regular/NotoSansSC-Regular.ttf" id="1_sc"]
+[ext_resource type="FontFile" uid="uid://cjwsr5i7klq61" path="res://2_general/assets/fonts/regular/NotoSansJP-Regular.ttf" id="2_jp"]
+[ext_resource type="FontFile" uid="uid://c4ggc77rqy6jt" path="res://2_general/assets/fonts/regular/NotoSansKR-Regular.ttf" id="3_kr"]
+[ext_resource type="FontFile" uid="uid://0v6j5y56v1fb" path="res://2_general/assets/fonts/regular/NotoSans-Regular.ttf" id="4_ns"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("1_sc"), ExtResource("2_jp"), ExtResource("3_kr")])
+base_font = ExtResource("4_ns")

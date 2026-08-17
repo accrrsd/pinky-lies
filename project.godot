@@ -10,20 +10,42 @@ config_version=5
 
 [application]
 
-config/name="template"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/name="pinky-lies"
+run/main_scene="uid://bc4kx17wslg4l"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://5_trash/icon.svg"
+
+[autoload]
+
+DialogueManager="*uid://c3rodes2l3gxb"
+Sounds="*uid://bvcu7to17csr6"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://0_addons/": "red",
 "res://1_code/": "teal",
 "res://1_code/ECS/": "yellow",
 "res://2_general/": "purple",
 "res://3_scenes/": "blue",
-"res://5_trash/": "orange"
+"res://4_docs/": "green",
+"res://5_trash/": "orange",
+"res://addons/": "red"
 }
+
+[gui]
+
+theme/custom_font="uid://c2xiapy73xs3i"
 
 [physics]
 

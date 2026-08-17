@@ -1,0 +1,12 @@
+[gd_resource type="FontVariation" format=3 uid="uid://d1ri6w6rdmaq2"]
+
+[ext_resource type="FontFile" uid="uid://inep1gynh6l5" path="res://2_general/assets/fonts/bold/NotoSans_ExtraCondensed-Black.ttf" id="1_exrup"]
+
+[resource]
+base_font = ExtResource("1_exrup")
+variation_opentype = {
+0: 1
+}
+opentype_features = {
+1667329140: 0
+}

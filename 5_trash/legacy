@@ -1,0 +1,6 @@
+  # var theme_keys:Array = []
+  # # tricky way to get all keys
+  # for data_type in range(Theme.DATA_TYPE_MAX):
+  #   theme_keys.append_array(theme.get_theme_item_list(data_type, "BigColoredButton"))
+  # # filter non modified keys
+  # theme_keys = theme_keys.filter(func(item:String):item.ends_with("_"))

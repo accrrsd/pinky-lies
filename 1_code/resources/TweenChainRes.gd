@@ -8,7 +8,7 @@ class_name TweenChainRes
 @export var loops: int = -1
 @export var speed_scale: float = 1.0
 
-@export_subgroup("Global Tween Modes")
+@export_group("Global Tween Modes")
 @export var process_mode: Tween.TweenProcessMode = Tween.TWEEN_PROCESS_IDLE
 @export var pause_mode: Tween.TweenPauseMode = Tween.TWEEN_PAUSE_BOUND
 

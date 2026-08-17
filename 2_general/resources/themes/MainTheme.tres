@@ -133,6 +133,38 @@ shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_square_hovered"]
+bg_color = Color(0.11372549, 0.4, 0.7647059, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_square_pressed"]
+bg_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.02, 0.15, 0.35, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 0.3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1la55"]
 bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
 border_width_left = 6
@@ -147,6 +179,38 @@ corner_radius_bottom_left = 20
 corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_hovered"]
+bg_color = Color(0.11372549, 0.4, 0.7647059, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_pressed"]
+bg_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.02, 0.15, 0.35, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 2)
 anti_aliasing_size = 0.3
 
 [resource]
@@ -169,7 +233,13 @@ ColoredLabel/constants/outline_size = 10
 ColoredLabel/fonts/font = ExtResource("1_1883j")
 DefaultPanel/base_type = &"PanelContainer"
 DefaultPanel/styles/panel = SubResource("StyleBoxFlat_1883j")
-SquarePanel/base_type = &"PanelContainer"
+SquarePanel/base_type = &"Control"
+SquarePanel/styles/_0_background_ = SubResource("StyleBoxFlat_njvh4")
+SquarePanel/styles/_0_background_hovered = SubResource("StyleBoxFlat_square_hovered")
+SquarePanel/styles/_0_background_pressed = SubResource("StyleBoxFlat_square_pressed")
 SquarePanel/styles/panel = SubResource("StyleBoxFlat_njvh4")
-TabPanel/base_type = &"PanelContainer"
+TabPanel/base_type = &"Control"
+TabPanel/styles/_0_background_ = SubResource("StyleBoxFlat_1la55")
+TabPanel/styles/_0_background_hovered = SubResource("StyleBoxFlat_tab_hovered")
+TabPanel/styles/_0_background_pressed = SubResource("StyleBoxFlat_tab_pressed")
 TabPanel/styles/panel = SubResource("StyleBoxFlat_1la55")

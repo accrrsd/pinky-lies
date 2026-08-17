@@ -4,7 +4,9 @@ extends Resource
 @export var stream: AudioStream
 @export var volume_db: float = 0.0
 @export var pitch_scale: float = 1.0
+## Probably lower than 0
 @export var pitch_randomness_min: float = 0.0
+## Probably higher than 0
 @export var pitch_randomness_max: float = 0.0
 @export var max_polyphony: int = 1
 @export var mix_target: AudioStreamPlayer.MixTarget

@@ -2,22 +2,24 @@
 
 [ext_resource type="Script" uid="uid://bmf4x3kgfv1yn" path="res://3_scenes/UiKit/BigColoredButton/big_colored_button_script.gd" id="1_88vj1"]
 [ext_resource type="Shader" uid="uid://ccw4h80jlhcxl" path="res://2_general/resources/shaders/gdshader/circle.gdshader" id="1_ls0bk"]
-[ext_resource type="Script" uid="uid://dasc1ohajitbv" path="res://1_code/resources/SoundsPropRes.gd" id="4_8nnno"]
+[ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/SoundProps/ButtonClick.tres" id="2_olr3g"]
+[ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/SoundProps/ButtonHover.tres" id="3_8nnno"]
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/UiKit/ScriptsWithoutScene/SoundButton.gd" id="4_ks72q"]
-[ext_resource type="AudioStream" uid="uid://bmnea4s3fhc4w" path="res://2_general/assets/audio/sounds/ui/button_click.wav" id="5_yyli1"]
-[ext_resource type="AudioStream" uid="uid://c0uq11isu2lt3" path="res://2_general/assets/audio/sounds/ui/bubble_pop.wav" id="6_yllfu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1883j"]
 
-[sub_resource type="Resource" id="Resource_l61ga"]
-script = ExtResource("4_8nnno")
-stream = ExtResource("5_yyli1")
-metadata/_custom_type_script = "uid://dasc1ohajitbv"
-
-[sub_resource type="Resource" id="Resource_6o72y"]
-script = ExtResource("4_8nnno")
-stream = ExtResource("6_yllfu")
-metadata/_custom_type_script = "uid://dasc1ohajitbv"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o72y"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.365, 0.365, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0qsrg"]
 shader = ExtResource("1_ls0bk")
@@ -40,21 +42,25 @@ theme_type_variation = &"BigColoredButton"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1883j")
 script = ExtResource("1_88vj1")
 text = "HELLO WORLD"
-pressed_sound = SubResource("Resource_l61ga")
-hover_sound = SubResource("Resource_6o72y")
+pressed_sound = ExtResource("2_olr3g")
+hover_sound = ExtResource("3_8nnno")
 
 [node name="Background" type="PanelContainer" parent="." unique_id=1941562097]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6o72y")
 
 [node name="InnerBorder" type="PanelContainer" parent="Background" unique_id=1924257398]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6o72y")
 
 [node name="Decoration" type="PanelContainer" parent="Background/InnerBorder" unique_id=1761890016]
 clip_children = 1
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6o72y")
 
 [node name="GradientBackground" type="Panel" parent="Background/InnerBorder/Decoration" unique_id=1415631672]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6o72y")
 
 [node name="Control" type="Control" parent="Background/InnerBorder/Decoration" unique_id=1163085249]
 layout_mode = 2
@@ -96,6 +102,8 @@ theme_override_constants/margin_bottom = 15
 [node name="Label" type="RichTextLabel" parent="LabelMarginContainer" unique_id=1508466368]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 theme_override_font_sizes/bold_italics_font_size = 40

@@ -16,7 +16,7 @@ class_name TweenPropsRes
 @export var loops: int = -1
 @export var speed_scale: float = 1.0
 
-@export_subgroup("Transition")
+@export_group("Transition")
 @export var trans_type: Tween.TransitionType
 @export var ease_type: Tween.EaseType
 @export var process_mode: Tween.TweenProcessMode

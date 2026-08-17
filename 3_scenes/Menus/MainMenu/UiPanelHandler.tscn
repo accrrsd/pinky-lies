@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://mindody566fq"]
+
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_p6j88"]
+[ext_resource type="Shader" uid="uid://ccw4h80jlhcxl" path="res://2_general/resources/shaders/gdshader/circle.gdshader" id="2_iish8"]
+[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/UiKit/ScriptsWithoutScene/PanelButton.gd" id="3_pbtn"]
+[ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/UiKit/ScriptsWithoutScene/SoundButton.gd" id="4_sbtn"]
+[ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/SoundProps/ButtonClick.tres" id="4_umyns"]
+[ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/SoundProps/ButtonHover.tres" id="5_c6g3a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umyns"]
+shader = ExtResource("2_iish8")
+shader_parameter/edge_softness = 0.250000011875
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6g3a"]
+shader = ExtResource("2_iish8")
+shader_parameter/edge_softness = 0.400000019
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cocn8"]
+shader = ExtResource("2_iish8")
+shader_parameter/edge_softness = 0.400000019
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
+bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.64705884, 0.23137255, 0.41568628, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[node name="UiPanelHandler" type="AspectRatioContainer" unique_id=943993696]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p6j88")
+ratio = 1.7778
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1435202168]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1729974615]
+self_modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 2
+theme_type_variation = &"DefaultPanel"
+
+[node name="Decoration" type="Control" parent="MarginContainer/PanelContainer" unique_id=1863998943]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PanelContainer/Decoration" unique_id=1106841064]
+material = SubResource("ShaderMaterial_umyns")
+layout_mode = 0
+offset_left = 7.000061
+offset_top = 20.993286
+offset_right = 69.10025
+offset_bottom = 53.17975
+rotation = -0.384568
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/PanelContainer/Decoration" unique_id=2069101131]
+material = SubResource("ShaderMaterial_c6g3a")
+layout_mode = 0
+offset_left = -0.99993896
+offset_top = 61.993286
+offset_right = 27.688557
+offset_bottom = 83.54178
+rotation = -0.384568
+
+[node name="ColorRect3" type="ColorRect" parent="MarginContainer/PanelContainer/Decoration" unique_id=1353998304]
+material = SubResource("ShaderMaterial_cocn8")
+layout_mode = 0
+offset_left = 84.00005
+offset_top = 6.993285
+offset_right = 108.491234
+offset_bottom = 25.389091
+rotation = 0.33883676
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=967002273]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=884896457]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Footer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox" unique_id=793883986]
+layout_mode = 2
+theme_override_constants/separation = 1000
+
+[node name="Reset" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" unique_id=1301668582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SquarePanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
+script = ExtResource("3_pbtn")
+pressed_sound = ExtResource("4_umyns")
+hover_sound = ExtResource("5_c6g3a")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Reset" unique_id=906852819]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Reset/MarginContainer" unique_id=1299453234]
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 50
+text = "RESET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Reset" unique_id=1857211257]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("4_sbtn")
+
+[node name="Return" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" unique_id=284827232]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SquarePanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
+script = ExtResource("3_pbtn")
+pressed_sound = ExtResource("4_umyns")
+hover_sound = ExtResource("5_c6g3a")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Return" unique_id=1972167716]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Return/MarginContainer" unique_id=1809711649]
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 50
+text = "RETURN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer/Return" unique_id=569599597]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("4_sbtn")

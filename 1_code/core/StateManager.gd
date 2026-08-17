@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void: if current_state: current_state.cal
 func _change_state_body(new_state_name: String) -> void:
   new_state_name = new_state_name.to_lower()
   if new_state_name == "":
+    if current_state == initial_state: return
     if current_state: await current_state.end()
     set_process(false)
     set_physics_process(false)

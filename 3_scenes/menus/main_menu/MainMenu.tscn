@@ -328,6 +328,7 @@ layout_mode = 1
 backgroundImage = ExtResource("10_t1l60")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=1006297337]
+visible = false
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Buttons" unique_id=1363971233]
 anchors_preset = 15
@@ -390,7 +391,6 @@ layout_mode = 2
 text = "EXIT"
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
-visible = false
 
 [node name="SettingsStateManager" type="Node" parent="Settings" unique_id=257729986 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true

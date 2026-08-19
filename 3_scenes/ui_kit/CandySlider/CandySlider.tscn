@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://6wui2deutxxj"]
+
+[ext_resource type="Texture2D" uid="uid://b50g8rcsfpycl" path="res://3_scenes/ui_kit/CandySlider/CandyStick-Front.svg" id="1_fcctq"]
+[ext_resource type="Script" uid="uid://dbb43olip86rt" path="res://3_scenes/ui_kit/CandySlider/candy_slider_script.gd" id="2_i8fjv"]
+[ext_resource type="Texture2D" uid="uid://2mymsqegaxnm" path="res://3_scenes/ui_kit/CandySlider/CandyStick-Back.svg" id="3_5pe5l"]
+[ext_resource type="Texture2D" uid="uid://t1sukgm61ota" path="res://3_scenes/ui_kit/CandySlider/CandyStick-middle.svg" id="4_jwhys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlp5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CandySlider" type="HSlider" unique_id=2083825898 node_paths=PackedStringArray("_progressBar")]
+z_index = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = -26
+theme_override_icons/grabber = ExtResource("1_fcctq")
+theme_override_icons/grabber_highlight = ExtResource("1_fcctq")
+theme_override_icons/grabber_disabled = ExtResource("1_fcctq")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_dlp5f")
+value = 50.0
+rounded = true
+script = ExtResource("2_i8fjv")
+_progressBar = NodePath("ProgressBar")
+
+[node name="StartTexture" type="TextureRect" parent="." unique_id=2133415805]
+layout_mode = 0
+offset_left = -51.99994
+offset_top = 25.993286
+offset_right = -26.999939
+offset_bottom = 75.993286
+texture = ExtResource("3_5pe5l")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="StartTexture" unique_id=56336537]
+clip_children = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GapFiller" type="TextureRect" parent="StartTexture/ColorRect" unique_id=778425532]
+z_index = -1
+layout_mode = 0
+offset_left = 9.0
+offset_right = 866.0
+offset_bottom = 50.0
+texture = ExtResource("3_5pe5l")
+flip_h = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=626848310]
+clip_children = 1
+z_index = -1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 50)
+custom_maximum_size = Vector2(-1, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_57qmd")
+step = 1.0
+value = 50.0
+rounded = true
+show_percentage = false
+
+[node name="ProgressTexture" type="TextureRect" parent="ProgressBar" unique_id=907420814]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jwhys")
+stretch_mode = 1

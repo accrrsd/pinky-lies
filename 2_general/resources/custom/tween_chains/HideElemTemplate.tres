@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TweenChainRes" format=3 uid="uid://biox4ki3qgc1r"]
+
+[ext_resource type="Script" uid="uid://cncc4wej5qsvr" path="res://1_code/resources/tweens/TweenChainRes.gd" id="1_4qu6u"]
+[ext_resource type="Script" uid="uid://cb43553475evj" path="res://1_code/resources/tweens/TweenPropsRes.gd" id="2_2k8gf"]
+[ext_resource type="Resource" uid="uid://bo5xcvfqylshw" path="res://2_general/resources/custom/tween_chains/tween_parts/ShowWithoutTarget.tres" id="3_uyecw"]
+[ext_resource type="Resource" uid="uid://bpfo2aglb3vjd" path="res://2_general/resources/custom/tween_chains/tween_parts/HideWithoutTarget.tres" id="4_xxqfo"]
+
+[sub_resource type="Resource" id="Resource_j03xe"]
+script = ExtResource("2_2k8gf")
+property = "modulate:a"
+start_value = 1.0
+final_value = 0.0
+metadata/_custom_type_script = "uid://cb43553475evj"
+
+[resource]
+script = ExtResource("1_4qu6u")
+steps = Array[ExtResource("2_2k8gf")]([ExtResource("3_uyecw"), SubResource("Resource_j03xe"), ExtResource("4_xxqfo")])
+speed_scale = 2.0
+metadata/_custom_type_script = "uid://cncc4wej5qsvr"

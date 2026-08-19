@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b4uxe2k8b28gl"]
+
+[ext_resource type="Script" uid="uid://c43j4bdm6fgy0" path="res://3_scenes/ui_kit/BackgroundFiller/background_filler_script.gd" id="1_6lbl5"]
+[ext_resource type="Shader" uid="uid://cicjkplhwluwa" path="res://3_scenes/ui_kit/BackgroundFiller/blur.gdshader" id="2_o4sjx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxntt"]
+shader = ExtResource("2_o4sjx")
+shader_parameter/mip_level = 4.00000019
+shader_parameter/kawase_passes = 4
+shader_parameter/kawase_offset_scale = 1.0
+shader_parameter/blur_radius = 4.0
+
+[node name="BackgroundFiller" type="Control" unique_id=566355761]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6lbl5")
+
+[node name="BlurBackground" type="TextureRect" parent="." unique_id=962488457]
+unique_name_in_owner = true
+z_index = -100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="BlurBackground" unique_id=1370221311]
+material = SubResource("ShaderMaterial_fxntt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1548200541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.778
+
+[node name="Background" type="TextureRect" parent="AspectRatioContainer" unique_id=603985302]
+unique_name_in_owner = true
+z_index = -10
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 6

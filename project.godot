@@ -13,12 +13,13 @@ config_version=5
 config/name="pinky-lies"
 run/main_scene="uid://bc4kx17wslg4l"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://5_trash/icon.svg"
+config/icon="res://5_trash/imgs/icon.svg"
 
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
 Sounds="*uid://bvcu7to17csr6"
+SettingsManager="*uid://bsrqka7yu8vlq"
 
 [display]
 

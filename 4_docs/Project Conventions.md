@@ -10,7 +10,16 @@
 | Dev | `Dev` | Editor/@tool | `1 code/scripts/` or `5 trash/` |
 
 ## Folder Rules
-- 3 scenes/misc: Для уникальных сцен. Если элементов > 3, вынести в отдельную папку.
+- 1_code:
+    - core: 
+    - resources: Только скрипты-классы (definitions).
+    - singletones: 
+- 2_general:
+    - assets:
+    - resources: Только экземпляры (.tres).
+- 3_scenes:
+    - menus:
+    - ui_kit:
+    - misc: Для уникальных сцен. Если элементов > 3, вынести в отдельную папку.
+- 4_docs: Документация. Планы. Прочие организационные файлы. Концепты.
 - 5 trash: Синхронизируется с Git. Обязательна очистка перед релизом.
-- 1 code/resources: Только скрипты-классы (definitions).
-- 2 general/resources: Только экземпляры (.tres).

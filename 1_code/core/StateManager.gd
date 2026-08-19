@@ -7,10 +7,11 @@ const PHYSICS_UPDATE_STR := StringName("s_physics_process")
 
 @export var initial_state: State
 
+signal state_changed(prev_state: State, current_state: State)
+
 var current_state: State
 var states: Dictionary[String, State] = {}
-
-var _is_transitioning: bool = false
+var is_transitioning: bool = false
 
 func _ready() -> void:
   for state in get_children():
@@ -41,10 +42,12 @@ func _change_state_body(new_state_name: String) -> void:
   set_process(new_state.has_method(UPDATE_STR))
   set_physics_process(new_state.has_method(PHYSICS_UPDATE_STR))
   await new_state.start()
+  var prev_state = current_state
   current_state = new_state
+  state_changed.emit(prev_state, current_state)
 
 func change_state(new_state_name: String) -> void:
-  if _is_transitioning: return
-  _is_transitioning = true;
+  if is_transitioning: return
+  is_transitioning = true;
   await _change_state_body(new_state_name)
-  _is_transitioning = false;
+  is_transitioning = false;

@@ -196,6 +196,15 @@ setting_key = "voice"
 control_node_path = NodePath("HboxContainer3/CandySlider")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
+[sub_resource type="Resource" id="Resource_3b75w"]
+script = ExtResource("18_hhkrn")
+category = "audio"
+setting_key = "mute_all"
+ui_type = 6
+action_type = 1
+control_node_path = NodePath("MarginContainer/HBoxContainer/MuteAll/MuteAllButton")
+metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
 bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
 border_width_left = 6
@@ -217,7 +226,7 @@ script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "text_speed"
 action_type = 3
-control_node_path = NodePath("HboxContainer/HSlider")
+control_node_path = NodePath("HboxContainer/CandySlider")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_auto_read"]
@@ -225,7 +234,7 @@ script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "auto_read_speed"
 action_type = 3
-control_node_path = NodePath("HboxContainer2/HSlider")
+control_node_path = NodePath("HboxContainer2/CandySlider")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_language"]
@@ -282,6 +291,24 @@ action_type = 2
 control_node_path = NodePath("HboxContainerDisplayMode/OptionButton")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
+[sub_resource type="Resource" id="Resource_b7guf"]
+script = ExtResource("18_hhkrn")
+category = "display"
+setting_key = "window_mode"
+ui_type = 4
+action_type = 2
+control_node_path = NodePath("HboxContainerResolution/OptionButton")
+metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
+
+[sub_resource type="Resource" id="Resource_c4rxa"]
+script = ExtResource("18_hhkrn")
+category = "display"
+setting_key = "fill_mode"
+ui_type = 4
+action_type = 3
+control_node_path = NodePath("HboxContainerFillscreen/CheckButton")
+metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
+
 [node name="MainMenu" type="Control" unique_id=1224244970]
 layout_mode = 3
 anchors_preset = 15
@@ -328,7 +355,6 @@ layout_mode = 1
 backgroundImage = ExtResource("10_t1l60")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=1006297337]
-visible = false
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Buttons" unique_id=1363971233]
 anchors_preset = 15
@@ -373,12 +399,12 @@ text = "NEW STORY! ♥︎"
 [node name="LoadGame" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2073852572 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "LOAD GAME! ♥︎"
+text = "LOAD GAME! [img=40]uid://bwrhapb61o0hi[/img]"
 
 [node name="Gallery" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2056558448 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "MEMORIES ♪"
+text = "MEMORIES [img=60]uid://cw338x21bbmdk[/img]"
 
 [node name="Settings" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1418662307 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
@@ -391,6 +417,7 @@ layout_mode = 2
 text = "EXIT"
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
+visible = false
 
 [node name="SettingsStateManager" type="Node" parent="Settings" unique_id=257729986 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -594,7 +621,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("17_jawtq")
-handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_m1ige"), SubResource("Resource_rc5b5"), SubResource("Resource_8ohoa")])
+handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_m1ige"), SubResource("Resource_rc5b5"), SubResource("Resource_8ohoa"), SubResource("Resource_3b75w")])
 
 [node name="HboxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent" unique_id=1822189951]
 layout_mode = 2
@@ -696,12 +723,8 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Скорость вывода текста"
 
-[node name="HSlider" type="HSlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer" unique_id=264478247]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer" unique_id=895292285 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-value = 75.0
 
 [node name="HboxContainer2" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616130]
 layout_mode = 2
@@ -713,12 +736,8 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Скорость авточтения"
 
-[node name="HSlider" type="HSlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer2" unique_id=1882518692]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer2" unique_id=2121222263 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-value = 50.0
 
 [node name="HboxContainerLanguage" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=756161330]
 layout_mode = 2
@@ -763,7 +782,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("17_jawtq")
-handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_fast_scroll"), SubResource("Resource_skip_choices"), SubResource("Resource_tooltips"), SubResource("Resource_display_mode")])
+handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_fast_scroll"), SubResource("Resource_skip_choices"), SubResource("Resource_tooltips"), SubResource("Resource_display_mode"), SubResource("Resource_b7guf"), SubResource("Resource_c4rxa")])
 
 [node name="HboxContainerFastScroll" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=1042030346]
 layout_mode = 2
@@ -860,6 +879,19 @@ popup/item_1/text = "1600x900"
 popup/item_1/id = 1
 popup/item_2/text = "1280x720"
 popup/item_2/id = 2
+
+[node name="HboxContainerFillscreen" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=2112801712]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1323121949]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 40
+text = "Заполнять экран изображением"
+
+[node name="CheckButton" type="CheckButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1328058556]
+layout_mode = 2
 
 [node name="HotKeysContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398375]
 visible = false

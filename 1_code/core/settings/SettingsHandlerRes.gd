@@ -22,7 +22,8 @@ enum UiType {
   TOGGLE_SWITCH,
   RADIO_GROUP,
   OPTION_BUTTON,
-  CUSTOM
+  CUSTOM,
+  BUTTON
 }
 
 enum ActionType {
@@ -66,7 +67,8 @@ func initialize(parent_node: Node) -> void:
     UiType.RADIO_GROUP: _ui_handler = RadioHandler.new(self)
     UiType.OPTION_BUTTON: _ui_handler = OptionButtonHandler.new(self)
     UiType.CUSTOM: _ui_handler = CustomUIHandler.new(self)
-      
+    UiType.BUTTON: _ui_handler = ButtonHandler.new(self)
+    
   var current_value = SettingsManager.get_setting(category, setting_key, _ui_handler.get_default_value())
   _ui_handler.setup_ui(current_value)
   apply_setting(current_value)
@@ -126,8 +128,7 @@ func save_setting(value: Variant) -> void:
     parent.start_debounce()
 
 func visually_disable_slider(mute: bool) -> void:
-  if _ui_handler is SliderHandler:
-    _ui_handler.visually_disable(mute)
+  if _ui_handler is SliderHandler: _ui_handler.visually_disable(mute)
 
 # --- INTERNAL UI CLASSES ---
 
@@ -168,6 +169,11 @@ class SliderHandler extends UIHandlerBase:
   func visually_disable(mute: bool) -> void:
     var slider = owner.control as Slider
     if not slider: return
+    # update step before change slider, because
+    # it allow send signal to it without chaning settings
+    # good use for visual changes, for example.
+    var prev_step = slider.step
+    slider.step = 0.1 if 0.1 != prev_step else 0.2
     slider.set_block_signals(true)
     slider.editable = !mute
     if mute:
@@ -178,6 +184,7 @@ class SliderHandler extends UIHandlerBase:
       slider.value = previous_value
       slider.mouse_default_cursor_shape = previous_cursor_shape
     slider.set_block_signals(false)
+    slider.step = prev_step
 
 class CheckboxHandler extends UIHandlerBase:
   func setup_ui(current_value: Variant) -> void:
@@ -287,6 +294,24 @@ class OptionButtonHandler extends UIHandlerBase:
     if owner.is_loading: return
     owner.apply_setting(index)
     owner.save_setting(index)
+
+class ButtonHandler extends UIHandlerBase:
+  func setup_ui(current_value: Variant) -> void:
+    var btn = owner.control as Button
+    if btn:
+      btn.toggle_mode = true
+      if not btn.toggled.is_connected(_on_toggled):
+        btn.toggled.connect(_on_toggled)
+      btn.button_pressed = bool(current_value)
+
+  func get_default_value() -> Variant:
+    var btn = owner.control as Button
+    return btn.button_pressed if btn else false
+
+  func _on_toggled(toggled_on: bool) -> void:
+    if owner.is_loading: return
+    owner.apply_setting(toggled_on)
+    owner.save_setting(toggled_on)
 
 class CustomUIHandler extends UIHandlerBase:
   func setup_ui(current_value: Variant) -> void:

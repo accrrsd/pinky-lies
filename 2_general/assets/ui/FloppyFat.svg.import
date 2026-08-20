@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbhwdfl26d1ne"
-path="res://.godot/imported/candy_slider.png-3f75dc83cbfb3bff4080849ae981f48f.ctex"
+uid="uid://bwrhapb61o0hi"
+path="res://.godot/imported/FloppyFat.svg-9612633ef9a90a276c9bb2ea339d4864.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://5_trash/imgs/candy_slider.png"
-dest_files=["res://.godot/imported/candy_slider.png-3f75dc83cbfb3bff4080849ae981f48f.ctex"]
+source_file="res://2_general/assets/ui/FloppyFat.svg"
+dest_files=["res://.godot/imported/FloppyFat.svg-9612633ef9a90a276c9bb2ea339d4864.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

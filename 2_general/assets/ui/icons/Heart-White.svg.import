@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqph778conedj"
-path="res://.godot/imported/cogwheel.svg-d509fd1884851aa881e90268f185b781.ctex"
+uid="uid://d3o2gnb4tnmkm"
+path="res://.godot/imported/Heart-White.svg-7096b03a4fdd94b95ee324dc1196ef09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/icons/cogwheel.svg"
-dest_files=["res://.godot/imported/cogwheel.svg-d509fd1884851aa881e90268f185b781.ctex"]
+source_file="res://2_general/assets/ui/icons/Heart-White.svg"
+dest_files=["res://.godot/imported/Heart-White.svg-7096b03a4fdd94b95ee324dc1196ef09.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=0.2
+svg/scale=0.5
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

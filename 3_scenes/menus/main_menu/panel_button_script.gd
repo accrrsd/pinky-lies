@@ -1,6 +1,5 @@
 @tool
 extends PanelContainer
-class_name PanelButton
 
 @export_group("Sounds")
 @export var pressed_sound: SoundsPropsRes = null

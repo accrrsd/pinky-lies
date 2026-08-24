@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwrhapb61o0hi"
-path="res://.godot/imported/FloppyFat.svg-9612633ef9a90a276c9bb2ea339d4864.ctex"
+uid="uid://bqph778conedj"
+path="res://.godot/imported/cogwheel.svg-f240ad45b28db7f14c593617843c5b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/FloppyFat.svg"
-dest_files=["res://.godot/imported/FloppyFat.svg-9612633ef9a90a276c9bb2ea339d4864.ctex"]
+source_file="res://2_general/assets/ui/icons/cogwheel.svg"
+dest_files=["res://.godot/imported/cogwheel.svg-f240ad45b28db7f14c593617843c5b66.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
+svg/scale=0.2
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

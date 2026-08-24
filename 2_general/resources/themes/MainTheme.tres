@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://b4pbuxrcttwb3"]
 
 [ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="1_1883j"]
+[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://3_scenes/ui_kit/HeartCheckbox/heart-svgrepo-com.svg" id="2_1la55"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xgcy"]
 bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
@@ -116,6 +117,9 @@ shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_size = 1
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1883j"]
+texture = ExtResource("2_1la55")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
 bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
@@ -233,6 +237,18 @@ ColoredLabel/constants/outline_size = 10
 ColoredLabel/fonts/font = ExtResource("1_1883j")
 DefaultPanel/base_type = &"PanelContainer"
 DefaultPanel/styles/panel = SubResource("StyleBoxFlat_1883j")
+HeartButton/base_type = &"Control"
+HeartButton/colors/_0_main_tex_ = Color(0.96862745, 0.6156863, 0.68235296, 1)
+HeartButton/colors/_0_main_tex_toggled = Color(0.7254902, 0.7294118, 0.90588236, 1)
+HeartButton/colors/_1_shadow_ = Color(0, 0, 0, 0.27450982)
+HeartButton/colors/_1_shadow_toggled = Color(0, 0, 0, 0.27450982)
+HeartButton/colors/_2_outline_ = Color(0.48235294, 0.08627451, 0.11764706, 1)
+HeartButton/colors/_2_outline_toggled = Color(0.5254902, 0.23137255, 0.44705883, 1)
+HeartButton/colors/_3_underbody_ = Color(0.8980392, 0.40392157, 0.5176471, 1)
+HeartButton/colors/_3_underbody_toggled = Color(0.6392157, 0.5294118, 0.8235294, 1)
+HeartButton/colors/_4_mark_ = Color(0.62352943, 0.21176471, 0.31764707, 1)
+HeartButton/colors/_4_mark_toggled = Color(0.5254902, 0.23137255, 0.44705883, 1)
+HeartButton/styles/heart_texture_ = SubResource("StyleBoxTexture_1883j")
 SquarePanel/base_type = &"Control"
 SquarePanel/styles/_0_background_ = SubResource("StyleBoxFlat_njvh4")
 SquarePanel/styles/_0_background_hovered = SubResource("StyleBoxFlat_square_hovered")

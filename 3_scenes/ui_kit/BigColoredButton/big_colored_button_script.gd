@@ -27,7 +27,6 @@ func _fill_elems_arr() -> void:
     _elems_arr = [$Background, $Background/InnerBorder, $Background/InnerBorder/Decoration, $Background/InnerBorder/Decoration/GradientBackground, %Label]
 
 func _themes_setup(tag: String = "") -> void:
-  _fill_elems_arr()
   _elems_arr[0].add_theme_stylebox_override("panel", get_theme_stylebox("_0_background_" + tag, theme_type_variation))
   _elems_arr[1].add_theme_stylebox_override("panel", get_theme_stylebox("_1_inner_border_" + tag, theme_type_variation))
   _elems_arr[2].add_theme_stylebox_override("panel", get_theme_stylebox("_2_decoration_" + tag, theme_type_variation))
@@ -37,7 +36,6 @@ func _themes_setup(tag: String = "") -> void:
 
 # helper for editior and tests
 func _themes_clear() -> void:
-  _fill_elems_arr()
   _elems_arr[0].remove_theme_stylebox_override("panel")
   _elems_arr[1].remove_theme_stylebox_override("panel")
   _elems_arr[2].remove_theme_stylebox_override("panel")
@@ -46,6 +44,7 @@ func _themes_clear() -> void:
   _elems_arr[4].remove_theme_constant_override("outline_size")
 
 func _ready() -> void:
+  _fill_elems_arr()
   _themes_setup()
   if Engine.is_editor_hint(): return
   button = %ButtonHandler

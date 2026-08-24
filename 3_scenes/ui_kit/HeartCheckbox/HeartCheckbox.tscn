@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://b3l7a7kgn1irg"]
+
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_gx8uj"]
+[ext_resource type="Texture2D" uid="uid://dv3sqcxf4r8eh" path="res://2_general/assets/ui/icons/CheckMark-White.svg" id="2_5uxp8"]
+[ext_resource type="Script" uid="uid://cbx0faqtk155w" path="res://3_scenes/ui_kit/HeartCheckbox/heart_checkbox_script.gd" id="2_i5o5j"]
+[ext_resource type="Script" uid="uid://bwqg4wrtrsg03" path="res://1_code/core/components/button_actions/SoundButtonComp.gd" id="5_7f4x1"]
+[ext_resource type="Script" uid="uid://tsob1uelaki7" path="res://1_code/core/components/button_actions/HoverButtonComp.gd" id="6_7f4x1"]
+[ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="6_oypfm"]
+[ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="7_l4hly"]
+[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://3_scenes/ui_kit/HeartCheckbox/heart-svgrepo-com.svg" id="7_x5axi"]
+[ext_resource type="Shader" uid="uid://ccw4h80jlhcxl" path="res://2_general/resources/shaders/gdshader/circle.gdshader" id="8_oypfm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_57qmd"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1la55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1883j"]
+texture = ExtResource("7_x5axi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4hly"]
+shader = ExtResource("8_oypfm")
+shader_parameter/edge_softness = 0.250000011875
+
+[sub_resource type="Animation" id="Animation_l4hly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AspectRatioContainer/MainTexture:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AspectRatioContainer/Underbody:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AspectRatioContainer/Outline:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AspectRatioContainer/Shadow:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x5axi"]
+resource_name = "press"
+length = 0.06667000347711147
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AspectRatioContainer/MainTexture:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AspectRatioContainer/Underbody:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AspectRatioContainer/Outline:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AspectRatioContainer/Shadow:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wwtob"]
+_data = {
+&"RESET": SubResource("Animation_l4hly"),
+&"press": SubResource("Animation_x5axi")
+}
+
+[node name="HeartButton" type="CheckBox" unique_id=50290383 node_paths=PackedStringArray("sound_button_comp", "hover_button_comp")]
+z_index = 1
+custom_minimum_size = Vector2(75, 75)
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_gx8uj")
+theme_type_variation = &"HeartButton"
+theme_override_icons/icon = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1la55")
+theme_override_icons/checked = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/unchecked = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/radio_checked = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/radio_unchecked = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/checked_disabled = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/unchecked_disabled = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/radio_checked_disabled = SubResource("PlaceholderTexture2D_57qmd")
+theme_override_icons/radio_unchecked_disabled = SubResource("PlaceholderTexture2D_57qmd")
+flat = true
+script = ExtResource("2_i5o5j")
+sound_button_comp = NodePath("SoundButtonComp")
+hover_button_comp = NodePath("HoverButtonComp")
+disable_mark_normal = null
+
+[node name="SoundButtonComp" type="Node" parent="." unique_id=1486320467 node_paths=PackedStringArray("button")]
+script = ExtResource("5_7f4x1")
+pressed_sound = ExtResource("6_oypfm")
+hover_sound = ExtResource("7_l4hly")
+button = NodePath("..")
+metadata/_custom_type_script = "uid://bwqg4wrtrsg03"
+
+[node name="HoverButtonComp" type="Node" parent="." unique_id=1249816390 node_paths=PackedStringArray("button")]
+script = ExtResource("6_7f4x1")
+button = NodePath("..")
+metadata/_custom_type_script = "uid://tsob1uelaki7"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=292204552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Shadow" type="MarginContainer" parent="AspectRatioContainer" unique_id=2055318089]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0.27450982)
+z_index = -1
+layout_mode = 2
+offset_transform_enabled = true
+mouse_behavior_recursive = 1
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_right = -1
+theme_override_constants/margin_bottom = -20
+
+[node name="TextureHandler" type="Panel" parent="AspectRatioContainer/Shadow" unique_id=15972761]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1883j")
+
+[node name="Outline" type="MarginContainer" parent="AspectRatioContainer" unique_id=1793792959]
+unique_name_in_owner = true
+modulate = Color(0.48235294, 0.08627451, 0.11764706, 1)
+z_index = -1
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 0.9)
+mouse_behavior_recursive = 1
+theme_override_constants/margin_left = -4
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_right = -4
+theme_override_constants/margin_bottom = -16
+
+[node name="TextureHandler" type="Panel" parent="AspectRatioContainer/Outline" unique_id=355977266]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1883j")
+
+[node name="MainTexture" type="PanelContainer" parent="AspectRatioContainer" unique_id=1840831455]
+unique_name_in_owner = true
+self_modulate = Color(0.96862745, 0.6156863, 0.68235296, 1)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 1
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_1883j")
+
+[node name="Decoration" type="Control" parent="AspectRatioContainer/MainTexture" unique_id=1164615084]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/MainTexture/Decoration" unique_id=1992677136]
+material = SubResource("ShaderMaterial_l4hly")
+layout_mode = 0
+offset_left = 10.295937
+offset_top = 16.962685
+offset_right = 20.030018
+offset_bottom = 21.749031
+rotation = -0.51423734
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/MainTexture" unique_id=791821208]
+layout_mode = 2
+ratio = 0.5
+
+[node name="CheckMark" type="TextureRect" parent="AspectRatioContainer/MainTexture/AspectRatioContainer" unique_id=1431057145]
+unique_name_in_owner = true
+modulate = Color(0.62352943, 0.21176471, 0.31764707, 1)
+layout_mode = 2
+texture = ExtResource("2_5uxp8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Underbody" type="MarginContainer" parent="AspectRatioContainer" unique_id=650224396]
+unique_name_in_owner = true
+modulate = Color(0.8980392, 0.40392157, 0.5176471, 1)
+z_index = -1
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 0.9)
+mouse_behavior_recursive = 1
+theme_override_constants/margin_bottom = -10
+
+[node name="TextureHandler" type="Panel" parent="AspectRatioContainer/Underbody" unique_id=567675141]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1883j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=197726198]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_wwtob")

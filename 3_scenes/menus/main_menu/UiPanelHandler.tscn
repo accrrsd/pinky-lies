@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_p6j88"]
 [ext_resource type="Shader" uid="uid://ccw4h80jlhcxl" path="res://2_general/resources/shaders/gdshader/circle.gdshader" id="2_iish8"]
-[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/ui_kit/ScriptsWithoutScene/PanelButton.gd" id="3_pbtn"]
+[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/menus/main_menu/panel_button_script.gd" id="3_pbtn"]
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="4_sbtn"]
 [ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="4_umyns"]
 [ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="5_c6g3a"]

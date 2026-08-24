@@ -13,13 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://ciw8rxv8ei5pd" path="res://3_scenes/ui_kit/BigColoredButton/BigColoredButton.tscn" id="11_055hd"]
 [ext_resource type="Script" uid="uid://jsmx13ffmooc" path="res://3_scenes/menus/main_menu/tab_ui_handler.gd" id="12_3b75w"]
 [ext_resource type="PackedScene" uid="uid://mindody566fq" path="res://3_scenes/menus/main_menu/UiPanelHandler.tscn" id="12_qopwy"]
-[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/ui_kit/ScriptsWithoutScene/PanelButton.gd" id="13_2lrde"]
+[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/menus/main_menu/panel_button_script.gd" id="13_2lrde"]
 [ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="14_055ko"]
 [ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="15_svli8"]
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="16_hhb3p"]
 [ext_resource type="Script" uid="uid://bvqothq0ohusd" path="res://1_code/core/settings/SettingsHandler.gd" id="17_jawtq"]
 [ext_resource type="Script" uid="uid://b0a1jmqd7j8d7" path="res://1_code/core/settings/SettingsHandlerRes.gd" id="18_hhkrn"]
 [ext_resource type="PackedScene" uid="uid://6wui2deutxxj" path="res://3_scenes/ui_kit/CandySlider/CandySlider.tscn" id="19_g3ek5"]
+[ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/HeartCheckbox/HeartCheckbox.tscn" id="21_c4rxa"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
@@ -252,7 +253,6 @@ category = "text"
 setting_key = "colored_read_text"
 ui_type = 2
 action_type = 3
-control_node_path = NodePath("HboxContainer3/CheckButton")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_fast_scroll"]
@@ -399,12 +399,12 @@ text = "NEW STORY! ♥︎"
 [node name="LoadGame" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2073852572 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "LOAD GAME! [img=40]uid://bwrhapb61o0hi[/img]"
+text = "LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]"
 
 [node name="Gallery" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2056558448 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "MEMORIES [img=60]uid://cw338x21bbmdk[/img]"
+text = "MEMORIES [img=50]uid://cqx00tixedbst[/img]"
 
 [node name="Settings" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1418662307 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
@@ -414,10 +414,9 @@ text = "CONFIGURATION [img=40]uid://bqph778conedj[/img]"
 [node name="Exit" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=571986546 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "EXIT"
+text = "EXIT [img=40]uid://cundpwr5m5dfn[/img]"
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
-visible = false
 
 [node name="SettingsStateManager" type="Node" parent="Settings" unique_id=257729986 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -617,6 +616,7 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
 [node name="AudioContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398372]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -706,7 +706,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 
 [node name="TextContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398373]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -770,11 +769,9 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Изменить цвет прочитанного текста"
 
-[node name="CheckButton" type="CheckButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=1882518693]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=1447481935 instance=ExtResource("21_c4rxa")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-mouse_default_cursor_shape = 2
-button_pressed = true
-text = "Включено"
 
 [node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398374]
 visible = false

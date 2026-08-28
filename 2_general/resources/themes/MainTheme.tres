@@ -1,7 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://b4pbuxrcttwb3"]
 
 [ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="1_1883j"]
-[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://3_scenes/ui_kit/HeartCheckbox/heart-svgrepo-com.svg" id="2_1la55"]
+[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://2_general/assets/ui/icons/heart-svgrepo-com.svg" id="2_1la55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xgcy"]
 bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
@@ -112,7 +114,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_size = 1
 shadow_offset = Vector2(0, 5)
@@ -132,7 +133,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
@@ -148,23 +148,21 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_square_pressed"]
-bg_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1koh"]
+bg_color = Color(0.6392157, 0.5294118, 0.8235294, 1)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0.02, 0.15, 0.35, 1)
+border_color = Color(0.5254902, 0.23137255, 0.44705883, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 2)
 anti_aliasing_size = 0.3
@@ -180,7 +178,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
@@ -196,33 +193,38 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_pressed"]
-bg_color = Color(0.051578224, 0.25855228, 0.5177091, 1)
+bg_color = Color(0.6392157, 0.5294118, 0.8235294, 1)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0.02, 0.15, 0.35, 1)
+border_color = Color(0.5254902, 0.23137255, 0.44705883, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 2)
 anti_aliasing_size = 0.3
 
 [resource]
+ArrowSelector/base_type = &"Button"
+ArrowSelector/colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+ArrowSelector/constants/outline_size = 10
+ArrowSelector/font_sizes/font_arrow_size = 60
+ArrowSelector/font_sizes/font_size = 40
+ArrowSelector/fonts/font = ExtResource("1_1883j")
+ArrowSelector/styles/_0_panel_container = SubResource("StyleBoxEmpty_8mu35")
 BigColoredButton/base_type = &"Control"
-BigColoredButton/colors/label_font_outline_color_ = Color(0.3137255, 0.047058824, 0.15294118, 1)
-BigColoredButton/colors/label_font_outline_color_hovered = Color(0.047058824, 0.047058824, 0.30980393, 1)
+BigColoredButton/colors/label_font_outline_color_ = Color(0.48235294, 0.08627451, 0.11764706, 1)
+BigColoredButton/colors/label_font_outline_color_hovered = Color(0.046499994, 0.046499994, 0.31, 0.7254902)
 BigColoredButton/constants/label_font_outline_size_ = 10
-BigColoredButton/fonts/label_font_ = ExtResource("1_1883j")
+BigColoredButton/fonts/label_font = null
 BigColoredButton/styles/_0_background_ = SubResource("StyleBoxFlat_1xgcy")
 BigColoredButton/styles/_0_background_hovered = SubResource("StyleBoxFlat_aya0i")
 BigColoredButton/styles/_1_inner_border_ = SubResource("StyleBoxFlat_uuusr")
@@ -232,7 +234,7 @@ BigColoredButton/styles/_2_decoration_hovered = SubResource("StyleBoxFlat_v5gui"
 BigColoredButton/styles/_3_gradient_bg_ = SubResource("StyleBoxTexture_k1koh")
 BigColoredButton/styles/_3_gradient_bg_hovered = SubResource("StyleBoxTexture_ml8rs")
 ColoredLabel/base_type = &"Label"
-ColoredLabel/colors/font_outline_color = Color(0.3137255, 0.047058824, 0.15294118, 1)
+ColoredLabel/colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
 ColoredLabel/constants/outline_size = 10
 ColoredLabel/fonts/font = ExtResource("1_1883j")
 DefaultPanel/base_type = &"PanelContainer"
@@ -246,13 +248,13 @@ HeartButton/colors/_2_outline_ = Color(0.48235294, 0.08627451, 0.11764706, 1)
 HeartButton/colors/_2_outline_toggled = Color(0.5254902, 0.23137255, 0.44705883, 1)
 HeartButton/colors/_3_underbody_ = Color(0.8980392, 0.40392157, 0.5176471, 1)
 HeartButton/colors/_3_underbody_toggled = Color(0.6392157, 0.5294118, 0.8235294, 1)
-HeartButton/colors/_4_mark_ = Color(0.62352943, 0.21176471, 0.31764707, 1)
+HeartButton/colors/_4_mark_ = Color(0.48235294, 0.08627451, 0.11764706, 1)
 HeartButton/colors/_4_mark_toggled = Color(0.5254902, 0.23137255, 0.44705883, 1)
 HeartButton/styles/heart_texture_ = SubResource("StyleBoxTexture_1883j")
 SquarePanel/base_type = &"Control"
 SquarePanel/styles/_0_background_ = SubResource("StyleBoxFlat_njvh4")
 SquarePanel/styles/_0_background_hovered = SubResource("StyleBoxFlat_square_hovered")
-SquarePanel/styles/_0_background_pressed = SubResource("StyleBoxFlat_square_pressed")
+SquarePanel/styles/_0_background_pressed = SubResource("StyleBoxFlat_k1koh")
 SquarePanel/styles/panel = SubResource("StyleBoxFlat_njvh4")
 TabPanel/base_type = &"Control"
 TabPanel/styles/_0_background_ = SubResource("StyleBoxFlat_1la55")

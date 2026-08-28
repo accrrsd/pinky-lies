@@ -20,7 +20,8 @@
 [ext_resource type="Script" uid="uid://bvqothq0ohusd" path="res://1_code/core/settings/SettingsHandler.gd" id="17_jawtq"]
 [ext_resource type="Script" uid="uid://b0a1jmqd7j8d7" path="res://1_code/core/settings/SettingsHandlerRes.gd" id="18_hhkrn"]
 [ext_resource type="PackedScene" uid="uid://6wui2deutxxj" path="res://3_scenes/ui_kit/CandySlider/CandySlider.tscn" id="19_g3ek5"]
-[ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/HeartCheckbox/HeartCheckbox.tscn" id="21_c4rxa"]
+[ext_resource type="PackedScene" uid="uid://bp6k3uh24byi5" path="res://3_scenes/ui_kit/ArrowSelector/ArrowSelector.tscn" id="21_b7guf"]
+[ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/HeartButton/HeartButton.tscn" id="21_c4rxa"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
@@ -171,7 +172,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
@@ -217,7 +217,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.39215687)
 shadow_offset = Vector2(0, 5)
 anti_aliasing_size = 0.3
@@ -244,7 +243,6 @@ category = "text"
 setting_key = "language"
 ui_type = 4
 action_type = 3
-control_node_path = NodePath("HboxContainerLanguage/OptionButton")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_colored_text"]
@@ -748,16 +746,8 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Язык"
 
-[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=1645317766]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=946159670 instance=ExtResource("21_b7guf")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Русский"
-popup/item_0/id = 0
-popup/item_1/text = "English"
-popup/item_1/id = 1
 
 [node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616131]
 layout_mode = 2
@@ -770,7 +760,6 @@ theme_override_font_sizes/font_size = 40
 text = "Изменить цвет прочитанного текста"
 
 [node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=1447481935 instance=ExtResource("21_c4rxa")]
-custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398374]

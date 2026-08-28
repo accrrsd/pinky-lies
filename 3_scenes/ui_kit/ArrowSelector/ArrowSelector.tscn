@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bp6k3uh24byi5"]
+
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_070t8"]
+[ext_resource type="Script" uid="uid://0vtnhc64hreo" path="res://3_scenes/ui_kit/ArrowSelector/arrow_selector_button_script.gd" id="2_ee4u3"]
+[ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="3_1pl42"]
+[ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="4_gbqsr"]
+[ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="5_1pl42"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
+
+[sub_resource type="Resource" id="Resource_njvh4"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath("HBoxContainer/PrevButton"), NodePath("HBoxContainer/Label"), NodePath("HBoxContainer/NextButton")])
+prop_name = &"outline_size"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_ee4u3"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath("HBoxContainer/PrevButton"), NodePath("HBoxContainer/Label"), NodePath("HBoxContainer/NextButton")])
+prop_name = &"font_outline_color"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_aya0i"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath(".")])
+prop_name = &"panel"
+custom_prop_name = &"_0_panel_container"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_1la55"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath("HBoxContainer/Label"), NodePath("HBoxContainer/NextButton"), NodePath("HBoxContainer/PrevButton")])
+prop_name = &"font"
+prop_type = 2
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_1xgcy"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath("HBoxContainer/PrevButton"), NodePath("HBoxContainer/NextButton")])
+prop_name = &"font_size"
+custom_prop_name = &"font_arrow_size"
+prop_type = 3
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_gbqsr"]
+script = ExtResource("3_1pl42")
+paths = Array[NodePath]([NodePath("HBoxContainer/Label")])
+prop_name = &"font_size"
+prop_type = 3
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_1pl42"]
+script = ExtResource("4_gbqsr")
+props = Array[ExtResource("3_1pl42")]([SubResource("Resource_njvh4"), SubResource("Resource_ee4u3"), SubResource("Resource_aya0i"), SubResource("Resource_1la55"), SubResource("Resource_1xgcy"), SubResource("Resource_gbqsr")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[node name="ArrowSelector" type="PanelContainer" unique_id=946159670]
+theme = ExtResource("1_070t8")
+theme_type_variation = &"ArrowSelector"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
+script = ExtResource("2_ee4u3")
+controlThemeHandler = SubResource("Resource_1pl42")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1514987857]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PrevButton" type="Button" parent="HBoxContainer" unique_id=501329333]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_1pl42")
+theme_override_font_sizes/font_size = 60
+text = "<"
+flat = true
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1240618999]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_1pl42")
+theme_override_font_sizes/font_size = 40
+text = "RUSSIAN"
+
+[node name="NextButton" type="Button" parent="HBoxContainer" unique_id=731855889]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_1pl42")
+theme_override_font_sizes/font_size = 60
+text = ">"
+flat = true

@@ -27,12 +27,13 @@ func _fill_elems_arr() -> void:
     _elems_arr = [$Background, $Background/InnerBorder, $Background/InnerBorder/Decoration, $Background/InnerBorder/Decoration/GradientBackground, %Label]
 
 func _themes_setup(tag: String = "") -> void:
-  _elems_arr[0].add_theme_stylebox_override("panel", get_theme_stylebox("_0_background_" + tag, theme_type_variation))
-  _elems_arr[1].add_theme_stylebox_override("panel", get_theme_stylebox("_1_inner_border_" + tag, theme_type_variation))
-  _elems_arr[2].add_theme_stylebox_override("panel", get_theme_stylebox("_2_decoration_" + tag, theme_type_variation))
-  _elems_arr[3].add_theme_stylebox_override("panel", get_theme_stylebox("_3_gradient_bg_" + tag, theme_type_variation))
-  _elems_arr[4].add_theme_color_override("font_outline_color", get_theme_color("label_font_outline_color_" + tag, theme_type_variation))
-  _elems_arr[4].add_theme_constant_override("outline_size", get_theme_constant("label_font_outline_size_", theme_type_variation))
+  var ttv = theme_type_variation
+  _elems_arr[0].add_theme_stylebox_override("panel", get_theme_stylebox("_0_background_" + tag, ttv))
+  _elems_arr[1].add_theme_stylebox_override("panel", get_theme_stylebox("_1_inner_border_" + tag, ttv))
+  _elems_arr[2].add_theme_stylebox_override("panel", get_theme_stylebox("_2_decoration_" + tag, ttv))
+  _elems_arr[3].add_theme_stylebox_override("panel", get_theme_stylebox("_3_gradient_bg_" + tag, ttv))
+  _elems_arr[4].add_theme_color_override("font_outline_color", get_theme_color("label_font_outline_color_" + tag, ttv))
+  _elems_arr[4].add_theme_constant_override("outline_size", get_theme_constant("label_font_outline_size_", ttv))
 
 # helper for editior and tests
 func _themes_clear() -> void:

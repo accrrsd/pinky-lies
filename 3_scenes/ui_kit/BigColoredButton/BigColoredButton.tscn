@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="2_olr3g"]
 [ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="3_8nnno"]
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="4_ks72q"]
+[ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="5_prop"]
+[ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="6_handler"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1883j"]
 
@@ -33,6 +35,122 @@ shader_parameter/edge_softness = 0.400000019
 shader = ExtResource("1_ls0bk")
 shader_parameter/edge_softness = 0.400000019
 
+[sub_resource type="Resource" id="Resource_norm_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_inner"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder")])
+prop_name = &"panel"
+custom_prop_name = &"_1_inner_border_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_decor"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder/Decoration")])
+prop_name = &"panel"
+custom_prop_name = &"_2_decoration_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_grad"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder/Decoration/GradientBackground")])
+prop_name = &"panel"
+custom_prop_name = &"_3_gradient_bg_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_color"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"font_outline_color"
+custom_prop_name = &"label_font_outline_color_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_size"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"outline_size"
+custom_prop_name = &"label_font_outline_size_"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_normal_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_norm_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_norm_color"), SubResource("Resource_norm_size")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_hov_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_hovered"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hov_inner"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder")])
+prop_name = &"panel"
+custom_prop_name = &"_1_inner_border_hovered"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hov_decor"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder/Decoration")])
+prop_name = &"panel"
+custom_prop_name = &"_2_decoration_hovered"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hov_grad"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background/InnerBorder/Decoration/GradientBackground")])
+prop_name = &"panel"
+custom_prop_name = &"_3_gradient_bg_hovered"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hov_color"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"font_outline_color"
+custom_prop_name = &"label_font_outline_color_hovered"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hovered_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_hov_bg"), SubResource("Resource_hov_inner"), SubResource("Resource_hov_decor"), SubResource("Resource_hov_grad"), SubResource("Resource_hov_color"), SubResource("Resource_norm_size")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_press_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("Background")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_pressed"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_press_color"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"font_outline_color"
+custom_prop_name = &"label_font_outline_color_pressed"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_pressed_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_press_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_press_color"), SubResource("Resource_norm_size")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
 [node name="FontButtonHanlder" type="PanelContainer" unique_id=5430695]
 editor_description = "Also uses custom code for theme applying."
 custom_minimum_size = Vector2(0, 60)
@@ -44,6 +162,9 @@ script = ExtResource("1_88vj1")
 text = "HELLO WORLD"
 pressed_sound = ExtResource("2_olr3g")
 hover_sound = ExtResource("3_8nnno")
+normal_theme = SubResource("Resource_normal_theme")
+hovered_theme = SubResource("Resource_hovered_theme")
+pressed_theme = SubResource("Resource_pressed_theme")
 
 [node name="Background" type="PanelContainer" parent="." unique_id=1941562097]
 layout_mode = 2

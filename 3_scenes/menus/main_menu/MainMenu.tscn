@@ -162,7 +162,7 @@ speed_scale = 3.0
 metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1la55"]
-bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
+bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
@@ -207,7 +207,7 @@ control_node_path = NodePath("MarginContainer/HBoxContainer/MuteAll/MuteAllButto
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
-bg_color = Color(0.9937051, 0.6969342, 0.810778, 1)
+bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
@@ -253,6 +253,8 @@ ui_type = 2
 action_type = 3
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
+
 [sub_resource type="Resource" id="Resource_fast_scroll"]
 script = ExtResource("18_hhkrn")
 category = "addition"
@@ -268,7 +270,7 @@ category = "addition"
 setting_key = "skip_choices"
 ui_type = 2
 action_type = 3
-control_node_path = NodePath("HboxContainerSkipChoices/CheckButton")
+control_node_path = NodePath("HboxContainerSkipChoices/HeartCheckbox")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_tooltips"]
@@ -277,7 +279,7 @@ category = "addition"
 setting_key = "tooltips"
 ui_type = 2
 action_type = 3
-control_node_path = NodePath("HboxContainerTooltips/CheckButton")
+control_node_path = NodePath("HboxContainerTooltips/HeartCheckbox")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_display_mode"]
@@ -302,9 +304,8 @@ metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 script = ExtResource("18_hhkrn")
 category = "display"
 setting_key = "fill_mode"
-ui_type = 4
+ui_type = 2
 action_type = 3
-control_node_path = NodePath("HboxContainerFillscreen/CheckButton")
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [node name="MainMenu" type="Control" unique_id=1224244970]
@@ -704,6 +705,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 
 [node name="TextContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398373]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -748,6 +750,7 @@ text = "Язык"
 
 [node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=946159670 instance=ExtResource("21_b7guf")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
 
 [node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616131]
 layout_mode = 2
@@ -763,7 +766,6 @@ text = "Изменить цвет прочитанного текста"
 layout_mode = 2
 
 [node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398374]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -801,10 +803,8 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Пропуск выборов"
 
-[node name="CheckButton" type="CheckButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerSkipChoices" unique_id=1645317756]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerSkipChoices" unique_id=1645317756 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Выключено"
 
 [node name="HboxContainerTooltips" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=756161321]
 layout_mode = 2
@@ -816,11 +816,9 @@ theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Всплывающие подсказки"
 
-[node name="CheckButton" type="CheckButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerTooltips" unique_id=1645317757]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerTooltips" unique_id=1645317757 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
 button_pressed = true
-text = "Включено"
 
 [node name="HboxContainerDisplayMode" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=1822189953]
 layout_mode = 2
@@ -874,10 +872,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Заполнять экран изображением"
+text = "Режим заполнения экрана"
 
-[node name="CheckButton" type="CheckButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1328058556]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1672070971 instance=ExtResource("21_b7guf")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
+options = Dictionary[String, Variant]({
+"fill_mode_blur_label": "blur",
+"fill_mode_color_label": "color",
+"fill_mode_none": "none"
+})
 
 [node name="HotKeysContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398375]
 visible = false

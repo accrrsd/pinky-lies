@@ -279,6 +279,15 @@ class OptionButtonHandler extends UIHandlerBase:
   func setup_ui(current_value: Variant) -> void:
     var option_btn = owner.control as OptionButton
     if option_btn:
+      var popup = option_btn.get_popup()
+      if popup:
+        if not popup.mouse_entered.is_connected(_on_popup_mouse_entered):
+          popup.mouse_entered.connect(_on_popup_mouse_entered)
+        if not popup.mouse_exited.is_connected(_on_popup_mouse_exited):
+          popup.mouse_exited.connect(_on_popup_mouse_exited)
+        if not popup.popup_hide.is_connected(_on_popup_mouse_exited):
+          popup.popup_hide.connect(_on_popup_mouse_exited)
+      
       if not option_btn.item_selected.is_connected(_on_item_selected):
         option_btn.item_selected.connect(_on_item_selected)
       
@@ -286,11 +295,18 @@ class OptionButtonHandler extends UIHandlerBase:
       if idx >= 0 and idx < option_btn.item_count:
         option_btn.selected = idx
 
+  func _on_popup_mouse_entered() -> void:
+    DisplayServer.cursor_set_shape(DisplayServer.CURSOR_POINTING_HAND)
+
+  func _on_popup_mouse_exited() -> void:
+    DisplayServer.cursor_set_shape(DisplayServer.CURSOR_ARROW)
+
   func get_default_value() -> Variant:
     var option_btn = owner.control as OptionButton
     return option_btn.selected if option_btn else 0
 
   func _on_item_selected(index: int) -> void:
+    DisplayServer.cursor_set_shape(DisplayServer.CURSOR_ARROW)
     if owner.is_loading: return
     owner.apply_setting(index)
     owner.save_setting(index)

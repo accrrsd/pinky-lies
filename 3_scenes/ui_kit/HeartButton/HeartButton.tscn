@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="7_l4hly"]
 [ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://2_general/assets/ui/icons/heart-svgrepo-com.svg" id="7_x5axi"]
 [ext_resource type="Shader" uid="uid://ccw4h80jlhcxl" path="res://2_general/resources/shaders/gdshader/circle.gdshader" id="8_oypfm"]
+[ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="9_prop"]
+[ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="10_handler"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_57qmd"]
 size = Vector2(0, 0)
@@ -130,6 +132,94 @@ _data = {
 &"press": SubResource("Animation_x5axi")
 }
 
+[sub_resource type="Resource" id="Resource_tex_prop"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/MainTexture"), NodePath("AspectRatioContainer/Shadow/TextureHandler"), NodePath("AspectRatioContainer/Outline/TextureHandler"), NodePath("AspectRatioContainer/Underbody/TextureHandler")])
+prop_name = &"panel"
+custom_prop_name = &"heart_texture_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_0_main"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/MainTexture")])
+prop_name = &"self_modulate"
+custom_prop_name = &"_0_main_tex_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_1_shadow"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Shadow")])
+prop_name = &"modulate"
+custom_prop_name = &"_1_shadow_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_2_outline"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Outline")])
+prop_name = &"modulate"
+custom_prop_name = &"_2_outline_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_3_underbody"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Underbody")])
+prop_name = &"modulate"
+custom_prop_name = &"_3_underbody_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_norm_4_mark"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/MainTexture/AspectRatioContainer/CheckMark")])
+prop_name = &"modulate"
+custom_prop_name = &"_4_mark_"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_normal_theme"]
+script = ExtResource("10_handler")
+props = Array[ExtResource("9_prop")]([SubResource("Resource_tex_prop"), SubResource("Resource_norm_0_main"), SubResource("Resource_norm_1_shadow"), SubResource("Resource_norm_2_outline"), SubResource("Resource_norm_3_underbody"), SubResource("Resource_norm_4_mark")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_tog_0_main"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/MainTexture")])
+prop_name = &"self_modulate"
+custom_prop_name = &"_0_main_tex_toggled"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_tog_1_shadow"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Shadow")])
+prop_name = &"modulate"
+custom_prop_name = &"_1_shadow_toggled"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_tog_2_outline"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Outline")])
+prop_name = &"modulate"
+custom_prop_name = &"_2_outline_toggled"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_tog_3_underbody"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/Underbody")])
+prop_name = &"modulate"
+custom_prop_name = &"_3_underbody_toggled"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_tog_4_mark"]
+script = ExtResource("9_prop")
+paths = Array[NodePath]([NodePath("AspectRatioContainer/MainTexture/AspectRatioContainer/CheckMark")])
+prop_name = &"modulate"
+custom_prop_name = &"_4_mark_toggled"
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_toggled_theme"]
+script = ExtResource("10_handler")
+props = Array[ExtResource("9_prop")]([SubResource("Resource_tex_prop"), SubResource("Resource_tog_0_main"), SubResource("Resource_tog_1_shadow"), SubResource("Resource_tog_2_outline"), SubResource("Resource_tog_3_underbody"), SubResource("Resource_tog_4_mark")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
 [node name="HeartButton" type="CheckBox" unique_id=50290383 node_paths=PackedStringArray("sound_button_comp", "hover_button_comp")]
 z_index = 1
 custom_minimum_size = Vector2(75, 75)
@@ -151,6 +241,8 @@ flat = true
 script = ExtResource("2_i5o5j")
 sound_button_comp = NodePath("SoundButtonComp")
 hover_button_comp = NodePath("HoverButtonComp")
+normal_theme = SubResource("Resource_normal_theme")
+toggled_theme = SubResource("Resource_toggled_theme")
 
 [node name="SoundButtonComp" type="Node" parent="." unique_id=1486320467 node_paths=PackedStringArray("button")]
 script = ExtResource("5_7f4x1")

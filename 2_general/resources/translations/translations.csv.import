@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://gurad8ncs4nc"
+
+[deps]
+
+files=["res://2_general/resources/translations/translations.en.translation", "res://2_general/resources/translations/translations.ru.translation"]
+
+source_file="res://2_general/resources/translations/translations.csv"
+dest_files=["res://2_general/resources/translations/translations.en.translation", "res://2_general/resources/translations/translations.ru.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -181,6 +181,7 @@ script = ExtResource("18_hhkrn")
 category = "audio"
 setting_key = "music"
 control_node_path = NodePath("HboxContainer/CandySlider")
+default_value = 50.0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_rc5b5"]
@@ -188,6 +189,7 @@ script = ExtResource("18_hhkrn")
 category = "audio"
 setting_key = "effects"
 control_node_path = NodePath("HboxContainer2/CandySlider")
+default_value = 50.0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_8ohoa"]
@@ -195,15 +197,17 @@ script = ExtResource("18_hhkrn")
 category = "audio"
 setting_key = "voice"
 control_node_path = NodePath("HboxContainer3/CandySlider")
+default_value = 50.0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_3b75w"]
 script = ExtResource("18_hhkrn")
 category = "audio"
 setting_key = "mute_all"
-ui_type = 6
+ui_type = 1
 action_type = 1
 control_node_path = NodePath("MarginContainer/HBoxContainer/MuteAll/MuteAllButton")
+default_value = false
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
@@ -225,79 +229,88 @@ anti_aliasing_size = 0.3
 script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "text_speed"
-action_type = 3
+action_type = 5
 control_node_path = NodePath("HboxContainer/CandySlider")
+default_value = 50.0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_auto_read"]
 script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "auto_read_speed"
-action_type = 3
+action_type = 5
 control_node_path = NodePath("HboxContainer2/CandySlider")
+default_value = 50.0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_language"]
 script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "language"
-ui_type = 4
-action_type = 3
+ui_type = 2
+action_type = 4
+control_node_path = NodePath("HboxContainerLanguage/OptionButton")
+default_value = 0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_colored_text"]
 script = ExtResource("18_hhkrn")
 category = "text"
 setting_key = "colored_read_text"
-ui_type = 2
-action_type = 3
+ui_type = 1
+action_type = 5
+control_node_path = NodePath("HboxContainer3/HeartCheckbox")
+default_value = false
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
 
 [sub_resource type="Resource" id="Resource_fast_scroll"]
 script = ExtResource("18_hhkrn")
 category = "addition"
 setting_key = "fast_scroll"
-ui_type = 4
-action_type = 3
-control_node_path = NodePath("HboxContainerFastScroll/OptionButton")
+ui_type = 2
+action_type = 5
+control_node_path = NodePath("HboxContainerFastScroll/ArrowSelector")
+default_value = 0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_skip_choices"]
 script = ExtResource("18_hhkrn")
 category = "addition"
 setting_key = "skip_choices"
-ui_type = 2
-action_type = 3
+ui_type = 1
+action_type = 5
 control_node_path = NodePath("HboxContainerSkipChoices/HeartCheckbox")
+default_value = false
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_tooltips"]
 script = ExtResource("18_hhkrn")
 category = "addition"
 setting_key = "tooltips"
-ui_type = 2
-action_type = 3
+ui_type = 1
+action_type = 5
 control_node_path = NodePath("HboxContainerTooltips/HeartCheckbox")
+default_value = true
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_display_mode"]
 script = ExtResource("18_hhkrn")
 category = "display"
 setting_key = "window_mode"
-ui_type = 4
+ui_type = 2
 action_type = 2
-control_node_path = NodePath("HboxContainerDisplayMode/OptionButton")
+control_node_path = NodePath("HboxContainerDisplayMode/ArrowSelector")
+default_value = 0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_b7guf"]
 script = ExtResource("18_hhkrn")
 category = "display"
-setting_key = "window_mode"
-ui_type = 4
-action_type = 2
+setting_key = "resolution"
+ui_type = 2
+action_type = 3
 control_node_path = NodePath("HboxContainerResolution/OptionButton")
+default_value = 0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="Resource" id="Resource_c4rxa"]
@@ -305,8 +318,12 @@ script = ExtResource("18_hhkrn")
 category = "display"
 setting_key = "fill_mode"
 ui_type = 2
-action_type = 3
+action_type = 5
+control_node_path = NodePath("HboxContainerFillscreen/ArrowSelector")
+default_value = 0
 metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
 
 [node name="MainMenu" type="Control" unique_id=1224244970]
 layout_mode = 3
@@ -416,6 +433,7 @@ layout_mode = 2
 text = "EXIT [img=40]uid://cundpwr5m5dfn[/img]"
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
+visible = false
 
 [node name="SettingsStateManager" type="Node" parent="Settings" unique_id=257729986 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -615,7 +633,6 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
 [node name="AudioContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398372]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -630,7 +647,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Громкость Музыки"
+text = "Music_Volume"
 
 [node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer" unique_id=2083825898 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
@@ -643,7 +660,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Громкость Эффектов"
+text = "Effects_Volume"
 
 [node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer2" unique_id=378258623 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
@@ -656,7 +673,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Громкость Голоса"
+text = "Voice_Volume"
 
 [node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer3" unique_id=330699425 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
@@ -720,7 +737,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Скорость вывода текста"
+text = "Text display speed"
 
 [node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer" unique_id=895292285 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
@@ -733,7 +750,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Скорость авточтения"
+text = "Auto-read speed"
 
 [node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer2" unique_id=2121222263 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
@@ -746,11 +763,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Язык"
+text = "Language"
 
-[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=946159670 instance=ExtResource("21_b7guf")]
+[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=946159670]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Русский"
+popup/item_1/id = 1
 
 [node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616131]
 layout_mode = 2
@@ -760,12 +784,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Изменить цвет прочитанного текста"
+text = "Change read text color"
 
 [node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=1447481935 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
 
 [node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398374]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -780,18 +805,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Быстрая прокрутка"
+text = "Fast skip"
 
-[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFastScroll" unique_id=-1650184816]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFastScroll" unique_id=-1650184816 instance=ExtResource("21_b7guf")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Прочитанное"
-popup/item_0/id = 0
-popup/item_1/text = "Весь текст"
-popup/item_1/id = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
+options = Array[String](["Read text", "All text"])
 
 [node name="HboxContainerSkipChoices" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=756161320]
 layout_mode = 2
@@ -801,7 +820,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Пропуск выборов"
+text = "Skip choices"
 
 [node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerSkipChoices" unique_id=1645317756 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
@@ -814,7 +833,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Всплывающие подсказки"
+text = "Tooltips"
 
 [node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerTooltips" unique_id=1645317757 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
@@ -828,18 +847,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Режим отображения"
+text = "Display mode"
 
-[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerDisplayMode" unique_id=264478248]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerDisplayMode" unique_id=264478248 instance=ExtResource("21_b7guf")]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Оконный"
-popup/item_0/id = 0
-popup/item_1/text = "Полноэкранный"
-popup/item_1/id = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
+options = Array[String](["Windowed", "Fullscreen"])
 
 [node name="HboxContainerResolution" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=75616133]
 layout_mode = 2
@@ -849,7 +862,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Разрешение экрана"
+text = "Screen resolution"
 
 [node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerResolution" unique_id=1882518695]
 layout_mode = 2
@@ -872,16 +885,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
-text = "Режим заполнения экрана"
+text = "Screen fill mode"
 
 [node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1672070971 instance=ExtResource("21_b7guf")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
-options = Dictionary[String, Variant]({
-"fill_mode_blur_label": "blur",
-"fill_mode_color_label": "color",
-"fill_mode_none": "none"
-})
+options = Array[String](["Blur", "Color", "None"])
 
 [node name="HotKeysContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398375]
 visible = false
@@ -900,7 +909,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Быстрый пропуск"
+text = "Fast skip key"
 
 [node name="Key1" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123993]
 layout_mode = 2
@@ -913,7 +922,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Следующая фраза"
+text = "Next line"
 
 [node name="Key2" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123995]
 layout_mode = 2
@@ -926,7 +935,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Авто-чтение"
+text = "Auto-read"
 
 [node name="Key3" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123997]
 layout_mode = 2
@@ -939,7 +948,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Скрыть интерфейс"
+text = "Hide UI"
 
 [node name="Key4" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123999]
 layout_mode = 2
@@ -952,7 +961,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Быстрое сохранение"
+text = "Quick save"
 
 [node name="Key5" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124001]
 layout_mode = 2
@@ -965,7 +974,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
-text = "Быстрая загрузка"
+text = "Quick load"
 
 [node name="Key6" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124003]
 layout_mode = 2
@@ -1020,7 +1029,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/VBox" unique_id=987124015]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1" unique_id=987124016]
@@ -1050,7 +1059,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/VBox" unique_id=987124025]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2" unique_id=987124026]
@@ -1080,7 +1089,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/VBox" unique_id=987124035]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3" unique_id=987124036]
@@ -1110,7 +1119,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/VBox" unique_id=987124045]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4" unique_id=987124046]
@@ -1140,7 +1149,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/VBox" unique_id=987124055]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5" unique_id=987124056]
@@ -1170,7 +1179,7 @@ color = Color(0.15, 0.15, 0.2, 0.6)
 
 [node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/VBox" unique_id=987124065]
 layout_mode = 2
-text = "Empty Slot"
+text = "Empty_Slot"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6" unique_id=987124066]

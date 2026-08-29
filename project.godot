@@ -48,6 +48,10 @@ folder_colors={
 
 theme/custom_font="uid://c2xiapy73xs3i"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://2_general/resources/translations/translations.en.translation", "res://2_general/resources/translations/translations.ru.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

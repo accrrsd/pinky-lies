@@ -1,0 +1,59 @@
+keys,en,ru
+"NEW STORY! ♥︎","NEW STORY! ♥︎","НОВАЯ ИСТОРИЯ! ♥︎"
+"LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]","LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]","ЗАГРУЗИТЬ ИГРУ! [img=40]uid://bir18ma0qw26c[/img]"
+"MEMORIES [img=50]uid://cqx00tixedbst[/img]","MEMORIES [img=50]uid://cqx00tixedbst[/img]","ВОСПОМИНАНИЯ [img=50]uid://cqx00tixedbst[/img]"
+"CONFIGURATION [img=40]uid://bqph778conedj[/img]","CONFIGURATION [img=40]uid://bqph778conedj[/img]","НАСТРОЙКИ [img=40]uid://bqph778conedj[/img]"
+"EXIT [img=40]uid://cundpwr5m5dfn[/img]","EXIT [img=40]uid://cundpwr5m5dfn[/img]","ВЫХОД [img=40]uid://cundpwr5m5dfn[/img]"
+AUDIO,AUDIO,АУДИО
+TEXT,TEXT,ТЕКСТ
+ADDITION,ADDITION,ДОПОЛНИТЕЛЬНО
+HOTKEYS,HOTKEYS,ГОРЯЧИЕ КЛАВИШИ
+"MUTE ALL","MUTE ALL","ВЫКЛ ЗВУК"
+RESET,RESET,СБРОС
+RETURN,RETURN,НАЗАД
+Music_Volume,"Music Volume","Громкость Музыки"
+Effects_Volume,"Effects Volume","Громкость Эффектов"
+Voice_Volume,"Voice Volume","Громкость Голоса"
+"Text display speed","Text display speed","Скорость вывода текста"
+"Auto-read speed","Auto-read speed","Скорость авточтения"
+Language,Language,Язык
+"Change read text color","Change read text color","Изменить цвет прочитанного текста"
+"Fast skip","Fast skip","Быстрая прокрутка"
+"Read text","Read text","Прочитанное"
+"All text","All text","Весь текст"
+"Skip choices","Skip choices","Пропуск выборов"
+Tooltips,Tooltips,"Всплывающие подсказки"
+"Display mode","Display mode","Режим отображения"
+Windowed,Windowed,Оконный
+Fullscreen,Fullscreen,Полноэкранный
+"Screen resolution","Screen resolution","Разрешение экрана"
+"Screen fill mode","Screen fill mode","Режим заполнения экрана"
+blur,blur,размытие
+color,color,цвет
+none,none,нет
+Blur,Blur,Размытие
+Color,Color,Цвет
+None,None,Нет
+"Fast skip key","Fast skip","Быстрый пропуск"
+"Next line","Next line","Следующая фраза"
+Auto-read,Auto-read,Авто-чтение
+"Hide UI","Hide UI","Скрыть интерфейс"
+"Quick save","Quick save","Быстрое сохранение"
+"Quick load","Quick load","Быстрая загрузка"
+"LOAD GAME ♥︎","LOAD GAME ♥︎","ЗАГРУЗИТЬ ИГРУ ♥︎"
+"SLOT 01","SLOT 01","СЛОТ 01"
+"SLOT 02","SLOT 02","СЛОТ 02"
+"SLOT 03","SLOT 03","СЛОТ 03"
+"SLOT 04","SLOT 04","СЛОТ 04"
+"SLOT 05","SLOT 05","СЛОТ 05"
+"SLOT 06","SLOT 06","СЛОТ 06"
+Empty_Slot,"Empty Slot","Пустой Слот"
+"MEMORIES ♪","MEMORIES ♪","ВОСПОМИНАНИЯ ♪"
+"Memory 01","Memory 01","Воспоминание 01"
+"Memory 02","Memory 02","Воспоминание 02"
+"Memory 03","Memory 03","Воспоминание 03"
+"Memory 04","Memory 04","Воспоминание 04"
+"Memory 05","Memory 05","Воспоминание 05"
+"Memory 06","Memory 06","Воспоминание 06"
+Locked,Locked,Заблокировано
+

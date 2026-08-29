@@ -25,6 +25,9 @@ func _ready() -> void:
   _setup_footer_return("Settings")
   _setup_footer_return("LoadGame")
   _setup_footer_return("Memories")
+  
+  # Settings Reset button
+  _setup_settings_reset()
 
 func _setup_button(node_name: String, callable: Callable) -> void:
   var node = parent.get_node_or_null(node_name)
@@ -72,3 +75,20 @@ func _on_return_to_main_menu() -> void:
 func _change_settings_tab(tab_state_name: String) -> void:
   var settings_mgr = parent.get_node_or_null("%SettingsStateManager") as StateManager
   if settings_mgr: settings_mgr.change_state(tab_state_name)
+
+func _setup_settings_reset() -> void:
+  var settings_layer = parent.get_node_or_null("Settings")
+  if settings_layer:
+    var panel_handler = settings_layer.get_node_or_null("UiPanelHandler")
+    if panel_handler:
+      var reset_btn = panel_handler.get_node_or_null("%ResetButton") as Button
+      if reset_btn and not reset_btn.pressed.is_connected(_on_settings_reset_pressed):
+        reset_btn.pressed.connect(_on_settings_reset_pressed)
+
+func _on_settings_reset_pressed() -> void:
+  var audio_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent")
+  var text_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent")
+  var addition_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent")
+  for content in [audio_content, text_content, addition_content]:
+    if content and content.has_method("reset_to_defaults"):
+      content.reset_to_defaults()

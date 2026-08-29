@@ -16,6 +16,17 @@ func _ready() -> void:
     if handler:
       handler.initialize(self)
 
-func start_debounce() -> void: debounceTimer.start()
+func start_debounce() -> void:
+  debounceTimer.start()
 
-func _on_debounceTimer_timeout() -> void: SettingsManager.save_settings()
+func _on_debounceTimer_timeout() -> void:
+  SettingsManager.save_settings()
+
+func reset_to_defaults() -> void:
+  for handler in handlers:
+    if handler:
+      var def = handler.default_value if handler.default_value != null else handler._get_control_default_value()
+      handler._set_control_ui_value(def)
+      handler.apply_setting(def)
+      handler.save_setting(def)
+  SettingsManager.save_settings()

@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://ciw8rxv8ei5pd" path="res://3_scenes/ui_kit/BigColoredButton/BigColoredButton.tscn" id="11_055hd"]
 [ext_resource type="Script" uid="uid://jsmx13ffmooc" path="res://3_scenes/menus/main_menu/tab_ui_handler.gd" id="12_3b75w"]
 [ext_resource type="PackedScene" uid="uid://mindody566fq" path="res://3_scenes/menus/main_menu/UiPanelHandler.tscn" id="12_qopwy"]
-[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/ui_kit/PanelButton/PanelButton.gd" id="13_2lrde"]
 [ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="14_055ko"]
 [ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="15_svli8"]
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="16_hhb3p"]
@@ -472,24 +471,23 @@ default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContai
 show_chain = SubResource("Resource_tab_show")
 hide_chain = SubResource("Resource_tab_hide")
 
-[node name="TabUiHandler" type="Node" parent="Settings" unique_id=1849400717 node_paths=PackedStringArray("state_manager", "tabs")]
+[node name="TabUiHandler" type="Node" parent="Settings" unique_id=1849400717 node_paths=PackedStringArray("state_manager")]
 script = ExtResource("12_3b75w")
 state_manager = NodePath("../SettingsStateManager")
 tabs = {
-NodePath("../SettingsStateManager/ShowAudio"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer/Audio"),
-NodePath("../SettingsStateManager/ShowText"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer/Text"),
-NodePath("../SettingsStateManager/ShowAddition"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer/Addition"),
-NodePath("../SettingsStateManager/ShowHotKeys"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer/HotKeys")
+NodePath("../SettingsStateManager/ShowAudio"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer/Audio"),
+NodePath("../SettingsStateManager/ShowText"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer/Text"),
+NodePath("../SettingsStateManager/ShowAddition"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer/Addition"),
+NodePath("../SettingsStateManager/ShowHotKeys"): NodePath("../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer/HotKeys")
 }
 
 [node name="UiPanelHandler" parent="Settings" unique_id=943993696 instance=ExtResource("12_qopwy")]
-anchors_preset = 15
 
-[node name="TabsHandler" type="Control" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(943993696, 884896457) index="0" unique_id=20521318]
+[node name="TabsHandler" type="Control" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer" parent_id_path=PackedInt32Array(943993696, 967002273) index="0" unique_id=20521318]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler" unique_id=176292130]
+[node name="MarginContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler" unique_id=176292130]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -501,35 +499,39 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="TabsContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer" unique_id=696801904]
+[node name="TabsContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer" unique_id=696801904]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Audio" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624639 instance=ExtResource("29_panel_btn")]
+[node name="Audio" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624639 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "AUDIO"
+button = NodePath("Button")
 
-[node name="Text" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1482960719 instance=ExtResource("29_panel_btn")]
+[node name="Text" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1482960719 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "TEXT"
+button = NodePath("Button")
 
-[node name="Addition" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1788410510 instance=ExtResource("29_panel_btn")]
+[node name="Addition" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1788410510 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "ADDITION"
+button = NodePath("Button")
 
-[node name="HotKeys" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1332755224 instance=ExtResource("29_panel_btn")]
+[node name="HotKeys" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1332755224 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "HOTKEYS"
+button = NodePath("Button")
 
-[node name="ContentContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(943993696, 884896457) index="1" unique_id=778120349]
+[node name="ContentContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(943993696, 884896457) index="0" unique_id=778120349]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 40
@@ -590,10 +592,11 @@ theme_override_constants/margin_top = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer" unique_id=576177878]
 layout_mode = 2
 
-[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 instance=ExtResource("29_panel_btn")]
+[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 text = "MUTE ALL"
+button = NodePath("Button")
 
 [node name="Container" type="Container" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1815049542]
 layout_mode = 2
@@ -872,7 +875,6 @@ text = "[ L ]"
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
 [node name="Return" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" parent_id_path=PackedInt32Array(943993696, 793883986) index="1" unique_id=284827232]
-layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
 [node name="LoadGame" type="CanvasLayer" parent="." unique_id=303231345]
@@ -882,7 +884,6 @@ visible = false
 script = ExtResource("26_saveload_script")
 
 [node name="UiPanelHandler" parent="LoadGame" unique_id=2067601531 instance=ExtResource("12_qopwy")]
-anchors_preset = 15
 
 [node name="HeaderLabel" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(2067601531, 884896457) index="0" unique_id=1848526163]
 layout_mode = 2
@@ -1222,7 +1223,6 @@ modulate = Color(1, 1, 1, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
 [node name="Return" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" parent_id_path=PackedInt32Array(2067601531, 793883986) index="1" unique_id=284827232]
-layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
 [node name="Memories" type="CanvasLayer" parent="." unique_id=303231346]
@@ -1232,7 +1232,6 @@ visible = false
 script = ExtResource("28_memories_script")
 
 [node name="UiPanelHandler" parent="Memories" unique_id=39338509 instance=ExtResource("12_qopwy")]
-anchors_preset = 15
 
 [node name="TabsHandler" type="Control" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(39338509, 884896457) index="0" unique_id=20521319]
 custom_minimum_size = Vector2(0, 100)
@@ -1254,29 +1253,33 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Adventures" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624641 instance=ExtResource("29_panel_btn")]
+[node name="Adventures" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624641 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Adventures"
+button = NodePath("Button")
 
-[node name="Gallery" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624642 instance=ExtResource("29_panel_btn")]
+[node name="Gallery" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624642 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Gallery"
+button = NodePath("Button")
 
-[node name="Encyclopedia" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624643 instance=ExtResource("29_panel_btn")]
+[node name="Encyclopedia" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624643 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Encyclopedia"
+button = NodePath("Button")
 
-[node name="Endings" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624644 instance=ExtResource("29_panel_btn")]
+[node name="Endings" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624644 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
-toggle_mode = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Endings"
+button = NodePath("Button")
 
 [node name="ContentContainer" type="MarginContainer" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(39338509, 884896457) index="1" unique_id=778120355]
 layout_mode = 2
@@ -1578,15 +1581,15 @@ theme_override_constants/separation = 400
 [node name="Reset" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="0" unique_id=1396975660]
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
-[node name="Forget" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="1" unique_id=1907352436 instance=ExtResource("29_panel_btn")]
+[node name="Forget" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="1" unique_id=1907352436 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 text = "Forget"
 icon = ExtResource("27_pill")
 icon_modulate = Color(0.35, 0.65, 1, 1)
+button = NodePath("Button")
 
 [node name="Return" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="2" unique_id=284827232]
-layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
 [node name="ConfirmationPopup" parent="." unique_id=987124300 instance=ExtResource("25_conf_pop")]

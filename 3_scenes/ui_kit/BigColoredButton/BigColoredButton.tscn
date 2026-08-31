@@ -7,33 +7,9 @@
 [ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="4_ks72q"]
 [ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="5_prop"]
 [ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="6_handler"]
+[ext_resource type="FontVariation" uid="uid://c2xiapy73xs3i" path="res://2_general/assets/fonts/regular/default_font.tres" id="7_kpqx6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1883j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o72y"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 0.365, 0.365, 1)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_detail = 1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qsrg"]
-shader = ExtResource("1_ls0bk")
-shader_parameter/edge_softness = 0.250000011875
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf3ud"]
-shader = ExtResource("1_ls0bk")
-shader_parameter/edge_softness = 0.400000019
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r87p1"]
-shader = ExtResource("1_ls0bk")
-shader_parameter/edge_softness = 0.400000019
 
 [sub_resource type="Resource" id="Resource_norm_bg"]
 script = ExtResource("5_prop")
@@ -82,9 +58,52 @@ custom_prop_name = &"label_font_outline_size_"
 prop_type = 1
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
+[sub_resource type="Resource" id="Resource_lib38"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font"
+custom_prop_name = &"label_font"
+prop_type = 2
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_h24ps"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font_size"
+prop_type = 3
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_mjelx"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_left"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_jmdy5"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_right"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_1bkt0"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_top"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_6mhsf"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_bottom"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
 [sub_resource type="Resource" id="Resource_normal_theme"]
 script = ExtResource("6_handler")
-props = Array[ExtResource("5_prop")]([SubResource("Resource_norm_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_norm_color"), SubResource("Resource_norm_size")])
+props = Array[ExtResource("5_prop")]([SubResource("Resource_norm_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_norm_color"), SubResource("Resource_norm_size"), SubResource("Resource_lib38"), SubResource("Resource_h24ps"), SubResource("Resource_mjelx"), SubResource("Resource_jmdy5"), SubResource("Resource_1bkt0"), SubResource("Resource_6mhsf")])
 metadata/_custom_type_script = "uid://cc7vye6a40scf"
 
 [sub_resource type="Resource" id="Resource_hov_bg"]
@@ -126,9 +145,52 @@ prop_name = &"font_outline_color"
 custom_prop_name = &"label_font_outline_color_hovered"
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
+[sub_resource type="Resource" id="Resource_ngfsu"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font"
+custom_prop_name = &"label_font"
+prop_type = 2
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_rtxha"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font_size"
+prop_type = 3
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_pcl70"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_left"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_itkk6"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_right"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_mum5l"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_top"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_c4a2e"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_bottom"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
 [sub_resource type="Resource" id="Resource_hovered_theme"]
 script = ExtResource("6_handler")
-props = Array[ExtResource("5_prop")]([SubResource("Resource_hov_bg"), SubResource("Resource_hov_inner"), SubResource("Resource_hov_decor"), SubResource("Resource_hov_grad"), SubResource("Resource_hov_color"), SubResource("Resource_norm_size")])
+props = Array[ExtResource("5_prop")]([SubResource("Resource_hov_bg"), SubResource("Resource_hov_inner"), SubResource("Resource_hov_decor"), SubResource("Resource_hov_grad"), SubResource("Resource_hov_color"), SubResource("Resource_norm_size"), SubResource("Resource_ngfsu"), SubResource("Resource_rtxha"), SubResource("Resource_pcl70"), SubResource("Resource_itkk6"), SubResource("Resource_mum5l"), SubResource("Resource_c4a2e")])
 metadata/_custom_type_script = "uid://cc7vye6a40scf"
 
 [sub_resource type="Resource" id="Resource_press_bg"]
@@ -146,10 +208,78 @@ prop_name = &"font_outline_color"
 custom_prop_name = &"label_font_outline_color_pressed"
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
+[sub_resource type="Resource" id="Resource_kpqx6"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font"
+custom_prop_name = &"label_font"
+prop_type = 2
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_j3f4v"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+prop_name = &"normal_font_size"
+prop_type = 3
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_v0e14"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_left"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_u1120"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_right"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_1rota"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_top"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_t1t8e"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath("LabelMarginContainer")])
+prop_name = &"margin_bottom"
+prop_type = 1
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
 [sub_resource type="Resource" id="Resource_pressed_theme"]
 script = ExtResource("6_handler")
-props = Array[ExtResource("5_prop")]([SubResource("Resource_press_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_press_color"), SubResource("Resource_norm_size")])
+props = Array[ExtResource("5_prop")]([SubResource("Resource_press_bg"), SubResource("Resource_norm_inner"), SubResource("Resource_norm_decor"), SubResource("Resource_norm_grad"), SubResource("Resource_press_color"), SubResource("Resource_norm_size"), SubResource("Resource_kpqx6"), SubResource("Resource_j3f4v"), SubResource("Resource_v0e14"), SubResource("Resource_u1120"), SubResource("Resource_1rota"), SubResource("Resource_t1t8e")])
 metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o72y"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.365, 0.365, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qsrg"]
+shader = ExtResource("1_ls0bk")
+shader_parameter/edge_softness = 0.250000011875
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf3ud"]
+shader = ExtResource("1_ls0bk")
+shader_parameter/edge_softness = 0.400000019
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r87p1"]
+shader = ExtResource("1_ls0bk")
+shader_parameter/edge_softness = 0.400000019
 
 [node name="FontButtonHanlder" type="PanelContainer" unique_id=5430695]
 editor_description = "Also uses custom code for theme applying."
@@ -215,9 +345,9 @@ rotation = 0.33883676
 
 [node name="LabelMarginContainer" type="MarginContainer" parent="." unique_id=533799475]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 15
 
 [node name="Label" type="RichTextLabel" parent="LabelMarginContainer" unique_id=1508466368]
@@ -225,6 +355,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("7_kpqx6")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 theme_override_font_sizes/bold_italics_font_size = 40

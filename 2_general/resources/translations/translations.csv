@@ -56,4 +56,28 @@ Empty_Slot,"Empty Slot","Пустой Слот"
 "Memory 05","Memory 05","Воспоминание 05"
 "Memory 06","Memory 06","Воспоминание 06"
 Locked,Locked,Заблокировано
+"SAVE GAME ♥︎","SAVE GAME ♥︎","СОХРАНИТЬ ИГРУ ♥︎"
+"CONFIRMATION ♥︎","CONFIRMATION ♥︎","ПОДТВЕРЖДЕНИЕ ♥︎"
+CONFIRM,CONFIRM,ПОДТВЕРДИТЬ
+CANCEL,CANCEL,ОТМЕНА
+"Are you sure?","Are you sure?","Вы уверены?"
+"Are you sure you want to delete this save?","Are you sure you want to delete this save?","Вы уверены, что хотите удалить это сохранение?"
+"Are you sure you want to load this save?","Are you sure you want to load this save?","Вы уверены, что хотите загрузить это сохранение?"
+"Are you sure you want to overwrite this save?","Are you sure you want to overwrite this save?","Вы уверены, что хотите перезаписать сохранение?"
+"Save game to this slot?","Save game to this slot?","Сохранить игру в этот слот?"
+"Delete save","Delete save","Удалить сохранение"
+Adventures,Adventures,Приключения
+Gallery,Gallery,Галерея
+Encyclopedia,Encyclopedia,Энциклопедия
+Endings,Endings,Концовки
+Forget,Forget,Забыть
+Remember,Remember,Помнить
+"ERASE MEMORIES?","ERASE MEMORIES?","СТЕРЕТЬ ВОСПОМИНАНИЯ?"
+"If you take the blue pill, all your unlocked memories, gallery arts, and achievements will dissolve like morning mist. Are you ready to let everything go?","If you take the blue pill, all your unlocked memories, gallery arts, and achievements will dissolve like morning mist. Are you ready to let everything go?","Примешь синюю таблетку — и все открытые тайны, галерея и воспоминания растают без следа. Ты точно хочешь забыть всё?"
+"2560x1440 (2K)","2560x1440 (2K)","2560x1440 (2K)"
+"1920x1080 (FHD)","1920x1080 (FHD)","1920x1080 (FHD)"
+"1600x900","1600x900","1600x900"
+"1366x768","1366x768","1366x768"
+"1280x720 (HD)","1280x720 (HD)","1280x720 (HD)"
+"1024x576","1024x576","1024x576"
 

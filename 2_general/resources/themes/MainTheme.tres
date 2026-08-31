@@ -144,6 +144,40 @@ anti_aliasing_size = 0.3
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1883j"]
 texture = ExtResource("2_1la55")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lineedit_focus"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.92, 0.45, 0.65, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.11372549, 0.4, 0.7647059, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+anti_aliasing_size = 0.3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lineedit_normal"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.92, 0.45, 0.65, 0.9)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.64705884, 0.23137255, 0.41568628, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+anti_aliasing_size = 0.3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_option_disabled"]
 content_margin_left = 20.0
 content_margin_top = 8.0
@@ -402,6 +436,18 @@ HeartButton/colors/_3_underbody_toggled = Color(0.6392157, 0.5294118, 0.8235294,
 HeartButton/colors/_4_mark_ = Color(0.48235294, 0.08627451, 0.11764706, 1)
 HeartButton/colors/_4_mark_toggled = Color(0.5254902, 0.23137255, 0.44705883, 1)
 HeartButton/styles/heart_texture_ = SubResource("StyleBoxTexture_1883j")
+LineEdit/colors/caret_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_outline_color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.6)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/selection_color = Color(0.11372549, 0.4, 0.7647059, 0.6)
+LineEdit/constants/caret_width = 3
+LineEdit/constants/outline_size = 8
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("1_1883j")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_lineedit_focus")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_lineedit_normal")
 OptionButton/colors/font_color = Color(1, 1, 1, 1)
 OptionButton/colors/font_disabled_color = Color(1, 1, 1, 0.4)
 OptionButton/colors/font_focus_color = Color(1, 1, 1, 1)
@@ -432,6 +478,7 @@ PopupMenu/constants/h_separation = 16
 PopupMenu/constants/item_end_padding = 16
 PopupMenu/constants/item_start_padding = 16
 PopupMenu/constants/outline_size = 10
+PopupMenu/constants/search_bar_separation = 16
 PopupMenu/constants/v_separation = 12
 PopupMenu/font_sizes/font_separator_size = 28
 PopupMenu/font_sizes/font_size = 32

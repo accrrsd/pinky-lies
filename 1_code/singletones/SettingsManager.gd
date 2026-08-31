@@ -1,5 +1,7 @@
 extends Node
 
+signal setting_changed(category: String, key: String, value: Variant)
+
 const SAVE_PATH = "user://settings.cfg"
 var _config := ConfigFile.new()
 var _settings: Dictionary[String, Dictionary] = {}
@@ -41,3 +43,4 @@ func set_setting(category: String, key: String, value: Variant) -> void:
   if not _settings.has(category):
     _settings[category] = {}
   _settings[category][key] = value
+  setting_changed.emit(category, key, value)

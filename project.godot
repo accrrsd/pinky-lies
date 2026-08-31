@@ -20,6 +20,7 @@ config/icon="res://5_trash/imgs/icon.svg"
 DialogueManager="*uid://c3rodes2l3gxb"
 Sounds="*uid://bvcu7to17csr6"
 SettingsManager="*uid://bsrqka7yu8vlq"
+SaveManager="*res://1_code/singletones/SaveManager.gd"
 
 [display]
 

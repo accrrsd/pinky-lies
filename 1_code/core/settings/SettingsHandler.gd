@@ -17,10 +17,12 @@ func _ready() -> void:
       handler.initialize(self)
 
 func start_debounce() -> void:
-  debounceTimer.start()
+  if debounceTimer and debounceTimer.is_inside_tree():
+    debounceTimer.start()
 
 func _on_debounceTimer_timeout() -> void:
-  SettingsManager.save_settings()
+  var sm = _get_settings_manager()
+  if sm: sm.save_settings()
 
 func reset_to_defaults() -> void:
   for handler in handlers:
@@ -29,4 +31,10 @@ func reset_to_defaults() -> void:
       handler._set_control_ui_value(def)
       handler.apply_setting(def)
       handler.save_setting(def)
-  SettingsManager.save_settings()
+  var sm = _get_settings_manager()
+  if sm: sm.save_settings()
+
+func _get_settings_manager() -> Node:
+  if is_inside_tree() and get_tree().root and get_tree().root.has_node("SettingsManager"):
+    return get_tree().root.get_node("SettingsManager")
+  return null

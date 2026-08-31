@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://de87fvlq31ol8"]
+
+[ext_resource type="Script" uid="uid://gc87aj6lgau4" path="res://3_scenes/ui_kit/PanelButton/PanelButton.gd" id="1_fs4c5"]
+[ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="2_eswke"]
+[ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="3_xg1ob"]
+[ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="4_rxuhj"]
+[ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="5_prop"]
+[ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="6_handler"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njvh4"]
+bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.64705884, 0.23137255, 0.41568628, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.39215687)
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[sub_resource type="Resource" id="Resource_norm_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath(".")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_normal_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_norm_bg")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_hov_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath(".")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_hovered"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_hovered_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_hov_bg")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_press_bg"]
+script = ExtResource("5_prop")
+paths = Array[NodePath]([NodePath(".")])
+prop_name = &"panel"
+custom_prop_name = &"_0_background_pressed"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_pressed_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_press_bg")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[sub_resource type="Resource" id="Resource_toggled_theme"]
+script = ExtResource("6_handler")
+props = Array[ExtResource("5_prop")]([SubResource("Resource_press_bg")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
+[node name="PanelButton" type="PanelContainer" unique_id=1396975660]
+size_flags_horizontal = 3
+theme_type_variation = &"SquarePanel"
+theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
+script = ExtResource("1_fs4c5")
+pressed_sound = ExtResource("2_eswke")
+hover_sound = ExtResource("3_xg1ob")
+normal_theme = SubResource("Resource_normal_theme")
+hovered_theme = SubResource("Resource_hovered_theme")
+pressed_theme = SubResource("Resource_pressed_theme")
+toggled_theme = SubResource("Resource_toggled_theme")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=407244758]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer" unique_id=407244759]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBox" unique_id=407244760]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_rotation = 0.60562927
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBox" unique_id=2136031352]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2085888008]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+script = ExtResource("4_rxuhj")
+pressed_sound = ExtResource("2_eswke")
+hover_sound = ExtResource("3_xg1ob")

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Trash_Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#600A2D;stroke-width:7.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;stroke:#600A2D;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#600A2D;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<!-- Bin body -->
+	<path class="st0" d="M30.5,42.5 L36.8,111.2 C37.4,117.8 42.9,122.8 49.5,122.8 L78.5,122.8 C85.1,122.8 90.6,117.8 91.2,111.2 L97.5,42.5 Z"/>
+	<!-- Inner vertical lines -->
+	<line class="st2" x1="49" y1="58" x2="51" y2="106"/>
+	<line class="st2" x1="64" y1="58" x2="64" y2="106"/>
+	<line class="st2" x1="79" y1="58" x2="77" y2="106"/>
+	<!-- Lid handle -->
+	<path class="st1" d="M49,26 C49,15 52,9 64,9 C76,9 79,15 79,26 Z"/>
+	<!-- Lid rim -->
+	<rect x="18" y="26" class="st0" width="92" height="14" rx="7" ry="7"/>
+</g>
+</svg>

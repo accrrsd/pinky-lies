@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cx8bve6t0q1yp"]
+
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_theme"]
+[ext_resource type="Script" uid="uid://dkb3recww34vk" path="res://3_scenes/ui_kit/ConfirmationPopup/confirmation_popup_script.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://de87fvlq31ol8" path="res://3_scenes/ui_kit/PanelButton/PanelButton.tscn" id="3_pbtn_scene"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popup_bg"]
+bg_color = Color(0.99215686, 0.6117647, 0.7647059, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.64705884, 0.23137255, 0.41568628, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 6
+shadow_offset = Vector2(0, 10)
+anti_aliasing_size = 0.3
+
+[node name="ConfirmationPopup" type="CanvasLayer"]
+layer = 100
+visible = false
+script = ExtResource("2_script")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.04, 0.12, 0.7)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 360)
+layout_mode = 2
+theme = ExtResource("1_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_popup_bg")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 35
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 46
+text = "CONFIRMATION ♥︎"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(650, 60)
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 32
+text = "Are you sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Confirm" parent="CenterContainer/PanelContainer/MarginContainer/VBox/Buttons" unique_id=987124310 instance=ExtResource("3_pbtn_scene")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 70)
+layout_mode = 2
+text = "CONFIRM"
+
+[node name="Cancel" parent="CenterContainer/PanelContainer/MarginContainer/VBox/Buttons" unique_id=987124311 instance=ExtResource("3_pbtn_scene")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 70)
+layout_mode = 2
+text = "CANCEL"

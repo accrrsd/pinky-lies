@@ -309,8 +309,12 @@ func _visually_update_mute(muted: bool) -> void:
       if handler and handler.ui_type == UiType.SLIDER:
         var sl = handler.target_control as Slider if handler.target_control else handler.control as Slider
         if sl:
+          var prev_step = sl.step  
           sl.editable = !muted
           sl.mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN if muted else Control.CURSOR_POINTING_HAND
+          # send "changed" signal to inner functions
+          sl.step = prev_step * 2.0
+          sl.step = prev_step
 
 func _on_slider_value_changed(val: float) -> void:
   if is_loading: return

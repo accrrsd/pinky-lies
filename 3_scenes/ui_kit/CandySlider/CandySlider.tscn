@@ -39,7 +39,7 @@ theme_override_styles/slider = SubResource("StyleBoxEmpty_dlp5f")
 value = 50.0
 rounded = true
 script = ExtResource("2_i8fjv")
-_progressBar = NodePath("MarginContainer/SubViewportContainer/SubViewport/HBoxContainer/ProgressBar")
+_progressBar = NodePath("MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ProgressBar")
 
 [node name="MarginContainer" type="MarginContainer" parent="HSlider" unique_id=1500306757]
 z_index = -1
@@ -64,28 +64,29 @@ handle_input_locally = false
 size = Vector2i(766, 52)
 render_target_update_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport" unique_id=1333784734]
+[node name="InsideSubViewport" type="HBoxContainer" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport" unique_id=1333784734]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="StartTexture2" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/HBoxContainer" unique_id=798392528]
+[node name="StartTexture2" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=798392528]
 layout_mode = 2
 texture = ExtResource("3_5pe5l")
 stretch_mode = 4
 
-[node name="ColorRect" type="ColorRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/HBoxContainer" unique_id=953799445]
+[node name="ColorRect" type="ColorRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=953799445]
 clip_children = 1
 custom_minimum_size = Vector2(30, 0)
 clip_contents = true
 layout_mode = 2
+mouse_filter = 1
 
-[node name="GapFiller" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/HBoxContainer/ColorRect" unique_id=1626315218]
+[node name="GapFiller" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ColorRect" unique_id=1626315218]
 z_index = -1
 layout_mode = 0
 offset_left = -34.0
@@ -94,7 +95,7 @@ offset_bottom = 50.0
 texture = ExtResource("3_5pe5l")
 flip_h = true
 
-[node name="ProgressBar" type="ProgressBar" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/HBoxContainer" unique_id=626848310]
+[node name="ProgressBar" type="ProgressBar" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=626848310]
 clip_children = 1
 z_index = -1
 texture_repeat = 2
@@ -110,7 +111,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="ProgressTexture" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/HBoxContainer/ProgressBar" unique_id=907420814]
+[node name="ProgressTexture" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ProgressBar" unique_id=907420814]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

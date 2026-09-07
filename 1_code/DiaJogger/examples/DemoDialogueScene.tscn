@@ -1,0 +1,392 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://1_code/DiaJogger/examples/demo_dialogue_scene.gd" id="1_demo_scene"]
+[ext_resource type="Texture2D" path="res://1_code/DiaJogger/examples/bg_demo.jpg" id="2_bg"]
+[ext_resource type="Texture2D" path="res://1_code/DiaJogger/examples/chelic.png" id="3_chelic"]
+[ext_resource type="Texture2D" path="res://1_code/DiaJogger/examples/deva.png" id="4_deva"]
+[ext_resource type="Script" path="res://1_code/DiaJogger/examples/vn_dialogue_view.gd" id="5_vn_view"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_panel"]
+bg_color = Color(0.08, 0.08, 0.12, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.5, 0.6, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue_box"]
+bg_color = Color(0.08, 0.08, 0.12, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.72, 0.35, 0.85)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_speaker_badge"]
+bg_color = Color(0.16, 0.13, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.82, 0.4, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toast"]
+bg_color = Color(0.12, 0.12, 0.18, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.85, 0.7, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DemoDialogueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_demo_scene")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CharacterLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmilySprite" type="TextureRect" parent="CharacterLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.26
+anchor_top = 1.0
+anchor_right = 0.26
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -980.0
+offset_right = 260.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_chelic")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DevaSprite" type="TextureRect" parent="CharacterLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.74
+anchor_top = 1.0
+anchor_right = 0.74
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -990.0
+offset_right = 340.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_deva")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuickSaveHUD" type="CanvasLayer" parent="."]
+layer = 110
+
+[node name="HUDPanel" type="PanelContainer" parent="QuickSaveHUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -660.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_panel")
+
+[node name="Margin" type="MarginContainer" parent="QuickSaveHUD/HUDPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="ButtonsRow" type="HBoxContainer" parent="QuickSaveHUD/HUDPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AutoButton" type="Button" parent="QuickSaveHUD/HUDPanel/Margin/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "▶ Auto [A]"
+
+[node name="SkipButton" type="Button" parent="QuickSaveHUD/HUDPanel/Margin/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "⏩ Skip [Tab]"
+
+[node name="LogButton" type="Button" parent="QuickSaveHUD/HUDPanel/Margin/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "📜 Log [H]"
+
+[node name="SaveButton" type="Button" parent="QuickSaveHUD/HUDPanel/Margin/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "💾 Save [F5/S]"
+
+[node name="LoadButton" type="Button" parent="QuickSaveHUD/HUDPanel/Margin/ButtonsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "📂 Load [F9/L]"
+
+[node name="ToastContainer" type="CenterContainer" parent="QuickSaveHUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 80.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="ToastPanel" type="PanelContainer" parent="QuickSaveHUD/ToastContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_toast")
+
+[node name="Margin" type="MarginContainer" parent="QuickSaveHUD/ToastContainer/ToastPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 8
+
+[node name="ToastLabel" type="Label" parent="QuickSaveHUD/ToastContainer/ToastPanel/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.95, 0.75, 1)
+theme_override_font_sizes/font_size = 20
+text = "💾 Сохранено!"
+horizontal_alignment = 1
+
+[node name="VNDialogueView" type="CanvasLayer" parent="." node_paths=PackedStringArray("emily_sprite", "deva_sprite", "background_rect", "dialogue_box", "speaker_badge", "speaker_name_label", "message_label", "advance_glyph", "choices_box", "choice_timer_bar", "choice_timer_label", "sfx_player", "log_modal", "log_list", "auto_button", "skip_button")]
+layer = 100
+script = ExtResource("5_vn_view")
+emily_sprite = NodePath("../CharacterLayer/EmilySprite")
+deva_sprite = NodePath("../CharacterLayer/DevaSprite")
+background_rect = NodePath("../Background")
+dialogue_box = NodePath("UIRoot/DialogueBox")
+speaker_badge = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge")
+speaker_name_label = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge/Margin/SpeakerNameLabel")
+message_label = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/MessageRow/MessageLabel")
+advance_glyph = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/MessageRow/AdvanceGlyph")
+choices_box = NodePath("UIRoot/ChoicesBox")
+choice_timer_bar = NodePath("UIRoot/ChoicesBox/ChoiceTimerBar")
+choice_timer_label = NodePath("UIRoot/ChoicesBox/ChoiceTimerLabel")
+sfx_player = NodePath("../SFXPlayer")
+log_modal = NodePath("UIRoot/LogModal")
+log_list = NodePath("UIRoot/LogModal/Margin/VBox/Scroll/LogList")
+auto_button = NodePath("../QuickSaveHUD/HUDPanel/Margin/ButtonsRow/AutoButton")
+skip_button = NodePath("../QuickSaveHUD/HUDPanel/Margin/ButtonsRow/SkipButton")
+
+[node name="UIRoot" type="Control" parent="VNDialogueView"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ChoicesBox" type="VBoxContainer" parent="VNDialogueView/UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -160.0
+offset_right = 260.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ChoiceTimerLabel" type="Label" parent="VNDialogueView/UIRoot/ChoicesBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "⏱️ Время на выбор: 5.0с"
+horizontal_alignment = 1
+
+[node name="ChoiceTimerBar" type="ProgressBar" parent="VNDialogueView/UIRoot/ChoicesBox"]
+visible = false
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="DialogueBox" type="PanelContainer" parent="VNDialogueView/UIRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -280.0
+offset_right = 720.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue_box")
+
+[node name="Margin" type="MarginContainer" parent="VNDialogueView/UIRoot/DialogueBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="ContentVBox" type="VBoxContainer" parent="VNDialogueView/UIRoot/DialogueBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SpeakerRow" type="HBoxContainer" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox"]
+layout_mode = 2
+
+[node name="SpeakerBadge" type="PanelContainer" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_speaker_badge")
+
+[node name="Margin" type="MarginContainer" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 6
+
+[node name="SpeakerNameLabel" type="Label" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 24
+text = "Speaker"
+
+[node name="MessageRow" type="HBoxContainer" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MessageLabel" type="RichTextLabel" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Dialogue line text..."
+
+[node name="AdvanceGlyph" type="Label" parent="VNDialogueView/UIRoot/DialogueBox/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 0.8)
+theme_override_font_sizes/font_size = 26
+text = "▶"
+
+[node name="LogModal" type="PanelContainer" parent="VNDialogueView/UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -340.0
+offset_right = 560.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue_box")
+
+[node name="Margin" type="MarginContainer" parent="VNDialogueView/UIRoot/LogModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="VNDialogueView/UIRoot/LogModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 24
+text = "📜 Журнал диалога / History"
+
+[node name="CloseButton" type="Button" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox/Header"]
+layout_mode = 2
+text = " ✕ Закрыть "
+
+[node name="HSeparator" type="HSeparator" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogList" type="VBoxContainer" parent="VNDialogueView/UIRoot/LogModal/Margin/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12

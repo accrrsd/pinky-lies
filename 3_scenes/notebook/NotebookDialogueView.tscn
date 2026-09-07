@@ -1,0 +1,102 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bmy5a7lxxs8ah" path="res://3_scenes/notebook/notebook_dialogue_view.gd" id="1_nb_view"]
+[ext_resource type="Script" uid="uid://bmmds8krpjlj" path="res://3_scenes/notebook/notebook_paper.gd" id="2_nb_paper"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shadow"]
+bg_color = Color(0.97, 0.96, 0.92, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.38)
+shadow_size = 16
+shadow_offset = Vector2(0, 8)
+
+[node name="NotebookDialogueView" type="CanvasLayer" node_paths=PackedStringArray("paper", "speaker_label", "message_label", "advance_indicator", "choices_container", "root_container")]
+layer = 100
+script = ExtResource("1_nb_view")
+paper = NodePath("UIRoot/NotebookFrame/Paper")
+speaker_label = NodePath("UIRoot/NotebookFrame/Paper/Margin/ContentVBox/SpeakerLabel")
+message_label = NodePath("UIRoot/NotebookFrame/Paper/Margin/ContentVBox/MessageRow/MessageLabel")
+advance_indicator = NodePath("UIRoot/NotebookFrame/Paper/Margin/ContentVBox/MessageRow/AdvanceIndicator")
+choices_container = NodePath("UIRoot/NotebookFrame/Paper/Margin/ContentVBox/ChoicesContainer")
+root_container = NodePath("UIRoot/NotebookFrame")
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NotebookFrame" type="PanelContainer" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -280.0
+offset_right = 490.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shadow")
+
+[node name="Paper" type="Control" parent="UIRoot/NotebookFrame"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_nb_paper")
+
+[node name="Margin" type="MarginContainer" parent="UIRoot/NotebookFrame/Paper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 106
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 28
+
+[node name="ContentVBox" type="VBoxContainer" parent="UIRoot/NotebookFrame/Paper/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeakerLabel" type="Label" parent="UIRoot/NotebookFrame/Paper/Margin/ContentVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.28, 0.48, 1)
+theme_override_font_sizes/font_size = 22
+text = "✎ Дневник Рена:"
+
+[node name="MessageRow" type="HBoxContainer" parent="UIRoot/NotebookFrame/Paper/Margin/ContentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MessageLabel" type="RichTextLabel" parent="UIRoot/NotebookFrame/Paper/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.12, 0.16, 0.28, 1)
+theme_override_constants/line_separation = 14
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "Запись в блокноте..."
+
+[node name="AdvanceIndicator" type="Label" parent="UIRoot/NotebookFrame/Paper/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.35, 0.42, 0.55, 0.8)
+theme_override_font_sizes/font_size = 26
+text = "✎"
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="UIRoot/NotebookFrame/Paper/Margin/ContentVBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8

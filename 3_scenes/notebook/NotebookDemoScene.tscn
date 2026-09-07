@@ -1,0 +1,415 @@
+[gd_scene format=3 uid="uid://d0fucb5ucrg02"]
+
+[ext_resource type="Script" uid="uid://8xqtqsbbfxeb" path="res://3_scenes/notebook/notebook_demo_scene.gd" id="1_demo"]
+[ext_resource type="PackedScene" path="res://3_scenes/notebook/NotebookDialogueView.tscn" id="2_nb_view"]
+[ext_resource type="Texture2D" uid="uid://c4ixncx54pbte" path="res://3_scenes/notebook/note-reference.jpg" id="3_ji75v"]
+[ext_resource type="Texture2D" uid="uid://dfsh61l1i3fjb" path="res://5_trash/imgs/00020-2798477167.png" id="4_lxsyg"]
+[ext_resource type="Shader" uid="uid://de12fqsghg7lw" path="res://3_scenes/menus/notebook/notebook_holes.gdshader" id="5_j4brf"]
+[ext_resource type="Texture2D" uid="uid://cm3ptrbtqaf0n" path="res://3_scenes/menus/notebook/binder-top.svg" id="6_c2epd"]
+[ext_resource type="Texture2D" uid="uid://dp5f80st2y471" path="res://3_scenes/menus/notebook/binder-bottom.svg" id="7_6eg27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eg27"]
+bg_color = Color(0.8352941, 0.52156866, 0.6509804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2epd"]
+bg_color = Color(0.9137255, 0.8901961, 0.827451, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lxsyg"]
+shader = ExtResource("5_j4brf")
+shader_parameter/start_offset = Vector2(20, 20)
+shader_parameter/hole_size = Vector2(8, 8)
+shader_parameter/hole_spacing = 44.0
+shader_parameter/hole_count = -1
+shader_parameter/direction = 0
+shader_parameter/hole_shape = 0
+shader_parameter/corner_radius = 0.0
+shader_parameter/end_offset = 0.0
+shader_parameter/edge_softness = 1.0
+shader_parameter/hole_border_color = Color(0, 0, 0, 0)
+shader_parameter/hole_border_width = 0.0
+shader_parameter/invert = false
+shader_parameter/custom_size = Vector2(0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=56784960]
+
+[node name="NotebookDemoScene" type="Control" parent="." unique_id=641662915]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_demo")
+
+[node name="DeskBackground" type="ColorRect" parent="NotebookDemoScene" unique_id=1775094618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12, 0.11, 0.13, 1)
+
+[node name="HintLabel" type="Label" parent="NotebookDemoScene" unique_id=555079574]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -54.0
+offset_right = 260.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.55, 0.58, 0.65, 0.7)
+theme_override_font_sizes/font_size = 18
+text = "Нажмите в любое место экрана для продолжения [Space / Click]"
+horizontal_alignment = 1
+
+[node name="NotebookDialogueView" parent="NotebookDemoScene" unique_id=475108665 instance=ExtResource("2_nb_view")]
+visible = false
+
+[node name="NoteReference" type="Sprite2D" parent="." unique_id=889791169]
+position = Vector2(2501, 476)
+texture = ExtResource("3_ji75v")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=575784028]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1358997248]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lxsyg")
+expand_mode = 1
+
+[node name="Cover" type="PanelContainer" parent="." unique_id=1388486010]
+z_index = 10
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 197.0
+offset_top = -312.0
+offset_right = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6eg27")
+
+[node name="MarginContainer" type="MarginContainer" parent="Cover" unique_id=597026192]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 7
+
+[node name="InnerLayer" type="PanelContainer" parent="Cover/MarginContainer" unique_id=551726440]
+visible = false
+z_index = 10
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2epd")
+
+[node name="Paper" type="PanelContainer" parent="Cover/MarginContainer" unique_id=196007710]
+z_index = 10
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2epd")
+
+[node name="RedLineMargin" type="MarginContainer" parent="Cover/MarginContainer/Paper" unique_id=1140997533]
+layout_mode = 2
+theme_override_constants/margin_left = -53
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cover/MarginContainer/Paper/RedLineMargin" unique_id=1762814078]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer" unique_id=663220127]
+material = SubResource("ShaderMaterial_lxsyg")
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+color = Color(0.9137255, 0.8901961, 0.827451, 1)
+
+[node name="Binder" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1667234974]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder" unique_id=1946598864]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1135121691]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 14.0
+offset_right = 24.0
+offset_bottom = 119.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder2" unique_id=1093389336]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder3" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=136314662]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 58.0
+offset_right = 24.0
+offset_bottom = 163.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder3" unique_id=211807007]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder4" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1748708339]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 102.0
+offset_right = 24.0
+offset_bottom = 207.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder4" unique_id=227855097]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder5" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1065921390]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 146.0
+offset_right = 24.0
+offset_bottom = 251.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder5" unique_id=961045619]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder6" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1490017295]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 190.0
+offset_right = 24.0
+offset_bottom = 295.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder6" unique_id=1152505168]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="Binder7" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=1344169667]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = 234.0
+offset_right = 24.0
+offset_bottom = 339.0
+texture = ExtResource("6_c2epd")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect/Binder7" unique_id=570778223]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("7_6eg27")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer/ColorRect" unique_id=900788724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Cover/MarginContainer/Paper/RedLineMargin/HBoxContainer" unique_id=670660535]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+color = Color(0.8745098, 0.54901963, 0.5411765, 1)
+
+[node name="OtherPapersMargin" type="MarginContainer" parent="Cover/MarginContainer/Paper" unique_id=710145063]
+layout_mode = 2
+theme_override_constants/margin_right = -40
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Cover/MarginContainer/Paper/OtherPapersMargin" unique_id=642062245]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2" unique_id=1601733939]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer" unique_id=1860076206]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.8, 0.78039217, 0.7294118, 1)
+
+[node name="LinesMargin" type="MarginContainer" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect" unique_id=1924586052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin" unique_id=1413206952]
+layout_mode = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=385725435]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect2" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=194980232]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect3" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1503710735]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect4" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=856820807]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect5" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1160286622]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect6" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1470719287]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 0.6509804)
+
+[node name="ColorRect2" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer" unique_id=1287073560]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+color = Color(0.6509804, 0.63529414, 0.5921569, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer" unique_id=72565404]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+color = Color(0.55, 0.5368, 0.50049996, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Cover/MarginContainer/Paper/OtherPapersMargin/HBoxContainer2/HBoxContainer" unique_id=428061308]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+color = Color(0.45, 0.4365, 0.40949997, 1)
+
+[node name="LinesMargin" type="MarginContainer" parent="Cover/MarginContainer/Paper" unique_id=1639477233]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cover/MarginContainer/Paper/LinesMargin" unique_id=457931164]
+layout_mode = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=1143664432]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect2" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=933731193]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect3" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=470585715]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect4" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=856732396]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect5" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=669864794]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect6" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=516476248]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)
+
+[node name="ColorRect7" type="ColorRect" parent="Cover/MarginContainer/Paper/LinesMargin/VBoxContainer" unique_id=367459180]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+color = Color(0.72156864, 0.8, 0.9019608, 0.6509804)

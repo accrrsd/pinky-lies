@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp5f80st2y471"
-path="res://.godot/imported/binder-bottom.svg-261b7b3e3549de9ce29c8d205e6b2ef7.ctex"
+uid="uid://cm8qq7e2vi02"
+path="res://.godot/imported/5QMY8FXc9gxMY1bGLMHp1stjVj4HQcyRURTheRayaPLOn9jNEMWVYGgzAGh7Y5peYdcgl3BnjM6scC90FcfGWvm8.webp-3884019ed8ce3e85ccd8dacc21819de3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3_scenes/menus/notebook/binder-bottom.svg"
-dest_files=["res://.godot/imported/binder-bottom.svg-261b7b3e3549de9ce29c8d205e6b2ef7.ctex"]
+source_file="res://3_scenes/menus/notebook/refs/5QMY8FXc9gxMY1bGLMHp1stjVj4HQcyRURTheRayaPLOn9jNEMWVYGgzAGh7Y5peYdcgl3BnjM6scC90FcfGWvm8.webp"
+dest_files=["res://.godot/imported/5QMY8FXc9gxMY1bGLMHp1stjVj4HQcyRURTheRayaPLOn9jNEMWVYGgzAGh7Y5peYdcgl3BnjM6scC90FcfGWvm8.webp-3884019ed8ce3e85ccd8dacc21819de3.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

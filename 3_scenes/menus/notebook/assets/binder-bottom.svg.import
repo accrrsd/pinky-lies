@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm3ptrbtqaf0n"
-path="res://.godot/imported/binder-top.svg-ba676956fc2809fdc23e29e96a75a8f1.ctex"
+uid="uid://dp5f80st2y471"
+path="res://.godot/imported/binder-bottom.svg-a7213d41f64c4f638e9b23945388ef24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3_scenes/menus/notebook/binder-top.svg"
-dest_files=["res://.godot/imported/binder-top.svg-ba676956fc2809fdc23e29e96a75a8f1.ctex"]
+source_file="res://3_scenes/menus/notebook/assets/binder-bottom.svg"
+dest_files=["res://.godot/imported/binder-bottom.svg-a7213d41f64c4f638e9b23945388ef24.ctex"]
 
 [params]
 

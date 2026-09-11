@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://b4pbuxrcttwb3"]
 
 [ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="1_1883j"]
-[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://2_general/assets/ui/icons/heart-svgrepo-com.svg" id="2_1la55"]
+[ext_resource type="Texture2D" uid="uid://cqt1n8qlbq4ni" path="res://2_general/assets/ui/icons/heart.svg" id="2_1la55"]
 [ext_resource type="Texture2D" uid="uid://cg7vy1sd6pg1g" path="res://2_general/assets/ui/icons/OptionButton/DropdownArrow-White.svg" id="3_arrow"]
 [ext_resource type="Texture2D" uid="uid://b2xkb2l3tdika" path="res://2_general/assets/ui/icons/OptionButton/SubmenuArrow-White.svg" id="4_submenu"]
 [ext_resource type="Texture2D" uid="uid://diu61hnpifg2t" path="res://2_general/assets/ui/icons/OptionButton/RadioChecked-White.svg" id="5_radio_checked"]

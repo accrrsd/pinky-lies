@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dsdd4c2x64p6u" path="res://3_scenes/menus/main_menu/main_menu_ui_script.gd" id="8_5fgm4"]
 [ext_resource type="PackedScene" uid="uid://b4uxe2k8b28gl" path="res://3_scenes/ui_kit/BackgroundFiller/BackgroundFiller.tscn" id="9_fs1kv"]
 [ext_resource type="Texture2D" uid="uid://dfsh61l1i3fjb" path="res://5_trash/imgs/00020-2798477167.png" id="10_t1l60"]
-[ext_resource type="PackedScene" uid="uid://ciw8rxv8ei5pd" path="res://3_scenes/ui_kit/BigColoredButton/BigColoredButton.tscn" id="11_055hd"]
+[ext_resource type="PackedScene" uid="uid://ciw8rxv8ei5pd" path="res://3_scenes/ui_kit/@ProjectSpecific/BigColoredButton/BigColoredButton.tscn" id="11_055hd"]
 [ext_resource type="Script" uid="uid://jsmx13ffmooc" path="res://3_scenes/menus/main_menu/tab_ui_handler.gd" id="12_3b75w"]
 [ext_resource type="PackedScene" uid="uid://mindody566fq" path="res://3_scenes/menus/main_menu/UiPanelHandler.tscn" id="12_qopwy"]
 [ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="14_055ko"]
@@ -20,8 +20,7 @@
 [ext_resource type="Script" uid="uid://b0a1jmqd7j8d7" path="res://1_code/core/settings/SettingsHandlerRes.gd" id="18_hhkrn"]
 [ext_resource type="PackedScene" uid="uid://6wui2deutxxj" path="res://3_scenes/ui_kit/CandySlider/CandySlider.tscn" id="19_g3ek5"]
 [ext_resource type="PackedScene" uid="uid://bp6k3uh24byi5" path="res://3_scenes/ui_kit/ArrowSelector/ArrowSelector.tscn" id="21_b7guf"]
-[ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/HeartButton/HeartButton.tscn" id="21_c4rxa"]
-[ext_resource type="Texture2D" uid="uid://c43685dk1odyx" path="res://2_general/assets/ui/icons/Trash128x128.svg" id="24_trash"]
+[ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/@ProjectSpecific/HeartButton/HeartButton.tscn" id="21_c4rxa"]
 [ext_resource type="PackedScene" uid="uid://cx8bve6t0q1yp" path="res://3_scenes/ui_kit/ConfirmationPopup/ConfirmationPopup.tscn" id="25_conf_pop"]
 [ext_resource type="Script" uid="uid://bf3h7rq5caox3" path="res://3_scenes/menus/main_menu/save_load_menu_script.gd" id="26_saveload_script"]
 [ext_resource type="Texture2D" uid="uid://hhcwpypmhxp5" path="res://2_general/assets/ui/icons/Pill-White.svg" id="27_pill"]
@@ -332,6 +331,8 @@ metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bns70"]
+
 [node name="MainMenu" type="Control" unique_id=1224244970]
 layout_mode = 3
 anchors_preset = 15
@@ -503,33 +504,29 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Audio" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624639 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Audio" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624639 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "AUDIO"
-button = NodePath("Button")
 
-[node name="Text" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1482960719 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Text" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1482960719 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "TEXT"
-button = NodePath("Button")
 
-[node name="Addition" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1788410510 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Addition" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1788410510 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "ADDITION"
-button = NodePath("Button")
 
-[node name="HotKeys" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1332755224 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="HotKeys" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/TabsHandler/MarginContainer/TabsContainer" unique_id=1332755224 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "HOTKEYS"
-button = NodePath("Button")
 
 [node name="ContentContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(943993696, 884896457) index="0" unique_id=778120349]
 layout_mode = 2
@@ -540,6 +537,7 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
 [node name="AudioContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398372]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
@@ -592,11 +590,10 @@ theme_override_constants/margin_top = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer" unique_id=576177878]
 layout_mode = 2
 
-[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 text = "MUTE ALL"
-button = NodePath("Button")
 
 [node name="Container" type="Container" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1815049542]
 layout_mode = 2
@@ -946,7 +943,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -999,7 +996,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -1052,7 +1049,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -1105,7 +1102,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -1158,7 +1155,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -1211,7 +1208,7 @@ visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-icon = ExtResource("24_trash")
+icon = SubResource("CompressedTexture2D_bns70")
 flat = true
 expand_icon = true
 script = ExtResource("16_hhb3p")
@@ -1253,33 +1250,29 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Adventures" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624641 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Adventures" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624641 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Adventures"
-button = NodePath("Button")
 
-[node name="Gallery" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624642 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Gallery" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624642 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Gallery"
-button = NodePath("Button")
 
-[node name="Encyclopedia" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624643 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Encyclopedia" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624643 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Encyclopedia"
-button = NodePath("Button")
 
-[node name="Endings" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624644 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Endings" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/TabsHandler/MarginContainer/TabsContainer" unique_id=1683624644 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_type_variation = &"TabPanel"
 theme_override_styles/panel = SubResource("StyleBoxFlat_1la55")
 text = "Endings"
-button = NodePath("Button")
 
 [node name="ContentContainer" type="MarginContainer" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(39338509, 884896457) index="1" unique_id=778120355]
 layout_mode = 2
@@ -1581,13 +1574,12 @@ theme_override_constants/separation = 400
 [node name="Reset" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="0" unique_id=1396975660]
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 
-[node name="Forget" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="1" unique_id=1907352436 node_paths=PackedStringArray("button") instance=ExtResource("29_panel_btn")]
+[node name="Forget" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="1" unique_id=1907352436 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 text = "Forget"
 icon = ExtResource("27_pill")
 icon_modulate = Color(0.35, 0.65, 1, 1)
-button = NodePath("Button")
 
 [node name="Return" parent="Memories/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" index="2" unique_id=284827232]
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")

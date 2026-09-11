@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dy2gnyp5k8fjq"]
+
+[ext_resource type="Texture2D" uid="uid://crn86ir408gcd" path="res://5_trash/imgs/icon.svg" id="1_inghf"]
+[ext_resource type="Shader" uid="uid://coev66x7li65y" path="res://5_trash/CanvasBackBuffer/shockwave.gdshader" id="2_vmr61"]
+[ext_resource type="Script" uid="uid://di42b0t1me3bt" path="res://5_trash/CanvasBackBuffer/back_buffer_copy_canvas_item.gd" id="3_inghf"]
+[ext_resource type="Shader" uid="uid://p8ltn6evbk6k" path="res://5_trash/CanvasBackBuffer/grayscale.gdshader" id="4_3kpj4"]
+[ext_resource type="Shader" uid="uid://db0c0yr01ckjd" path="res://5_trash/CanvasBackBuffer/invert.gdshader" id="5_1f66y"]
+[ext_resource type="Shader" uid="uid://uwujg4ve43la" path="res://5_trash/CanvasBackBuffer/blur.gdshader" id="6_7l0x0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3253y"]
+shader = ExtResource("2_vmr61")
+shader_parameter/frequency = 4.0
+shader_parameter/speed = 1.0
+shader_parameter/magnitude = 64.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7jmp"]
+shader = ExtResource("4_3kpj4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2354"]
+shader = ExtResource("5_1f66y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ni31j"]
+shader = ExtResource("6_7l0x0")
+shader_parameter/blur_strength = 8.0
+shader_parameter/blur_resolution = 32.0
+
+[node name="scene" type="Control" unique_id=904048456]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="." unique_id=1737840867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_inghf")
+stretch_mode = 1
+
+[node name="shockwave" type="ColorRect" parent="." unique_id=521204926]
+material = SubResource("ShaderMaterial_3253y")
+layout_mode = 0
+offset_left = 1268.0
+offset_top = 333.0
+offset_right = 1572.0
+offset_bottom = 649.0
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_auto_rect_margin = 64.0
+
+[node name="shockwave2" type="ColorRect" parent="." unique_id=789780550]
+material = SubResource("ShaderMaterial_3253y")
+layout_mode = 0
+offset_left = 255.0
+offset_top = 138.0
+offset_right = 902.0
+offset_bottom = 731.0
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="gray" type="ColorRect" parent="." unique_id=1864815852]
+material = SubResource("ShaderMaterial_m7jmp")
+layout_mode = 0
+offset_left = 209.0
+offset_top = 111.00001
+offset_right = 903.5195
+offset_bottom = 427.0
+rotation = 0.3597582
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_rect = Rect2(0, 0, 256, 256)
+
+[node name="invert" type="ColorRect" parent="." unique_id=2123516792]
+material = SubResource("ShaderMaterial_y2354")
+layout_mode = 0
+offset_left = 577.0
+offset_top = 288.99997
+offset_right = 881.0
+offset_bottom = 605.0
+rotation = -0.4393491
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_rect = Rect2(0, 0, 256, 256)
+
+[node name="invert2" type="ColorRect" parent="." unique_id=2016784770]
+material = SubResource("ShaderMaterial_y2354")
+layout_mode = 0
+offset_left = 618.0
+offset_top = 166.99997
+offset_right = 922.0
+offset_bottom = 483.0
+rotation = -0.4393491
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_rect = Rect2(0, 0, 256, 256)
+
+[node name="invert3" type="ColorRect" parent="." unique_id=651788800]
+material = SubResource("ShaderMaterial_y2354")
+layout_mode = 0
+offset_left = 765.0
+offset_top = 270.0
+offset_right = 1069.0
+offset_bottom = 586.0
+rotation = -0.4393491
+script = ExtResource("3_inghf")
+copy_mode = 2
+copy_rect = Rect2(0, 0, 256, 256)
+
+[node name="blur" type="ColorRect" parent="." unique_id=2070832601]
+material = SubResource("ShaderMaterial_ni31j")
+layout_mode = 0
+offset_left = 74.0
+offset_top = 115.0
+offset_right = 1033.0
+offset_bottom = 484.0
+script = ExtResource("3_inghf")
+copy_mode = 3
+copy_rect = Rect2(0, 0, 256, 256)
+copy_auto_rect_margin = 32.0
+
+[node name="blur2" type="ColorRect" parent="." unique_id=883015277]
+material = SubResource("ShaderMaterial_ni31j")
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 760.0
+offset_right = 1542.0
+offset_bottom = 1031.0
+script = ExtResource("3_inghf")
+copy_mode = 3
+copy_rect = Rect2(0, 0, 256, 256)
+copy_auto_rect_margin = 32.0

@@ -1,0 +1,1377 @@
+[gd_scene format=3 uid="uid://k4in2nmcxdlc"]
+
+[ext_resource type="PackedScene" uid="uid://b4uxe2k8b28gl" path="res://3_scenes/ui_kit/BackgroundFiller/BackgroundFiller.tscn" id="1_p7u8f"]
+[ext_resource type="Texture2D" uid="uid://dfsh61l1i3fjb" path="res://5_trash/imgs/00020-2798477167.png" id="2_37eci"]
+[ext_resource type="Script" uid="uid://cfpktrjuw65x3" path="res://3_scenes/ui_kit/ScriptsWithoutScene/CanvasAnchorTransformer.gd" id="3_i6tq1"]
+[ext_resource type="Texture2D" uid="uid://dp5f80st2y471" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-bottom.svg" id="4_wwhg0"]
+[ext_resource type="Shader" uid="uid://dmj7fblwebiev" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/notebook_holes.gdshader" id="5_p2sk6"]
+[ext_resource type="Texture2D" uid="uid://cm3ptrbtqaf0n" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-top.svg" id="6_jy4ps"]
+[ext_resource type="Texture2D" uid="uid://diw2ylc80uk82" path="res://2_general/assets/ui/icons/play.svg" id="7_0pojr"]
+[ext_resource type="Texture2D" uid="uid://rw8es0g43jum" path="res://2_general/assets/ui/icons/skip.svg" id="8_lj37v"]
+[ext_resource type="Texture2D" uid="uid://cvoy68ou0t86o" path="res://2_general/assets/ui/icons/arrow-left.svg" id="9_xkpti"]
+[ext_resource type="Texture2D" uid="uid://067nid12yof8" path="res://2_general/assets/ui/icons/menu.svg" id="10_5x4eh"]
+[ext_resource type="Texture2D" uid="uid://xuc7ndenwims" path="res://2_general/assets/ui/icons/pencil.svg" id="11_v62fo"]
+[ext_resource type="Texture2D" uid="uid://c4ixncx54pbte" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/Dev/refs/note-reference.jpg" id="12_gts60"]
+[ext_resource type="Texture2D" uid="uid://cm8qq7e2vi02" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/Dev/refs/5QMY8FXc9gxMY1bGLMHp1stjVj4HQcyRURTheRayaPLOn9jNEMWVYGgzAGh7Y5peYdcgl3BnjM6scC90FcfGWvm8.webp" id="13_4u7b1"]
+[ext_resource type="Shader" uid="uid://bgjwd8mgxokhu" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/Dev/MessageDemoTest.gdshader" id="14_77kys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mcwr"]
+shader = ExtResource("14_77kys")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2ylp"]
+bg_color = Color(0.8352941, 0.52156866, 0.6509804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh5wp"]
+shader = ExtResource("5_p2sk6")
+shader_parameter/start_offset = Vector2(20, 18)
+shader_parameter/hole_size = Vector2(8, 8)
+shader_parameter/hole_spacing = 44.0
+shader_parameter/hole_count = -1
+shader_parameter/direction = 0
+shader_parameter/hole_shape = 0
+shader_parameter/corner_radius = 0.0
+shader_parameter/end_offset = 0.0
+shader_parameter/edge_softness = 1.0
+shader_parameter/hole_border_color = Color(0, 0, 0, 0)
+shader_parameter/hole_border_width = 0.0
+shader_parameter/invert = false
+shader_parameter/custom_size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsvbk"]
+bg_color = Color(0.96, 0.94, 0.88, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.73, 0.66, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wcby"]
+bg_color = Color(0.88, 0.5, 0.5, 0.35)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82, 0.35, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12u10"]
+bg_color = Color(0.92, 0.88, 0.8, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.42, 0.42, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo2ex"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku20x"]
+bg_color = Color(0.8352941, 0.52156866, 0.6509804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_koaix"]
+shader = ExtResource("5_p2sk6")
+shader_parameter/start_offset = Vector2(20, 18)
+shader_parameter/hole_size = Vector2(8, 8)
+shader_parameter/hole_spacing = 44.0
+shader_parameter/hole_count = -1
+shader_parameter/direction = 0
+shader_parameter/hole_shape = 0
+shader_parameter/corner_radius = 0.0
+shader_parameter/end_offset = 0.0
+shader_parameter/edge_softness = 1.0
+shader_parameter/hole_border_color = Color(0, 0, 0, 0)
+shader_parameter/hole_border_width = 0.0
+shader_parameter/invert = false
+shader_parameter/custom_size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3hb1"]
+bg_color = Color(0.96, 0.94, 0.88, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.73, 0.66, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvro3"]
+bg_color = Color(0.88, 0.5, 0.5, 0.35)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82, 0.35, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brsua"]
+bg_color = Color(0.92, 0.88, 0.8, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.42, 0.42, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppt50"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MessageDemo" type="Control" unique_id=1901796052]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Refs" type="CanvasLayer" parent="." unique_id=599386222]
+visible = false
+
+[node name="Pallete" type="Control" parent="Refs" unique_id=986454096]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -892.0
+offset_top = 840.0
+offset_right = -356.0
+offset_bottom = 1076.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Refs/Pallete" unique_id=957809994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="OldColors" type="HBoxContainer" parent="Refs/Pallete/VBoxContainer" unique_id=1417460530]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Refs/Pallete/VBoxContainer/OldColors" unique_id=458720292]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.9137255, 0.8901961, 0.827451, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/Pallete/VBoxContainer/OldColors" unique_id=2112897988]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.8, 0.78039217, 0.7294118, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Refs/Pallete/VBoxContainer/OldColors" unique_id=851554617]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.6156863, 0.6039216, 0.5647059, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Refs/Pallete/VBoxContainer/OldColors" unique_id=9711505]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.5254902, 0.5137255, 0.48235294, 1)
+
+[node name="NewColors" type="HBoxContainer" parent="Refs/Pallete/VBoxContainer" unique_id=11332425]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Refs/Pallete/VBoxContainer/NewColors" unique_id=761359326]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/Pallete/VBoxContainer/NewColors" unique_id=839407186]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Refs/Pallete/VBoxContainer/NewColors" unique_id=927220939]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Refs/Pallete/VBoxContainer/NewColors" unique_id=2078673363]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.53, 0.53, 0.53, 1)
+
+[node name="NoteReference" type="Sprite2D" parent="Refs" unique_id=286540561]
+position = Vector2(-782, -336)
+texture = ExtResource("12_gts60")
+
+[node name="5qmy8fXc9GxMy1bGlmHp1StjVj4hQcyRurTheRayaPlOn9jNemwvyGgzAGh7y5PeYdcgl3BnjM6ScC90FcfGWvm8" type="Sprite2D" parent="Refs" unique_id=2127789547]
+position = Vector2(-656, 378)
+texture = ExtResource("13_4u7b1")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Refs" unique_id=204129700]
+offset_left = 2043.0
+offset_top = 0.006713867
+offset_right = 3963.0
+offset_bottom = 1079.9933
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Refs/SubViewportContainer2" unique_id=990610778]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1079)
+size_2d_override = Vector2i(3840, 2160)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="BbDemo" type="Node2D" parent="Refs" unique_id=1703385281]
+position = Vector2(-37, -894)
+
+[node name="Control" type="Control" parent="Refs/BbDemo" unique_id=879627999]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1079.9866
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Refs/BbDemo/Control" unique_id=1501496222]
+self_modulate = Color(1, 1, 1, 0.627451)
+
+[node name="ColorRect" type="ColorRect" parent="Refs/BbDemo/Control/CanvasGroup" unique_id=1447689257]
+offset_top = 25.993286
+offset_right = 273.00006
+offset_bottom = 236.98657
+color = Color(0.4117647, 0.4117647, 0.4117647, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/BbDemo/Control/CanvasGroup" unique_id=1616773423]
+offset_left = 214.00006
+offset_top = 27.993286
+offset_right = 487.00012
+offset_bottom = 238.98657
+color = Color(0.4117647, 0.4117647, 0.4117647, 1)
+
+[node name="Control2" type="Control" parent="Refs/BbDemo" unique_id=920608183]
+modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1079.9866
+
+[node name="ColorRect" type="ColorRect" parent="Refs/BbDemo/Control2" unique_id=563901083]
+layout_mode = 0
+offset_top = 321.9933
+offset_right = 273.00006
+offset_bottom = 532.9866
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/BbDemo/Control2" unique_id=1724286707]
+layout_mode = 0
+offset_left = 214.00006
+offset_top = 321.9933
+offset_right = 487.00012
+offset_bottom = 532.9866
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="Control3" type="Control" parent="Refs/BbDemo" unique_id=958309711]
+self_modulate = Color(0.73, 0.73, 0.73, 0.49411765)
+material = SubResource("ShaderMaterial_2mcwr")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1079.9866
+
+[node name="ColorRect" type="ColorRect" parent="Refs/BbDemo/Control3" unique_id=843739519]
+layout_mode = 0
+offset_top = 587.9933
+offset_right = 273.00006
+offset_bottom = 798.9866
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/BbDemo/Control3" unique_id=1336197961]
+layout_mode = 0
+offset_left = 214.00006
+offset_top = 587.9933
+offset_right = 487.00012
+offset_bottom = 798.9866
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Refs" unique_id=541006418]
+self_modulate = Color(1, 1, 1, 0.9019608)
+offset_left = -6.1035156e-05
+offset_top = 0.006713867
+offset_right = 1920.0
+offset_bottom = 1079.9933
+stretch = true
+mouse_target = true
+
+[node name="SubViewport" type="SubViewport" parent="Refs/SubViewportContainer" unique_id=1348014883]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(1920, 1079)
+size_2d_override = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="MessageBoxMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport" unique_id=1125663508]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -245.00671
+offset_right = 500.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Cover" type="Panel" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin" unique_id=1785945482]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2ylp")
+
+[node name="GeneralMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin" unique_id=1351636490]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin" unique_id=925210869]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RedFieldHandler" type="HBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=92401252]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="RedField" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=729321489]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gh5wp")
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Binders" type="VBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=1757898095]
+layout_mode = 0
+offset_top = -0.21782327
+offset_right = 17.000061
+offset_bottom = 211.00093
+theme_override_constants/separation = 44
+
+[node name="Binder" type="Control" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=565849862]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder" unique_id=1448200939]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder" unique_id=255764843]
+z_index = -1
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder2" type="Control" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=141293814]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder2" unique_id=1045156457]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder2" unique_id=1364610536]
+z_index = -1
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder3" type="Control" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=778337990]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder3" unique_id=1019344930]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder3" unique_id=1867785743]
+z_index = -1
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder4" type="Control" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1602434532]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder4" unique_id=573257585]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder4" unique_id=2114658495]
+z_index = -1
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder5" type="Control" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1282796074]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder5" unique_id=3461709]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Bottom" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder5" unique_id=11947284]
+z_index = -1
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=497240562]
+layout_mode = 0
+offset_left = 32.00006
+offset_right = 76.00006
+offset_bottom = 210.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="AutoButton" type="Button" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1276786069]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Автопроигрывание [A]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsvbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wcby")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12u10")
+toggle_mode = true
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton" unique_id=2094159227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton/MarginContainer" unique_id=869593859]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("7_0pojr")
+expand_mode = 1
+
+[node name="SkipButton" type="Button" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1708546440]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Быстрая перемотка [Tab]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsvbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wcby")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12u10")
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton" unique_id=640490255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton/MarginContainer" unique_id=608444940]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_lj37v")
+expand_mode = 1
+
+[node name="LogButton" type="Button" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=2013738684]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "История записей [H]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsvbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wcby")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12u10")
+
+[node name="MarginContainer" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton" unique_id=1236358051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton/MarginContainer" unique_id=421014431]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("9_xkpti")
+expand_mode = 1
+
+[node name="MenuButton" type="Button" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1164152557]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Меню блокнота [Esc]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsvbk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6wcby")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12u10")
+
+[node name="MarginContainer" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton" unique_id=1338574569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer" unique_id=994087338]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("10_5x4eh")
+expand_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=425805754]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.8745098, 0.54901963, 0.5411765, 1)
+
+[node name="Paper" type="PanelContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=2144453842]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fo2ex")
+
+[node name="LinesMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=1306163082]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin" unique_id=349421115]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=1780250826]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=998844490]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=290339832]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=502001115]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="DialogueMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=1763808419]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 12
+
+[node name="ContentVBox" type="VBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin" unique_id=1451467074]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Speaker" type="HBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=1211928208]
+modulate = Color(0.18039216, 0.25882354, 0.47843137, 1)
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SpeakerIcon" type="TextureRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=859758640]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("11_v62fo")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="SpeakerLabel" type="Label" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=1885097884]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Рен:"
+
+[node name="MessageMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=1164379865]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = -30
+theme_override_constants/margin_bottom = -15
+
+[node name="MessageLabel" type="RichTextLabel" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/MessageMargin" unique_id=117593915]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.14, 0.18, 0.28, 1)
+theme_override_constants/line_separation = 12
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Запись в блокноте...
+Одному богу известно что там....
+Ты не думаешь что нам.. не стоит его поднимать?
+Мало ли, что там... Впрочем, я бы не удивился, если бы оттуда вылезла мумия"
+fit_content = true
+
+[node name="OtherPapers" type="HBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=841389215]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers" unique_id=548126213]
+z_index = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1268714112]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="LinesMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect" unique_id=1662704192]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin" unique_id=1995097021]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=396135863]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=149885766]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=561677987]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=708481999]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1977038641]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Refs/SubViewportContainer/SubViewport/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1547425010]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+mouse_filter = 2
+color = Color(0.5294118, 0.5294118, 0.5294118, 1)
+
+[node name="BackgroundFiller" parent="." unique_id=566355761 instance=ExtResource("1_p7u8f")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -6.1035156e-05
+offset_top = 0.006713867
+offset_right = 1920.0
+offset_bottom = 1079.9933
+backgroundImage = ExtResource("2_37eci")
+
+[node name="AnchorHandler" type="Control" parent="." unique_id=1135188037]
+anchors_preset = 0
+offset_left = -6.1035156e-05
+offset_top = 0.006713867
+offset_right = 1920.0
+offset_bottom = 1079.9933
+
+[node name="CanvasGroup" type="CanvasGroup" parent="AnchorHandler" unique_id=792083232 node_paths=PackedStringArray("outer", "inner")]
+self_modulate = Color(1, 1, 1, 0.9019608)
+position = Vector2(6.1035156e-05, -0.006713867)
+fit_margin = 0.0
+script = ExtResource("3_i6tq1")
+outer = NodePath("..")
+inner = NodePath("Control")
+
+[node name="Control" type="Control" parent="AnchorHandler/CanvasGroup" unique_id=603603424]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1079.9866
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageBoxMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control" unique_id=537093201]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.00006
+offset_top = -545.0
+offset_right = 500.0
+offset_bottom = -314.9933
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Control" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=847273055]
+layout_mode = 2
+
+[node name="Binders2" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control" unique_id=1996708099]
+layout_mode = 0
+offset_left = 7.000061
+offset_top = 9.0
+offset_right = 37.000122
+offset_bottom = 220.21875
+theme_override_constants/separation = 44
+
+[node name="Binder" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=747380259]
+layout_mode = 2
+
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder" unique_id=1700585410]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder2" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=606219520]
+layout_mode = 2
+
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder2" unique_id=290528881]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder3" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=939072099]
+layout_mode = 2
+
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder3" unique_id=546304816]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder4" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=1918638811]
+layout_mode = 2
+
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder4" unique_id=540360087]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Binder5" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=1772839497]
+layout_mode = 2
+
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder5" unique_id=954589962]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("4_wwhg0")
+expand_mode = 1
+
+[node name="Cover" type="Panel" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=245816665]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ku20x")
+
+[node name="GeneralMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=1558955385]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin" unique_id=509212085]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RedFieldHandler" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=1024901548]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="RedField" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=212742499]
+material = SubResource("ShaderMaterial_koaix")
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Binders" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=479414408]
+layout_mode = 0
+offset_top = -0.21782327
+offset_right = 17.000061
+offset_bottom = 211.00093
+theme_override_constants/separation = 44
+
+[node name="Binder" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1391794133]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder" unique_id=480521862]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Binder2" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=905219448]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder2" unique_id=711897980]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Binder3" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=928740082]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder3" unique_id=1094510537]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Binder4" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=153157883]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder4" unique_id=475772245]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Binder5" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=87334393]
+layout_mode = 2
+
+[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder5" unique_id=1403483624]
+custom_minimum_size = Vector2(40, 105)
+layout_mode = 0
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 24.0
+offset_bottom = 74.0
+mouse_filter = 2
+texture = ExtResource("6_jy4ps")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=337761870]
+layout_mode = 0
+offset_left = 32.00006
+offset_right = 76.00006
+offset_bottom = 210.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="AutoButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=829765494]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Автопроигрывание [A]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3hb1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvro3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_brsua")
+toggle_mode = true
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton" unique_id=255017027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton/MarginContainer" unique_id=729057294]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("7_0pojr")
+expand_mode = 1
+
+[node name="SkipButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=2133180510]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Быстрая перемотка [Tab]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3hb1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvro3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_brsua")
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton" unique_id=1680692138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton/MarginContainer" unique_id=167258769]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("8_lj37v")
+expand_mode = 1
+
+[node name="LogButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=273596774]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "История записей [H]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3hb1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvro3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_brsua")
+
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton" unique_id=703583879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton/MarginContainer" unique_id=1498314494]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("9_xkpti")
+expand_mode = 1
+
+[node name="MenuButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=433583301]
+custom_minimum_size = Vector2(44, 34)
+layout_mode = 2
+tooltip_text = "Меню блокнота [Esc]"
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.28, 0.26, 0.34, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.22, 0.22, 1)
+theme_override_colors/font_hover_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3hb1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvro3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_brsua")
+
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton" unique_id=1757942959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer" unique_id=1175321034]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("10_5x4eh")
+expand_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=1984185989]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.8745098, 0.54901963, 0.5411765, 1)
+
+[node name="Paper" type="PanelContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=164211872]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ppt50")
+
+[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=1198518913]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin" unique_id=118165171]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=599629549]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=652857972]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=627702685]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=2058541316]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.71999997, 0.798, 0.9, 1)
+
+[node name="DialogueMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=502516555]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 12
+
+[node name="ContentVBox" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin" unique_id=1038936781]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Speaker" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=1366934021]
+modulate = Color(0.18039216, 0.25882354, 0.47843137, 1)
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SpeakerIcon" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=604578743]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("11_v62fo")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="SpeakerLabel" type="Label" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=757693707]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Рен:"
+
+[node name="MessageMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=1553194967]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = -30
+theme_override_constants/margin_bottom = -15
+
+[node name="MessageLabel" type="RichTextLabel" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/MessageMargin" unique_id=1341269348]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.14, 0.18, 0.28, 1)
+theme_override_constants/line_separation = 13
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Запись в блокноте...
+Одному богу известно что там....
+Ты не думаешь что нам.. не стоит его поднимать?
+Мало ли, что там... Впрочем, я бы не удивился, если бы оттуда вылезла мумия"
+fit_content = true
+
+[node name="OtherPapers" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=949279277]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers" unique_id=75021072]
+z_index = 1
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=261553911]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect" unique_id=350936191]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin" unique_id=408490660]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 38
+
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1650277292]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1596367624]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1906046247]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1779666755]
+custom_minimum_size = Vector2(3, 4)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1309066595]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1123199102]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+mouse_filter = 2
+color = Color(0.5294118, 0.5294118, 0.5294118, 1)

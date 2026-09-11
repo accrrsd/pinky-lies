@@ -43,6 +43,8 @@ folder_colors={
 
 [gui]
 
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 theme/custom_font="uid://c2xiapy73xs3i"
 
 [internationalization]

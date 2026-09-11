@@ -5,118 +5,86 @@
 [ext_resource type="Texture2D" uid="uid://2mymsqegaxnm" path="res://3_scenes/ui_kit/CandySlider/CandyStick-Back.svg" id="3_5pe5l"]
 [ext_resource type="Texture2D" uid="uid://t1sukgm61ota" path="res://3_scenes/ui_kit/CandySlider/CandyStick-middle.svg" id="4_jwhys"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlp5f"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8fjv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
-bg_color = Color(0, 0, 0, 1)
-
-[node name="CandySlider" type="MarginContainer" unique_id=1801351722]
+[node name="CandySlider" type="MarginContainer" unique_id=1981639730 node_paths=PackedStringArray("_progress_texture", "_slider")]
 custom_minimum_size = Vector2(0, 105)
+anchors_preset = -1
 offset_left = -1.0
 offset_right = 770.0
 offset_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_constants/margin_left = 60
-metadata/target_control = NodePath("HSlider")
+script = ExtResource("2_i8fjv")
+_progress_texture = NodePath("Bg/HBoxContainer/ProgressTexture")
+_slider = NodePath("Fg/HSlider")
+metadata/target_control = NodePath("Fg/HSlider")
 
-[node name="HSlider" type="HSlider" parent="." unique_id=2083825898 node_paths=PackedStringArray("_progressBar")]
-unique_name_in_owner = true
-z_index = 2
+[node name="Bg" type="MarginContainer" parent="." unique_id=2080255797]
+layout_mode = 2
+theme_override_constants/margin_top = 55
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bg" unique_id=1126081770]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StartTexture" type="TextureRect" parent="Bg/HBoxContainer" unique_id=1621780946]
+layout_mode = 2
+texture = ExtResource("3_5pe5l")
+stretch_mode = 4
+
+[node name="SpaceFiller" type="Control" parent="Bg/HBoxContainer" unique_id=1592767807]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=226724724]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 50.0
+color = Color(0.94509804, 0.84313726, 0.90588236, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=1946467515]
+layout_mode = 0
+offset_left = 6.1035156e-05
+offset_top = 30.0
+offset_right = 30.000061
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=797841395]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 5.0
+color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=1551912919]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 30.0
+offset_bottom = 50.0
+color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+
+[node name="ProgressTexture" type="TextureRect" parent="Bg/HBoxContainer" unique_id=142394100]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_jwhys")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Fg" type="MarginContainer" parent="." unique_id=942393755]
+layout_mode = 2
+theme_override_constants/margin_left = 53
+
+[node name="HSlider" type="HSlider" parent="Fg" unique_id=1119471476]
 custom_minimum_size = Vector2(0, 105)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/center_grabber = 1
-theme_override_constants/grabber_offset = -1
+theme_override_constants/grabber_offset = 1
 theme_override_icons/grabber = ExtResource("1_fcctq")
 theme_override_icons/grabber_highlight = ExtResource("1_fcctq")
 theme_override_icons/grabber_disabled = ExtResource("1_fcctq")
-theme_override_styles/slider = SubResource("StyleBoxEmpty_dlp5f")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_i8fjv")
 value = 50.0
 rounded = true
-script = ExtResource("2_i8fjv")
-_progressBar = NodePath("MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ProgressBar")
-
-[node name="MarginContainer" type="MarginContainer" parent="HSlider" unique_id=1500306757]
-z_index = -1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -52.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = -55
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSlider/MarginContainer" unique_id=200351170]
-layout_mode = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HSlider/MarginContainer/SubViewportContainer" unique_id=1985933640]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(766, 52)
-render_target_update_mode = 4
-
-[node name="InsideSubViewport" type="HBoxContainer" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport" unique_id=1333784734]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="StartTexture2" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=798392528]
-layout_mode = 2
-texture = ExtResource("3_5pe5l")
-stretch_mode = 4
-
-[node name="ColorRect" type="ColorRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=953799445]
-clip_children = 1
-custom_minimum_size = Vector2(30, 0)
-clip_contents = true
-layout_mode = 2
-mouse_filter = 1
-
-[node name="GapFiller" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ColorRect" unique_id=1626315218]
-z_index = -1
-layout_mode = 0
-offset_left = -34.0
-offset_right = 823.0
-offset_bottom = 50.0
-texture = ExtResource("3_5pe5l")
-flip_h = true
-
-[node name="ProgressBar" type="ProgressBar" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport" unique_id=626848310]
-clip_children = 1
-z_index = -1
-texture_repeat = 2
-custom_minimum_size = Vector2(0, 50)
-custom_maximum_size = Vector2(-1, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_styles/background = SubResource("StyleBoxEmpty_yf5fn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_57qmd")
-step = 1.0
-value = 50.0
-rounded = true
-show_percentage = false
-
-[node name="ProgressTexture" type="TextureRect" parent="HSlider/MarginContainer/SubViewportContainer/SubViewport/InsideSubViewport/ProgressBar" unique_id=907420814]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_jwhys")
-stretch_mode = 1

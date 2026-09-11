@@ -12,9 +12,8 @@ enum IconSide { LEFT, RIGHT }
 	set(value):
 		text = value
 		var label = get_node_or_null("%Label")
-		if not label:
-			label = find_child("Label", true, false) as Label
-		if label: label.text = value
+		label.visible = not value.is_empty()
+		label.text = value
 
 @export var icon: Texture2D = null:
 	set(value):
@@ -56,6 +55,21 @@ enum IconSide { LEFT, RIGHT }
 	if pressed_theme: pressed_theme.apply_theme(self, theme_type_variation)
 @export_tool_button("Apply toggled theme", "Callable") var dev_apply_toggled_theme = func():
 	if toggled_theme: toggled_theme.apply_theme(self, theme_type_variation)
+
+@export_group("Text settings")
+## -1 = no use
+@export var text_separation:int = -1:
+	set(value):
+		text_separation = value
+		if value <= 0: return
+		(get_node("MarginContainer/HBox") as Control).add_theme_constant_override("separation", value)
+
+## If -1000 0 0 0 - no changes applyed, need for default style margins
+@export var inner_margins: Vector4i = Vector4i(-1000, 0 , 0, 0):
+	set(value):
+		inner_margins = value
+		if value[0] != -1000: _update_margins_from_editor(value)
+		elif value != Vector4i(-1000, 0, 0, 0): _update_margins_from_editor(value)
 
 @export_group("State Test")
 @export var toggled_test: bool = false:
@@ -172,3 +186,9 @@ func _update_state() -> void:
 		_apply_theme_state("toggled")
 	else:
 		_apply_theme_state("normal")
+
+
+func _update_margins_from_editor(value:Vector4i)->void:
+	var node:MarginContainer = get_node("MarginContainer")
+	var keys = ["left", "top", "right", "bottom"]
+	for i in range(4): node.add_theme_constant_override("margin_"+keys[i], value[i])

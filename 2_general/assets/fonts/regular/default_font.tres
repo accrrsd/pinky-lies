@@ -8,3 +8,9 @@
 [resource]
 fallbacks = Array[Font]([ExtResource("1_sc"), ExtResource("2_jp"), ExtResource("3_kr")])
 base_font = ExtResource("4_ns")
+variation_opentype = {
+0: 1
+}
+opentype_features = {
+1667329140: 0
+}

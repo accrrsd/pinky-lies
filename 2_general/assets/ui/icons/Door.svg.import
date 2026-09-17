@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqtbxnbe3moje"
-path="res://.godot/imported/JellyBob-Blue.svg-656ff626d7279b45c5c00c87577a197d.ctex"
+uid="uid://dah1lli6s2wkj"
+path="res://.godot/imported/Door.svg-c5ab82ee53f8ae6048b17830c51d8bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/slider/JellyBob-Blue.svg"
-dest_files=["res://.godot/imported/JellyBob-Blue.svg-656ff626d7279b45c5c00c87577a197d.ctex"]
+source_file="res://2_general/assets/ui/icons/Door.svg"
+dest_files=["res://.godot/imported/Door.svg-c5ab82ee53f8ae6048b17830c51d8bfc.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=0.1
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

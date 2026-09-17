@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cundpwr5m5dfn"
-path="res://.godot/imported/Door128x128.svg-10399bd4149b49275d504bd3ed1f5cdc.ctex"
+uid="uid://bmqwhfim2gnms"
+path="res://.godot/imported/play-button-svgrepo-com(1).svg-4f7584dcd3eee134c2cc59f5e22ec0c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/icons/Door128x128.svg"
-dest_files=["res://.godot/imported/Door128x128.svg-10399bd4149b49275d504bd3ed1f5cdc.ctex"]
+source_file="res://2_general/assets/ui/icons/play-button-svgrepo-com(1).svg"
+dest_files=["res://.godot/imported/play-button-svgrepo-com(1).svg-4f7584dcd3eee134c2cc59f5e22ec0c9.ctex"]
 
 [params]
 

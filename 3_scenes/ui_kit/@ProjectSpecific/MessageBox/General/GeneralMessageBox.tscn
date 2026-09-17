@@ -3,12 +3,12 @@
 [ext_resource type="Shader" uid="uid://dmj7fblwebiev" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/notebook_holes.gdshader" id="1_f7xv2"]
 [ext_resource type="Texture2D" uid="uid://cm3ptrbtqaf0n" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-top.svg" id="2_gmctk"]
 [ext_resource type="Texture2D" uid="uid://dp5f80st2y471" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-bottom.svg" id="3_l6yfk"]
-[ext_resource type="Texture2D" uid="uid://diw2ylc80uk82" path="res://2_general/assets/ui/icons/play.svg" id="4_1gafj"]
-[ext_resource type="Texture2D" uid="uid://rw8es0g43jum" path="res://2_general/assets/ui/icons/skip.svg" id="4_gmctk"]
+[ext_resource type="Texture2D" uid="uid://bmqwhfim2gnms" path="res://2_general/assets/ui/icons/play-button-svgrepo-com(1).svg" id="4_1gafj"]
 [ext_resource type="Texture2D" uid="uid://xuc7ndenwims" path="res://2_general/assets/ui/icons/pencil.svg" id="5_l6yfk"]
-[ext_resource type="Texture2D" uid="uid://cvoy68ou0t86o" path="res://2_general/assets/ui/icons/arrow-left.svg" id="6_ywk5o"]
-[ext_resource type="Texture2D" uid="uid://067nid12yof8" path="res://2_general/assets/ui/icons/menu.svg" id="7_tbxk5"]
-[ext_resource type="Script" uid="uid://cfpktrjuw65x3" path="res://3_scenes/ui_kit/ScriptsWithoutScene/CanvasAnchorTransformer.gd" id="9_ywk5o"]
+[ext_resource type="Texture2D" uid="uid://bpxp8vw4p2sfh" path="res://2_general/assets/ui/icons/skip-svgrepo-com.svg" id="5_ywk5o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8m8w"]
 bg_color = Color(0.8352941, 0.52156866, 0.6509804, 1)
@@ -69,6 +69,16 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8m8w"]
+load_path = "res://.godot/imported/curved-arrow-left-icon.svg-2ce8d090a4bae9a810b5cda97e6c470c.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mcwr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erf6m"]
 bg_color = Color(1, 1, 1, 1)
 
@@ -82,46 +92,33 @@ ratio = 1.7778
 
 [node name="AnchorHandler" type="Control" parent="." unique_id=1956034148]
 layout_mode = 2
+mouse_filter = 1
 
-[node name="CanvasGroup" type="CanvasGroup" parent="AnchorHandler" unique_id=1413606587 node_paths=PackedStringArray("outer", "inner")]
+[node name="PanelContainer" type="PanelContainer" parent="AnchorHandler" unique_id=807622530]
 self_modulate = Color(1, 1, 1, 0.9019608)
-position = Vector2(6.1035156e-05, -0.006713867)
-fit_margin = 0.0
-script = ExtResource("9_ywk5o")
-outer = NodePath("..")
-inner = NodePath("Control")
-
-[node name="Control" type="Control" parent="AnchorHandler/CanvasGroup" unique_id=971110839]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1079.9866
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MessageBoxMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control" unique_id=1300863655]
+clip_children = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.966
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -500.00006
-offset_top = -266.98657
+anchor_bottom = 0.966
+offset_left = -500.0
+offset_top = -230.2738
 offset_right = 500.0
-offset_bottom = -36.97986
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = -0.26708984
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="MessageBoxMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer" unique_id=1300863655]
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="Control" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=935738404]
+[node name="Control" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin" unique_id=935738404]
 layout_mode = 2
 
-[node name="Binders2" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control" unique_id=558469568]
+[node name="Binders2" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control" unique_id=558469568]
 layout_mode = 0
 offset_left = 7.000061
 offset_top = 9.0
@@ -129,10 +126,10 @@ offset_right = 37.000122
 offset_bottom = 220.21875
 theme_override_constants/separation = 44
 
-[node name="Binder" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=643373243]
+[node name="Binder" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2" unique_id=643373243]
 layout_mode = 2
 
-[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder" unique_id=1110312231]
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2/Binder" unique_id=1110312231]
 layout_mode = 0
 offset_left = -16.0
 offset_top = -31.0
@@ -142,10 +139,10 @@ mouse_filter = 2
 texture = ExtResource("3_l6yfk")
 expand_mode = 1
 
-[node name="Binder2" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=741946166]
+[node name="Binder2" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2" unique_id=741946166]
 layout_mode = 2
 
-[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder2" unique_id=1076468437]
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2/Binder2" unique_id=1076468437]
 layout_mode = 0
 offset_left = -16.0
 offset_top = -31.0
@@ -155,10 +152,10 @@ mouse_filter = 2
 texture = ExtResource("3_l6yfk")
 expand_mode = 1
 
-[node name="Binder3" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=1236766654]
+[node name="Binder3" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2" unique_id=1236766654]
 layout_mode = 2
 
-[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder3" unique_id=1240119434]
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2/Binder3" unique_id=1240119434]
 layout_mode = 0
 offset_left = -16.0
 offset_top = -31.0
@@ -168,10 +165,10 @@ mouse_filter = 2
 texture = ExtResource("3_l6yfk")
 expand_mode = 1
 
-[node name="Binder4" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=1921433982]
+[node name="Binder4" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2" unique_id=1921433982]
 layout_mode = 2
 
-[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder4" unique_id=1733765203]
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2/Binder4" unique_id=1733765203]
 layout_mode = 0
 offset_left = -16.0
 offset_top = -31.0
@@ -181,10 +178,10 @@ mouse_filter = 2
 texture = ExtResource("3_l6yfk")
 expand_mode = 1
 
-[node name="Binder5" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2" unique_id=523421137]
+[node name="Binder5" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2" unique_id=523421137]
 layout_mode = 2
 
-[node name="Bottom" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/Control/Binders2/Binder5" unique_id=1097825398]
+[node name="Bottom" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/Control/Binders2/Binder5" unique_id=1097825398]
 layout_mode = 0
 offset_left = -16.0
 offset_top = -31.0
@@ -194,44 +191,44 @@ mouse_filter = 2
 texture = ExtResource("3_l6yfk")
 expand_mode = 1
 
-[node name="Cover" type="Panel" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=818618579]
+[node name="Cover" type="Panel" parent="AnchorHandler/PanelContainer/MessageBoxMargin" unique_id=818618579]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_f8m8w")
 
-[node name="GeneralMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin" unique_id=1776169523]
+[node name="GeneralMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin" unique_id=1776169523]
 layout_mode = 2
 theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin" unique_id=1809579431]
+[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin" unique_id=1809579431]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="RedFieldHandler" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=637884155]
+[node name="RedFieldHandler" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=637884155]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="RedField" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=664134369]
+[node name="RedField" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=664134369]
 material = SubResource("ShaderMaterial_1gafj")
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Binders" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=1542527251]
+[node name="Binders" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=1542527251]
 layout_mode = 0
 offset_top = -0.21782327
 offset_right = 17.000061
 offset_bottom = 211.00093
 theme_override_constants/separation = 44
 
-[node name="Binder" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=900101902]
+[node name="Binder" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=900101902]
 layout_mode = 2
 
-[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder" unique_id=2133223463]
+[node name="Top" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder" unique_id=2133223463]
 custom_minimum_size = Vector2(40, 105)
 layout_mode = 0
 offset_left = -16.0
@@ -242,10 +239,10 @@ mouse_filter = 2
 texture = ExtResource("2_gmctk")
 expand_mode = 1
 
-[node name="Binder2" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=318150406]
+[node name="Binder2" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=318150406]
 layout_mode = 2
 
-[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder2" unique_id=1565631161]
+[node name="Top" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder2" unique_id=1565631161]
 custom_minimum_size = Vector2(40, 105)
 layout_mode = 0
 offset_left = -16.0
@@ -256,10 +253,10 @@ mouse_filter = 2
 texture = ExtResource("2_gmctk")
 expand_mode = 1
 
-[node name="Binder3" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1042240476]
+[node name="Binder3" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1042240476]
 layout_mode = 2
 
-[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder3" unique_id=1982282416]
+[node name="Top" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder3" unique_id=1982282416]
 custom_minimum_size = Vector2(40, 105)
 layout_mode = 0
 offset_left = -16.0
@@ -270,10 +267,10 @@ mouse_filter = 2
 texture = ExtResource("2_gmctk")
 expand_mode = 1
 
-[node name="Binder4" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1793059756]
+[node name="Binder4" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1793059756]
 layout_mode = 2
 
-[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder4" unique_id=2041080175]
+[node name="Top" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder4" unique_id=2041080175]
 custom_minimum_size = Vector2(40, 105)
 layout_mode = 0
 offset_left = -16.0
@@ -284,10 +281,10 @@ mouse_filter = 2
 texture = ExtResource("2_gmctk")
 expand_mode = 1
 
-[node name="Binder5" type="Control" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1751396369]
+[node name="Binder5" type="Control" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders" unique_id=1751396369]
 layout_mode = 2
 
-[node name="Top" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder5" unique_id=1001829329]
+[node name="Top" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Binders/Binder5" unique_id=1001829329]
 custom_minimum_size = Vector2(40, 105)
 layout_mode = 0
 offset_left = -16.0
@@ -298,7 +295,7 @@ mouse_filter = 2
 texture = ExtResource("2_gmctk")
 expand_mode = 1
 
-[node name="Buttons" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=1185708418]
+[node name="Buttons" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField" unique_id=1185708418]
 layout_mode = 0
 offset_left = 32.00006
 offset_right = 76.00006
@@ -306,7 +303,7 @@ offset_bottom = 210.0
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="AutoButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1936337846]
+[node name="AutoButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1936337846]
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Автопроигрывание [A]"
@@ -321,7 +318,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_p71ql")
 toggle_mode = true
 expand_icon = true
 
-[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton" unique_id=1169239083]
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton" unique_id=1169239083]
+modulate = Color(0.72156864, 0.79607844, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -333,13 +331,14 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton/MarginContainer" unique_id=226022918]
-modulate = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton/MarginContainer" unique_id=226022918]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_1gafj")
-expand_mode = 1
+expand_mode = 3
 
-[node name="SkipButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=196772342]
+[node name="SkipButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=196772342]
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Быстрая перемотка [Tab]"
@@ -353,7 +352,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tbxk5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p71ql")
 toggle_mode = true
 
-[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton" unique_id=1524119198]
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton" unique_id=1524119198]
+modulate = Color(0.72156864, 0.79607844, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -365,13 +365,12 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton/MarginContainer" unique_id=2058444126]
-modulate = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton/MarginContainer" unique_id=2058444126]
 layout_mode = 2
-texture = ExtResource("4_gmctk")
-expand_mode = 1
+texture = ExtResource("5_ywk5o")
+expand_mode = 3
 
-[node name="LogButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=146265994]
+[node name="LogButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=146265994]
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "История записей [H]"
@@ -384,7 +383,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ywk5o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tbxk5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p71ql")
 
-[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton" unique_id=1857312598]
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton" unique_id=1857312598]
+modulate = Color(0.72156864, 0.79607844, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -396,13 +396,12 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton/MarginContainer" unique_id=849181734]
-modulate = Color(0, 0, 0, 1)
+[node name="TextureRect" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton/MarginContainer" unique_id=849181734]
 layout_mode = 2
-texture = ExtResource("6_ywk5o")
+texture = SubResource("CompressedTexture2D_f8m8w")
 expand_mode = 1
 
-[node name="MenuButton" type="Button" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1693423416]
+[node name="MenuButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1693423416]
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Меню блокнота [Esc]"
@@ -415,73 +414,88 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ywk5o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tbxk5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p71ql")
 
-[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton" unique_id=659231349]
+[node name="MarginContainer" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton" unique_id=659231349]
+modulate = Color(0.72156864, 0.79607844, 0.9019608, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 6
 
-[node name="TextureRect" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer" unique_id=1811886450]
-modulate = Color(0, 0, 0, 1)
+[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer" unique_id=561518754]
 layout_mode = 2
-texture = ExtResource("7_tbxk5")
-expand_mode = 1
+theme_override_constants/separation = 4
+alignment = 1
 
-[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=1525145301]
+[node name="Panel" type="Panel" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer/VBoxContainer" unique_id=1947896664]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mcwr")
+
+[node name="Panel2" type="Panel" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer/VBoxContainer" unique_id=1930037937]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mcwr")
+
+[node name="Panel3" type="Panel" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer/VBoxContainer" unique_id=393114775]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mcwr")
+
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler" unique_id=1525145301]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.8745098, 0.54901963, 0.5411765, 1)
 
-[node name="Paper" type="PanelContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=1774405400]
+[node name="Paper" type="PanelContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=1774405400]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_erf6m")
 
-[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=316273302]
+[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=316273302]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin" unique_id=1287986090]
+[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin" unique_id=1287986090]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 38
 
-[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=800361782]
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=800361782]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.71999997, 0.798, 0.9, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=427989978]
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=427989978]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.71999997, 0.798, 0.9, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=73634194]
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=73634194]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.71999997, 0.798, 0.9, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=2091917149]
+[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer" unique_id=2091917149]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.71999997, 0.798, 0.9, 1)
 
-[node name="DialogueMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=1327878338]
+[node name="DialogueMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper" unique_id=1327878338]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 28
@@ -489,18 +503,18 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 12
 
-[node name="ContentVBox" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin" unique_id=852346658]
+[node name="ContentVBox" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin" unique_id=852346658]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="Speaker" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=559282890]
+[node name="Speaker" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=559282890]
 modulate = Color(0.18039216, 0.25882354, 0.47843137, 1)
 custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="SpeakerIcon" type="TextureRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=823961058]
+[node name="SpeakerIcon" type="TextureRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=823961058]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 texture = ExtResource("5_l6yfk")
@@ -508,19 +522,19 @@ expand_mode = 1
 stretch_mode = 5
 flip_h = true
 
-[node name="SpeakerLabel" type="Label" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=17104118]
+[node name="SpeakerLabel" type="Label" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=17104118]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Рен:"
 
-[node name="MessageMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=781283271]
+[node name="MessageMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=781283271]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = -30
 theme_override_constants/margin_bottom = -15
 
-[node name="MessageLabel" type="RichTextLabel" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/MessageMargin" unique_id=298172254]
+[node name="MessageLabel" type="RichTextLabel" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/MessageMargin" unique_id=298172254]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -535,82 +549,79 @@ text = "Запись в блокноте...
 Мало ли, что там... Впрочем, я бы не удивился, если бы оттуда вылезла мумия"
 fit_content = true
 
-[node name="OtherPapers" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=1586457360]
+[node name="OtherPapers" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer" unique_id=1586457360]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers" unique_id=1682593485]
+[node name="HBoxContainer" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers" unique_id=1682593485]
 z_index = 1
-custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=955140119]
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=955140119]
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect" unique_id=759746205]
+[node name="LinesMargin" type="MarginContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect" unique_id=759746205]
 modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = 8.0
-offset_right = 22.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin" unique_id=1019798435]
+[node name="VBoxContainer" type="VBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin" unique_id=1019798435]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 38
 
-[node name="ColorRect" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=956245481]
+[node name="ColorRect" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=956245481]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.56078434, 0.61960787, 0.7019608, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1401973494]
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1401973494]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.56078434, 0.61960787, 0.7019608, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1834672066]
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1834672066]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.56078434, 0.61960787, 0.7019608, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1258594954]
+[node name="ColorRect4" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer" unique_id=1258594954]
 custom_minimum_size = Vector2(3, 4)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.56078434, 0.61960787, 0.7019608, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1997646105]
-z_index = -1
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.7
-mouse_filter = 2
-color = Color(0.6, 0.6, 0.6, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/CanvasGroup/Control/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1892099018]
+[node name="ColorRect2" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1997646105]
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
+mouse_filter = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer" unique_id=1892099018]
+visible = false
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
 mouse_filter = 2
 color = Color(0.5294118, 0.5294118, 0.5294118, 1)

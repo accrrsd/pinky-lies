@@ -123,12 +123,11 @@ func _setup_settings_reset() -> void:
           btn.pressed.connect(_on_settings_reset_pressed)
 
 func _on_settings_reset_pressed() -> void:
-  var audio_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent")
-  var text_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent")
-  var addition_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent")
+  var audio_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent")
+  var text_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent")
+  var addition_content = parent.get_node_or_null("Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent")
   for content in [audio_content, text_content, addition_content]:
-    if content and content.has_method("reset_to_defaults"):
-      content.reset_to_defaults()
+    if content and content.has_method("reset_to_defaults"): content.reset_to_defaults()
 
 func _setup_all_option_buttons(node: Node) -> void:
   if not node: return

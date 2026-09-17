@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TweenPropsRes" format=3 uid="uid://df72k8la0mq1c"]
+
+[ext_resource type="Script" uid="uid://cb43553475evj" path="res://1_code/resources/tweens/TweenPropsRes.gd" id="1_vdym2"]
+
+[resource]
+script = ExtResource("1_vdym2")
+property = "self_modulate:a"
+start_value = 0.0
+final_value = 1.0
+metadata/_custom_type_script = "uid://cb43553475evj"

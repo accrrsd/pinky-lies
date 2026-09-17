@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4uxe2k8b28gl" path="res://3_scenes/ui_kit/BackgroundFiller/BackgroundFiller.tscn" id="1_p7u8f"]
 [ext_resource type="Texture2D" uid="uid://dfsh61l1i3fjb" path="res://5_trash/imgs/00020-2798477167.png" id="2_37eci"]
-[ext_resource type="Script" uid="uid://cfpktrjuw65x3" path="res://3_scenes/ui_kit/ScriptsWithoutScene/CanvasAnchorTransformer.gd" id="3_i6tq1"]
+[ext_resource type="Script" uid="uid://cfpktrjuw65x3" path="res://5_trash/CanvasAnchorTransformer.gd" id="3_i6tq1"]
 [ext_resource type="Texture2D" uid="uid://dp5f80st2y471" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-bottom.svg" id="4_wwhg0"]
 [ext_resource type="Shader" uid="uid://dmj7fblwebiev" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/notebook_holes.gdshader" id="5_p2sk6"]
 [ext_resource type="Texture2D" uid="uid://cm3ptrbtqaf0n" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/assets/binder-top.svg" id="6_jy4ps"]
@@ -151,7 +151,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Refs" type="CanvasLayer" parent="." unique_id=599386222]
-visible = false
 
 [node name="Pallete" type="Control" parent="Refs" unique_id=986454096]
 layout_mode = 3
@@ -227,21 +226,6 @@ texture = ExtResource("12_gts60")
 [node name="5qmy8fXc9GxMy1bGlmHp1StjVj4hQcyRurTheRayaPlOn9jNemwvyGgzAGh7y5PeYdcgl3BnjM6ScC90FcfGWvm8" type="Sprite2D" parent="Refs" unique_id=2127789547]
 position = Vector2(-656, 378)
 texture = ExtResource("13_4u7b1")
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Refs" unique_id=204129700]
-offset_left = 2043.0
-offset_top = 0.006713867
-offset_right = 3963.0
-offset_bottom = 1079.9933
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="Refs/SubViewportContainer2" unique_id=990610778]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1079)
-size_2d_override = Vector2i(3840, 2160)
-size_2d_override_stretch = true
-render_target_update_mode = 0
 
 [node name="BbDemo" type="Node2D" parent="Refs" unique_id=1703385281]
 position = Vector2(-37, -894)
@@ -331,7 +315,7 @@ snap_2d_vertices_to_pixel = true
 size = Vector2i(1920, 1079)
 size_2d_override = Vector2i(1920, 1080)
 size_2d_override_stretch = true
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="MessageBoxMargin" type="MarginContainer" parent="Refs/SubViewportContainer/SubViewport" unique_id=1125663508]
 anchors_preset = -1
@@ -835,6 +819,8 @@ offset_left = -6.1035156e-05
 offset_top = 0.006713867
 offset_right = 1920.0
 offset_bottom = 1079.9933
+grow_horizontal = 1
+grow_vertical = 1
 backgroundImage = ExtResource("2_37eci")
 
 [node name="AnchorHandler" type="Control" parent="." unique_id=1135188037]

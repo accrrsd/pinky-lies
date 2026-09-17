@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rw8es0g43jum"
-path="res://.godot/imported/skip.svg-1a9f8cfe578d4c3d033cd71cab2dde60.ctex"
+uid="uid://lfhynlsuefsq"
+path="res://.godot/imported/curved-arrow-left-icon.svg-2ce8d090a4bae9a810b5cda97e6c470c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/icons/skip.svg"
-dest_files=["res://.godot/imported/skip.svg-1a9f8cfe578d4c3d033cd71cab2dde60.ctex"]
+source_file="res://2_general/assets/ui/icons/curved-arrow-left-icon.svg"
+dest_files=["res://.godot/imported/curved-arrow-left-icon.svg-2ce8d090a4bae9a810b5cda97e6c470c.ctex"]
 
 [params]
 

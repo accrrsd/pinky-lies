@@ -13,19 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://ciw8rxv8ei5pd" path="res://3_scenes/ui_kit/@ProjectSpecific/BigColoredButton/BigColoredButton.tscn" id="11_055hd"]
 [ext_resource type="Script" uid="uid://jsmx13ffmooc" path="res://3_scenes/menus/main_menu/tab_ui_handler.gd" id="12_3b75w"]
 [ext_resource type="PackedScene" uid="uid://mindody566fq" path="res://3_scenes/menus/main_menu/UiPanelHandler.tscn" id="12_qopwy"]
-[ext_resource type="Resource" uid="uid://cc6wk6mgd3nbc" path="res://2_general/resources/custom/sound_props/ButtonClick.tres" id="14_055ko"]
-[ext_resource type="Resource" uid="uid://bcixsnuvguxpd" path="res://2_general/resources/custom/sound_props/ButtonHover.tres" id="15_svli8"]
-[ext_resource type="Script" uid="uid://fyx6tnnkjemq" path="res://3_scenes/ui_kit/ScriptsWithoutScene/SoundButton.gd" id="16_hhb3p"]
 [ext_resource type="Script" uid="uid://bvqothq0ohusd" path="res://1_code/core/settings/SettingsHandler.gd" id="17_jawtq"]
 [ext_resource type="Script" uid="uid://b0a1jmqd7j8d7" path="res://1_code/core/settings/SettingsHandlerRes.gd" id="18_hhkrn"]
 [ext_resource type="PackedScene" uid="uid://6wui2deutxxj" path="res://3_scenes/ui_kit/CandySlider/CandySlider.tscn" id="19_g3ek5"]
 [ext_resource type="PackedScene" uid="uid://bp6k3uh24byi5" path="res://3_scenes/ui_kit/ArrowSelector/ArrowSelector.tscn" id="21_b7guf"]
 [ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/@ProjectSpecific/HeartButton/HeartButton.tscn" id="21_c4rxa"]
+[ext_resource type="PackedScene" uid="uid://bxyy3o5reatrq" path="res://3_scenes/menus/main_menu/LoadIcon.tscn" id="24_ynlmi"]
 [ext_resource type="PackedScene" uid="uid://cx8bve6t0q1yp" path="res://3_scenes/ui_kit/ConfirmationPopup/ConfirmationPopup.tscn" id="25_conf_pop"]
 [ext_resource type="Script" uid="uid://bf3h7rq5caox3" path="res://3_scenes/menus/main_menu/save_load_menu_script.gd" id="26_saveload_script"]
 [ext_resource type="Texture2D" uid="uid://hhcwpypmhxp5" path="res://2_general/assets/ui/icons/Pill-White.svg" id="27_pill"]
 [ext_resource type="Script" uid="uid://v7gfwrflnrh4" path="res://3_scenes/menus/main_menu/memories_menu_script.gd" id="28_memories_script"]
 [ext_resource type="PackedScene" uid="uid://de87fvlq31ol8" path="res://3_scenes/ui_kit/PanelButton/PanelButton.tscn" id="29_panel_btn"]
+[ext_resource type="StyleBox" uid="uid://bv8k1k7v3m2ya" path="res://2_general/resources/custom/StyleBoxBLACK.tres" id="30_sbblack"]
+[ext_resource type="Resource" uid="uid://df72k8la0mq1c" path="res://2_general/resources/custom/tween_chains/tween_parts/selfModulateNoTargetShow.tres" id="31_selfmod_show"]
+[ext_resource type="Resource" uid="uid://bvsm61d8u4v1y" path="res://2_general/resources/custom/tween_chains/tween_parts/selfModulateNoTargetHide.tres" id="32_selfmod_hide"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
@@ -139,29 +140,15 @@ steps = Array[ExtResource("5_kip88")]([ExtResource("6_h82lq"), SubResource("Reso
 speed_scale = 2.0
 metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
-[sub_resource type="Resource" id="Resource_tab_show_fade"]
-script = ExtResource("5_kip88")
-property = "modulate:a"
-start_value = 0.0
-final_value = 1.0
-metadata/_custom_type_script = "uid://cb43553475evj"
-
 [sub_resource type="Resource" id="Resource_tab_show"]
 script = ExtResource("4_v37uj")
-steps = Array[ExtResource("5_kip88")]([ExtResource("6_h82lq"), SubResource("Resource_tab_show_fade")])
+steps = Array[ExtResource("5_kip88")]([ExtResource("6_h82lq"), ExtResource("31_selfmod_show")])
 speed_scale = 3.0
 metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
-[sub_resource type="Resource" id="Resource_tab_hide_fade"]
-script = ExtResource("5_kip88")
-property = "modulate:a"
-start_value = 1.0
-final_value = 0.0
-metadata/_custom_type_script = "uid://cb43553475evj"
-
 [sub_resource type="Resource" id="Resource_tab_hide"]
 script = ExtResource("4_v37uj")
-steps = Array[ExtResource("5_kip88")]([ExtResource("6_h82lq"), SubResource("Resource_tab_hide_fade"), ExtResource("7_64wq7")])
+steps = Array[ExtResource("5_kip88")]([ExtResource("6_h82lq"), ExtResource("32_selfmod_hide"), ExtResource("7_64wq7")])
 speed_scale = 3.0
 metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
@@ -329,10 +316,6 @@ metadata/_custom_type_script = "uid://b0a1jmqd7j8d7"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mu35"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bns70"]
-
 [node name="MainMenu" type="Control" unique_id=1224244970]
 layout_mode = 3
 anchors_preset = 15
@@ -423,22 +406,22 @@ text = "NEW STORY! ♥︎"
 [node name="LoadGame" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2073852572 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]"
+text = "LOAD GAME! [img=40]uid://q1vfqf3212qg[/img]"
 
 [node name="Gallery" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2056558448 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "MEMORIES [img=50]uid://cqx00tixedbst[/img]"
+text = "MEMORIES [img=50]uid://bmvst5dwgftwb[/img]"
 
 [node name="Settings" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1418662307 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "CONFIGURATION [img=40]uid://bqph778conedj[/img]"
+text = "CONFIGURATION [img=40]uid://coscthsietmmh[/img]"
 
 [node name="Exit" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=571986546 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "EXIT [img=40]uid://cundpwr5m5dfn[/img]"
+text = "EXIT [img=40]uid://dah1lli6s2wkj[/img]"
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
 visible = false
@@ -450,25 +433,25 @@ initial_state = NodePath("ShowAudio")
 
 [node name="ShowAudio" type="Node" parent="Settings/SettingsStateManager" unique_id=241117103 node_paths=PackedStringArray("default_target_node")]
 script = ExtResource("3_2mv6l")
-default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent")
+default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer")
 show_chain = SubResource("Resource_tab_show")
 hide_chain = SubResource("Resource_tab_hide")
 
 [node name="ShowText" type="Node" parent="Settings/SettingsStateManager" unique_id=241117104 node_paths=PackedStringArray("default_target_node")]
 script = ExtResource("3_2mv6l")
-default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent")
+default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer")
 show_chain = SubResource("Resource_tab_show")
 hide_chain = SubResource("Resource_tab_hide")
 
 [node name="ShowAddition" type="Node" parent="Settings/SettingsStateManager" unique_id=241117105 node_paths=PackedStringArray("default_target_node")]
 script = ExtResource("3_2mv6l")
-default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent")
+default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer")
 show_chain = SubResource("Resource_tab_show")
 hide_chain = SubResource("Resource_tab_hide")
 
 [node name="ShowHotKeys" type="Node" parent="Settings/SettingsStateManager" unique_id=241117106 node_paths=PackedStringArray("default_target_node")]
 script = ExtResource("3_2mv6l")
-default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent")
+default_target_node = NodePath("../../UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer")
 show_chain = SubResource("Resource_tab_show")
 hide_chain = SubResource("Resource_tab_hide")
 
@@ -536,115 +519,133 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 20
 
-[node name="AudioContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398372]
-visible = false
+[node name="AudioClipContainer" type="PanelContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=839603551]
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("30_sbblack")
+
+[node name="AudioContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer" unique_id=490398372]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("17_jawtq")
 handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_m1ige"), SubResource("Resource_rc5b5"), SubResource("Resource_8ohoa"), SubResource("Resource_3b75w")])
 
-[node name="HboxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent" unique_id=1822189951]
+[node name="HboxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent" unique_id=1822189951]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer" unique_id=11790060]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer" unique_id=11790060]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Music_Volume"
 
-[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer" unique_id=2083825898 instance=ExtResource("19_g3ek5")]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer" unique_id=2083825898 instance=ExtResource("19_g3ek5")]
+layout_mode = 2
+metadata/modulate_parent = NodePath("../..")
+
+[node name="HboxContainer2" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent" unique_id=75616128]
 layout_mode = 2
 
-[node name="HboxContainer2" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent" unique_id=75616128]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer2" unique_id=834651171]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer2" unique_id=834651171]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Effects_Volume"
 
-[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer2" unique_id=378258623 instance=ExtResource("19_g3ek5")]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer2" unique_id=378258623 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
 
-[node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent" unique_id=75616129]
+[node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent" unique_id=75616129]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer3" unique_id=834651172]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer3" unique_id=834651172]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Voice_Volume"
 
-[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/HboxContainer3" unique_id=330699425 instance=ExtResource("19_g3ek5")]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/HboxContainer3" unique_id=330699425 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent" unique_id=599118307]
+[node name="MarginContainer" type="MarginContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent" unique_id=599118307]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer" unique_id=576177878]
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/MarginContainer" unique_id=576177878]
 layout_mode = 2
 
-[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 instance=ExtResource("29_panel_btn")]
+[node name="MuteAll" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1212329756 instance=ExtResource("29_panel_btn")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 text = "MUTE ALL"
 
-[node name="Container" type="Container" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1815049542]
+[node name="Container" type="Container" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AudioClipContainer/AudioContent/MarginContainer/HBoxContainer" unique_id=1815049542]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 
-[node name="TextContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398373]
+[node name="TextClipContainer" type="PanelContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=302651593]
 visible = false
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("30_sbblack")
+
+[node name="TextContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer" unique_id=490398373]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("17_jawtq")
 handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_text_speed"), SubResource("Resource_auto_read"), SubResource("Resource_language"), SubResource("Resource_colored_text")])
 
-[node name="HboxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=1822189952]
+[node name="HboxContainer" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent" unique_id=1822189952]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer" unique_id=11790061]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer" unique_id=11790061]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Text display speed"
 
-[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer" unique_id=895292285 instance=ExtResource("19_g3ek5")]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer" unique_id=895292285 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
 
-[node name="HboxContainer2" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616130]
+[node name="HboxContainer2" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent" unique_id=75616130]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer2" unique_id=834651173]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer2" unique_id=834651173]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Auto-read speed"
 
-[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer2" unique_id=2121222263 instance=ExtResource("19_g3ek5")]
+[node name="CandySlider" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer2" unique_id=2121222263 instance=ExtResource("19_g3ek5")]
 layout_mode = 2
 
-[node name="HboxContainerLanguage" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=756161330]
+[node name="HboxContainerLanguage" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent" unique_id=756161330]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=-243422832]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainerLanguage" unique_id=-243422832]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Language"
 
-[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainerLanguage" unique_id=946159670]
+[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainerLanguage" unique_id=946159670]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -656,95 +657,104 @@ popup/item_0/id = 0
 popup/item_1/text = "Русский"
 popup/item_1/id = 1
 
-[node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent" unique_id=75616131]
+[node name="HboxContainer3" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent" unique_id=75616131]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=834651174]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer3" unique_id=834651174]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Change read text color"
 
-[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextContent/HboxContainer3" unique_id=1447481935 instance=ExtResource("21_c4rxa")]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/TextClipContainer/TextContent/HboxContainer3" unique_id=1447481935 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
 
-[node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398374]
+[node name="AdditionClipContainer" type="PanelContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=698950825]
 visible = false
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("30_sbblack")
+
+[node name="AdditionContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer" unique_id=490398374]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("17_jawtq")
 handlers = Array[ExtResource("18_hhkrn")]([SubResource("Resource_fast_scroll"), SubResource("Resource_skip_choices"), SubResource("Resource_tooltips"), SubResource("Resource_display_mode"), SubResource("Resource_b7guf"), SubResource("Resource_c4rxa")])
 
-[node name="HboxContainerFastScroll" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=1042030346]
+[node name="HboxContainerFastScroll" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=1042030346]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFastScroll" unique_id=117900620]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerFastScroll" unique_id=117900620]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Fast skip"
 
-[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFastScroll" unique_id=-1650184816 instance=ExtResource("21_b7guf")]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerFastScroll" unique_id=-1650184816 instance=ExtResource("21_b7guf")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
 options = Array[String](["Read text", "All text"])
 
-[node name="HboxContainerSkipChoices" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=756161320]
+[node name="HboxContainerSkipChoices" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=756161320]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerSkipChoices" unique_id=-243422842]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerSkipChoices" unique_id=-243422842]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Skip choices"
 
-[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerSkipChoices" unique_id=1645317756 instance=ExtResource("21_c4rxa")]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerSkipChoices" unique_id=1645317756 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
 
-[node name="HboxContainerTooltips" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=756161321]
+[node name="HboxContainerTooltips" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=756161321]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerTooltips" unique_id=-243422841]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerTooltips" unique_id=-243422841]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Tooltips"
 
-[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerTooltips" unique_id=1645317757 instance=ExtResource("21_c4rxa")]
+[node name="HeartCheckbox" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerTooltips" unique_id=1645317757 instance=ExtResource("21_c4rxa")]
 layout_mode = 2
 button_pressed = true
 
-[node name="HboxContainerDisplayMode" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=1822189953]
+[node name="HboxContainerDisplayMode" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=1822189953]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerDisplayMode" unique_id=11790062]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerDisplayMode" unique_id=11790062]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Display mode"
 
-[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerDisplayMode" unique_id=264478248 instance=ExtResource("21_b7guf")]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerDisplayMode" unique_id=264478248 instance=ExtResource("21_b7guf")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
 options = Array[String](["Windowed", "Fullscreen"])
 
-[node name="HboxContainerResolution" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=75616133]
+[node name="HboxContainerResolution" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=75616133]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerResolution" unique_id=834651176]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerResolution" unique_id=834651176]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Screen resolution"
 
-[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerResolution" unique_id=1882518695]
+[node name="OptionButton" type="OptionButton" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerResolution" unique_id=1882518695]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -763,106 +773,115 @@ popup/item_4/id = 4
 popup/item_5/text = "1024x576"
 popup/item_5/id = 5
 
-[node name="HboxContainerFillscreen" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent" unique_id=2112801712]
+[node name="HboxContainerFillscreen" type="HBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent" unique_id=2112801712]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1323121949]
+[node name="Label" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerFillscreen" unique_id=1323121949]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 40
 text = "Screen fill mode"
 
-[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionContent/HboxContainerFillscreen" unique_id=1672070971 instance=ExtResource("21_b7guf")]
+[node name="ArrowSelector" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/AdditionClipContainer/AdditionContent/HboxContainerFillscreen" unique_id=1672070971 instance=ExtResource("21_b7guf")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8mu35")
 options = Array[String](["Blur", "Color", "None"])
 
-[node name="HotKeysContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=490398375]
+[node name="HotKeysClipContainer" type="PanelContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer" unique_id=1892778282]
 visible = false
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("30_sbblack")
+
+[node name="HotKeysContent" type="VBoxContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer" unique_id=490398375]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent" unique_id=987123991]
+[node name="GridContainer" type="GridContainer" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent" unique_id=987123991]
 layout_mode = 2
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Label1" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123992]
+[node name="Label1" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123992]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Fast skip key"
 
-[node name="Key1" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123993]
+[node name="Key1" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123993]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "[ Ctrl ]"
 
-[node name="Label2" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123994]
+[node name="Label2" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123994]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Next line"
 
-[node name="Key2" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123995]
+[node name="Key2" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123995]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "[ Space / Enter ]"
 
-[node name="Label3" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123996]
+[node name="Label3" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123996]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Auto-read"
 
-[node name="Key3" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123997]
+[node name="Key3" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123997]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "[ A ]"
 
-[node name="Label4" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123998]
+[node name="Label4" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123998]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Hide UI"
 
-[node name="Key4" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987123999]
+[node name="Key4" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987123999]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "[ H ]"
 
-[node name="Label5" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124000]
+[node name="Label5" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987124000]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Quick save"
 
-[node name="Key5" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124001]
+[node name="Key5" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987124001]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
 text = "[ S ]"
 
-[node name="Label6" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124002]
+[node name="Label6" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987124002]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ColoredLabel"
 theme_override_font_sizes/font_size = 36
 text = "Quick load"
 
-[node name="Key6" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysContent/GridContainer" unique_id=987124003]
+[node name="Key6" type="Label" parent="Settings/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/ContentContainer/HotKeysClipContainer/HotKeysContent/GridContainer" unique_id=987124003]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 36
@@ -889,331 +908,22 @@ theme_override_font_sizes/font_size = 50
 text = "LOAD GAME ♥︎"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(2067601531, 884896457) index="1" unique_id=987124010]
+[node name="GridContainer" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(2067601531, 884896457) index="1" unique_id=1909052607]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 3
+theme_override_constants/separation = 50
 
-[node name="Slot1" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124011]
+[node name="Slot1" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=719338525 instance=ExtResource("24_ynlmi")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_g4v7s")
 
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1" unique_id=987124012]
+[node name="Slot2" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=135388274 instance=ExtResource("24_ynlmi")]
 layout_mode = 2
-alignment = 1
 
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/VBox" unique_id=987124013]
+[node name="Slot3" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=1985894247 instance=ExtResource("24_ynlmi")]
 layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 01"
-horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/VBox" unique_id=987124014]
-custom_minimum_size = Vector2(0, 80)
+[node name="Slot4" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=472598309 instance=ExtResource("24_ynlmi")]
 layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/VBox" unique_id=987124015]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1" unique_id=987124016]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1" unique_id=987124201]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/TrashMargin" unique_id=987124202]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot1/TrashMargin/TrashHBox" unique_id=987124203]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
-
-[node name="Slot2" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124021]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2" unique_id=987124022]
-layout_mode = 2
-alignment = 1
-
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/VBox" unique_id=987124023]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 02"
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/VBox" unique_id=987124024]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/VBox" unique_id=987124025]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2" unique_id=987124026]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2" unique_id=987124211]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/TrashMargin" unique_id=987124212]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot2/TrashMargin/TrashHBox" unique_id=987124213]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
-
-[node name="Slot3" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124031]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3" unique_id=987124032]
-layout_mode = 2
-alignment = 1
-
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/VBox" unique_id=987124033]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 03"
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/VBox" unique_id=987124034]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/VBox" unique_id=987124035]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3" unique_id=987124036]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3" unique_id=987124221]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/TrashMargin" unique_id=987124222]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot3/TrashMargin/TrashHBox" unique_id=987124223]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
-
-[node name="Slot4" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124041]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4" unique_id=987124042]
-layout_mode = 2
-alignment = 1
-
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/VBox" unique_id=987124043]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 04"
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/VBox" unique_id=987124044]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/VBox" unique_id=987124045]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4" unique_id=987124046]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4" unique_id=987124231]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/TrashMargin" unique_id=987124232]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot4/TrashMargin/TrashHBox" unique_id=987124233]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
-
-[node name="Slot5" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124051]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5" unique_id=987124052]
-layout_mode = 2
-alignment = 1
-
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/VBox" unique_id=987124053]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 05"
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/VBox" unique_id=987124054]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/VBox" unique_id=987124055]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5" unique_id=987124056]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5" unique_id=987124241]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/TrashMargin" unique_id=987124242]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot5/TrashMargin/TrashHBox" unique_id=987124243]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
-
-[node name="Slot6" type="PanelContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=987124061]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6" unique_id=987124062]
-layout_mode = 2
-alignment = 1
-
-[node name="SlotTitle" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/VBox" unique_id=987124063]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 06"
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/VBox" unique_id=987124064]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
-
-[node name="SlotInfo" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/VBox" unique_id=987124065]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6" unique_id=987124066]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-flat = true
-
-[node name="TrashMargin" type="MarginContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6" unique_id=987124251]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-
-[node name="TrashHBox" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/TrashMargin" unique_id=987124252]
-layout_mode = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TrashButton" type="Button" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer/Slot6/TrashMargin/TrashHBox" unique_id=987124253]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-icon = SubResource("CompressedTexture2D_bns70")
-flat = true
-expand_icon = true
-script = ExtResource("16_hhb3p")
-pressed_sound = ExtResource("14_055ko")
-hover_sound = ExtResource("15_svli8")
 
 [node name="Reset" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" parent_id_path=PackedInt32Array(2067601531, 793883986) index="0" unique_id=1396975660]
 modulate = Color(1, 1, 1, 0)

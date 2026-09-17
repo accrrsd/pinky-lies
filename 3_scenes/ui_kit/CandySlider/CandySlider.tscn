@@ -7,7 +7,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8fjv"]
 
-[node name="CandySlider" type="MarginContainer" unique_id=1981639730 node_paths=PackedStringArray("_progress_texture", "_slider")]
+[node name="CandySlider" type="MarginContainer" unique_id=1350601815 node_paths=PackedStringArray("_progress_texture", "_slider")]
 custom_minimum_size = Vector2(0, 105)
 anchors_preset = -1
 offset_left = -1.0

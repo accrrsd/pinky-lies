@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://laajqplfqla3"
-path="res://.godot/imported/JellyBob-Green.svg-d7806bbcd49fb6c4ada364a18f823bf5.ctex"
+path="res://.godot/imported/JellyBob-Green.svg-f4c958b5dd3f952f4762c807e011b867.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/slider/JellyBob-Green.svg"
-dest_files=["res://.godot/imported/JellyBob-Green.svg-d7806bbcd49fb6c4ada364a18f823bf5.ctex"]
+source_file="res://5_trash/JellyBob-Green.svg"
+dest_files=["res://.godot/imported/JellyBob-Green.svg-f4c958b5dd3f952f4762c807e011b867.ctex"]
 
 [params]
 

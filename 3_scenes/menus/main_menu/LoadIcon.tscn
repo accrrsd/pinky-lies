@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bxyy3o5reatrq"]
+
+[ext_resource type="Texture2D" uid="uid://dc1ybvaxxe5ib" path="res://2_general/assets/ui/icons/Cookie.svg" id="1_4obag"]
+[ext_resource type="Texture2D" uid="uid://d3r8paio6yuup" path="res://2_general/assets/ui/icons/Glaze.svg" id="2_b34ka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" unique_id=252451239]
+offset_right = 384.0
+offset_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot1" type="PanelContainer" parent="." unique_id=719338525]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="VBox" type="VBoxContainer" parent="Slot1" unique_id=731834464]
+layout_mode = 2
+alignment = 1
+
+[node name="SlotTitle" type="Label" parent="Slot1/VBox" unique_id=1843068147]
+visible = false
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+text = "SLOT 01"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Slot1/VBox" unique_id=235491116]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(0.15, 0.15, 0.2, 0.6)
+
+[node name="SlotInfo" type="Label" parent="Slot1/VBox" unique_id=1837763531]
+layout_mode = 2
+text = "Empty_Slot"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Slot1" unique_id=489643208]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Slot1" unique_id=1808265645]
+layout_mode = 2
+texture = ExtResource("1_4obag")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Slot1" unique_id=1483518388]
+layout_mode = 2
+texture = ExtResource("2_b34ka")

@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bmqwhfim2gnms" path="res://2_general/assets/ui/icons/play-button-svgrepo-com(1).svg" id="4_1gafj"]
 [ext_resource type="Texture2D" uid="uid://xuc7ndenwims" path="res://2_general/assets/ui/icons/pencil.svg" id="5_l6yfk"]
 [ext_resource type="Texture2D" uid="uid://bpxp8vw4p2sfh" path="res://2_general/assets/ui/icons/skip-svgrepo-com.svg" id="5_ywk5o"]
+[ext_resource type="Script" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/general_message_box_script.gd" id="6_script"]
+[ext_resource type="Script" uid="uid://d342puk7dqeif" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemePropRes.gd" id="7_prop"]
+[ext_resource type="Script" uid="uid://cc7vye6a40scf" path="res://1_code/resources/ui/ControlThemeHandler/ControlThemeHandlerRes.gd" id="8_handler"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
 bg_color = Color(0, 0, 0, 1)
@@ -82,6 +85,91 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erf6m"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Resource" id="Resource_cover"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/Cover")])
+prop_name = &"panel"
+custom_prop_name = &"cover_panel"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_paper"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper")])
+prop_name = &"panel"
+custom_prop_name = &"paper_panel"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_lines"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer/ColorRect"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer/ColorRect2"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer/ColorRect3"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/LinesMargin/VBoxContainer/ColorRect4")])
+prop_name = &"color"
+custom_prop_name = &"lines_color"
+prop_type = 0
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_margin_line"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/ColorRect2")])
+prop_name = &"color"
+custom_prop_name = &"margin_line_color"
+prop_type = 0
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_btn_icons"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton/MarginContainer"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton/MarginContainer"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton/MarginContainer"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton/MarginContainer")])
+prop_name = &"modulate"
+custom_prop_name = &"button_icon_color"
+prop_type = 0
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_btn_normal"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton")])
+prop_name = &"normal"
+custom_prop_name = &"button_normal"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_btn_hover"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton")])
+prop_name = &"hover"
+custom_prop_name = &"button_hover"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_btn_pressed"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/AutoButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/SkipButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/LogButton"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons/MenuButton")])
+prop_name = &"pressed"
+custom_prop_name = &"button_pressed"
+prop_type = 5
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_other_papers"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect")])
+prop_name = &"color"
+custom_prop_name = &"other_papers_color"
+prop_type = 0
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_other_lines"]
+script = ExtResource("7_prop")
+paths = Array[NodePath]([NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer/ColorRect"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer/ColorRect2"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer/ColorRect3"), NodePath("AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/OtherPapers/HBoxContainer/ColorRect/LinesMargin/VBoxContainer/ColorRect4")])
+prop_name = &"color"
+custom_prop_name = &"other_lines_color"
+prop_type = 0
+metadata/_custom_type_script = "uid://d342puk7dqeif"
+
+[sub_resource type="Resource" id="Resource_theme_handler"]
+script = ExtResource("8_handler")
+props = Array[ExtResource("7_prop")]([SubResource("Resource_cover"), SubResource("Resource_paper"), SubResource("Resource_lines"), SubResource("Resource_margin_line"), SubResource("Resource_btn_icons"), SubResource("Resource_btn_normal"), SubResource("Resource_btn_hover"), SubResource("Resource_btn_pressed"), SubResource("Resource_other_papers"), SubResource("Resource_other_lines")])
+metadata/_custom_type_script = "uid://cc7vye6a40scf"
+
 [node name="GeneralMessageBox" type="AspectRatioContainer" unique_id=1456909263]
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,6 +177,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 ratio = 1.7778
+theme_type_variation = &"MessageBox"
+script = ExtResource("6_script")
+theme_handler = SubResource("Resource_theme_handler")
 
 [node name="AnchorHandler" type="Control" parent="." unique_id=1956034148]
 layout_mode = 2
@@ -304,6 +395,7 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="AutoButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1936337846]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Автопроигрывание [A]"
@@ -339,6 +431,7 @@ texture = ExtResource("4_1gafj")
 expand_mode = 3
 
 [node name="SkipButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=196772342]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Быстрая перемотка [Tab]"
@@ -371,6 +464,7 @@ texture = ExtResource("5_ywk5o")
 expand_mode = 3
 
 [node name="LogButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=146265994]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "История записей [H]"
@@ -402,6 +496,7 @@ texture = SubResource("CompressedTexture2D_f8m8w")
 expand_mode = 1
 
 [node name="MenuButton" type="Button" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/RedFieldHandler/RedField/Buttons" unique_id=1693423416]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(44, 34)
 layout_mode = 2
 tooltip_text = "Меню блокнота [Esc]"
@@ -509,6 +604,7 @@ mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="Speaker" type="HBoxContainer" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox" unique_id=559282890]
+unique_name_in_owner = true
 modulate = Color(0.18039216, 0.25882354, 0.47843137, 1)
 custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
@@ -523,6 +619,7 @@ stretch_mode = 5
 flip_h = true
 
 [node name="SpeakerLabel" type="Label" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/Speaker" unique_id=17104118]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Рен:"
@@ -535,6 +632,7 @@ theme_override_constants/margin_right = -30
 theme_override_constants/margin_bottom = -15
 
 [node name="MessageLabel" type="RichTextLabel" parent="AnchorHandler/PanelContainer/MessageBoxMargin/GeneralMargin/HBoxContainer/Paper/DialogueMargin/ContentVBox/MessageMargin" unique_id=298172254]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

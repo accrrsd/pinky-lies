@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b50g8rcsfpycl" path="res://3_scenes/ui_kit/CandySlider/CandyStick-Front.svg" id="1_fcctq"]
 [ext_resource type="Script" uid="uid://dbb43olip86rt" path="res://3_scenes/ui_kit/CandySlider/candy_slider_script.gd" id="2_i8fjv"]
 [ext_resource type="Texture2D" uid="uid://2mymsqegaxnm" path="res://3_scenes/ui_kit/CandySlider/CandyStick-Back.svg" id="3_5pe5l"]
+[ext_resource type="Texture2D" uid="uid://b4b2fiaxyhtas" path="res://3_scenes/ui_kit/CandySlider/CandyStick-middle-piece.svg" id="3_i8fjv"]
 [ext_resource type="Texture2D" uid="uid://t1sukgm61ota" path="res://3_scenes/ui_kit/CandySlider/CandyStick-middle.svg" id="4_jwhys"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8fjv"]
@@ -33,35 +34,10 @@ layout_mode = 2
 texture = ExtResource("3_5pe5l")
 stretch_mode = 4
 
-[node name="SpaceFiller" type="Control" parent="Bg/HBoxContainer" unique_id=1592767807]
-custom_minimum_size = Vector2(30, 0)
+[node name="StartTexture2" type="TextureRect" parent="Bg/HBoxContainer" unique_id=1252067887]
 layout_mode = 2
-
-[node name="ColorRect3" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=226724724]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 50.0
-color = Color(0.94509804, 0.84313726, 0.90588236, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=1946467515]
-layout_mode = 0
-offset_left = 6.1035156e-05
-offset_top = 30.0
-offset_right = 30.000061
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=797841395]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 5.0
-color = Color(0.48235294, 0.08627451, 0.11764706, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Bg/HBoxContainer/SpaceFiller" unique_id=1551912919]
-layout_mode = 0
-offset_top = 45.0
-offset_right = 30.0
-offset_bottom = 50.0
-color = Color(0.48235294, 0.08627451, 0.11764706, 1)
+texture = ExtResource("3_i8fjv")
+stretch_mode = 4
 
 [node name="ProgressTexture" type="TextureRect" parent="Bg/HBoxContainer" unique_id=142394100]
 layout_mode = 2

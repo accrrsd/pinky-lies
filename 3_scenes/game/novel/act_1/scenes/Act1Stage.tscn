@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dfp8n7x3g106u"]
+
+[ext_resource type="Script" path="res://3_scenes/game/novel/act_1/scenes/act_1_stage.gd" id="1_stage_script"]
+[ext_resource type="PackedScene" uid="uid://b4uxe2k8b28gl" path="res://3_scenes/ui_kit/BackgroundFiller/BackgroundFiller.tscn" id="2_bg_filler"]
+[ext_resource type="PackedScene" uid="uid://cb5y3q281x7v2" path="res://3_scenes/game/novel/ui/NovelCharacterStage.tscn" id="3_char_stage"]
+[ext_resource type="PackedScene" uid="uid://c5q3x5e2367d" path="res://3_scenes/game/novel/ui/NovelMessageBox.tscn" id="4_msg_box"]
+[ext_resource type="PackedScene" uid="uid://dxe423m06f71b" path="res://3_scenes/game/novel/ui/NovelChoices.tscn" id="5_choices"]
+[ext_resource type="PackedScene" uid="uid://bv81x3k6y9m2a" path="res://3_scenes/game/novel/ui/NovelMenuLayer.tscn" id="6_menu_layer"]
+
+[node name="Act1Stage" type="Node"]
+script = ExtResource("1_stage_script")
+
+[node name="Background" parent="." instance=ExtResource("2_bg_filler")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NovelCharacterStage" parent="." instance=ExtResource("3_char_stage")]
+
+[node name="NovelMessageBox" parent="." instance=ExtResource("4_msg_box")]
+
+[node name="NovelChoices" parent="." instance=ExtResource("5_choices")]
+
+[node name="NovelMenuLayer" parent="." instance=ExtResource("6_menu_layer")]

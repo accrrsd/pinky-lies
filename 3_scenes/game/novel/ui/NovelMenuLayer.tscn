@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://bv81x3k6y9m2a"]
+
+[ext_resource type="Script" path="res://3_scenes/game/novel/ui/novel_menu_layer.gd" id="1_menu_script"]
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+bg_color = Color(0.12, 0.1, 0.15, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.99, 0.61, 0.76, 0.9)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 14
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toast"]
+bg_color = Color(0.14, 0.12, 0.18, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.99, 0.61, 0.76, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="NovelMenuLayer" type="CanvasLayer" node_paths=PackedStringArray("menu_modal", "log_modal", "log_list", "toast_label", "resume_btn", "menu_log_btn", "save_btn", "load_btn", "exit_btn", "close_log_btn")]
+layer = 120
+visible = false
+script = ExtResource("1_menu_script")
+menu_modal = NodePath("InGameMenu")
+log_modal = NodePath("BacklogModal")
+log_list = NodePath("BacklogModal/Margin/VBox/Scroll/LogList")
+toast_label = NodePath("ToastContainer/ToastPanel/Margin/ToastLabel")
+resume_btn = NodePath("InGameMenu/Margin/VBox/ResumeButton")
+menu_log_btn = NodePath("InGameMenu/Margin/VBox/LogButton")
+save_btn = NodePath("InGameMenu/Margin/VBox/SaveButton")
+load_btn = NodePath("InGameMenu/Margin/VBox/LoadButton")
+exit_btn = NodePath("InGameMenu/Margin/VBox/ExitButton")
+close_log_btn = NodePath("BacklogModal/Margin/VBox/Header/CloseButton")
+
+[node name="InGameMenu" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -210.0
+offset_right = 220.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="InGameMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="InGameMenu/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="InGameMenu/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 26
+text = "⚙️ МЕНЮ ПАУЗЫ"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="InGameMenu/Margin/VBox"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="InGameMenu/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "▶ Продолжить"
+
+[node name="LogButton" type="Button" parent="InGameMenu/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "📜 История диалога"
+
+[node name="SaveButton" type="Button" parent="InGameMenu/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "💾 Сохранить"
+
+[node name="LoadButton" type="Button" parent="InGameMenu/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "📂 Загрузить"
+
+[node name="ExitButton" type="Button" parent="InGameMenu/Margin/VBox"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "🚪 В главное меню"
+
+[node name="BacklogModal" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -360.0
+offset_right = 600.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="Margin" type="MarginContainer" parent="BacklogModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="BacklogModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="BacklogModal/Margin/VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="BacklogModal/Margin/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 24
+text = "📜 История записей / Backlog"
+
+[node name="CloseButton" type="Button" parent="BacklogModal/Margin/VBox/Header"]
+layout_mode = 2
+text = " ✕ Закрыть "
+
+[node name="HSeparator" type="HSeparator" parent="BacklogModal/Margin/VBox"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="BacklogModal/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogList" type="VBoxContainer" parent="BacklogModal/Margin/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ToastContainer" type="CenterContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 28.0
+offset_right = 220.0
+offset_bottom = 76.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="ToastPanel" type="PanelContainer" parent="ToastContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_toast")
+
+[node name="Margin" type="MarginContainer" parent="ToastContainer/ToastPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 8
+
+[node name="ToastLabel" type="Label" parent="ToastContainer/ToastPanel/Margin"]
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+text = "💾 Сохранено!"
+horizontal_alignment = 1

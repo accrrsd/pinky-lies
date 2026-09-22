@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://df7h2c4y8a1j3"]
+
+[ext_resource type="Script" path="res://addons/diajogger/examples/demo_character_layer.gd" id="1_char_script"]
+[ext_resource type="Texture2D" path="res://addons/diajogger/examples/chelic.png" id="2_chelic"]
+[ext_resource type="Texture2D" path="res://addons/diajogger/examples/deva.png" id="3_deva"]
+
+[node name="DemoCharacterLayer" type="CanvasLayer" node_paths=PackedStringArray("emily_sprite", "deva_sprite")]
+layer = 10
+script = ExtResource("1_char_script")
+emily_sprite = NodePath("CharacterRoot/EmilySprite")
+deva_sprite = NodePath("CharacterRoot/DevaSprite")
+
+[node name="CharacterRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmilySprite" type="TextureRect" parent="CharacterRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.26
+anchor_top = 1.0
+anchor_right = 0.26
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -980.0
+offset_right = 260.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_chelic")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DevaSprite" type="TextureRect" parent="CharacterRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.74
+anchor_top = 1.0
+anchor_right = 0.74
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -990.0
+offset_right = 340.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_deva")
+expand_mode = 1
+stretch_mode = 5

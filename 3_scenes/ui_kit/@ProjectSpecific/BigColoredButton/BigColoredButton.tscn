@@ -45,14 +45,14 @@ metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_norm_color"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
 prop_name = &"font_outline_color"
 custom_prop_name = &"label_font_outline_color_"
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_norm_size"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
 prop_name = &"outline_size"
 custom_prop_name = &"label_font_outline_size_"
 prop_type = 1
@@ -60,16 +60,17 @@ metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_lib38"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font"
 custom_prop_name = &"label_font"
 prop_type = 2
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_h24ps"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font_size"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font_size"
+custom_prop_name = &"normal_font_size"
 prop_type = 3
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
@@ -140,23 +141,24 @@ metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_hov_color"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
 prop_name = &"font_outline_color"
 custom_prop_name = &"label_font_outline_color_hovered"
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_ngfsu"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font"
 custom_prop_name = &"label_font"
 prop_type = 2
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_rtxha"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font_size"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font_size"
+custom_prop_name = &"normal_font_size"
 prop_type = 3
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
@@ -203,23 +205,24 @@ metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_press_color"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
 prop_name = &"font_outline_color"
 custom_prop_name = &"label_font_outline_color_pressed"
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_kpqx6"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font"
 custom_prop_name = &"label_font"
 prop_type = 2
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
 [sub_resource type="Resource" id="Resource_j3f4v"]
 script = ExtResource("5_prop")
-paths = Array[NodePath]([NodePath("LabelMarginContainer/Label")])
-prop_name = &"normal_font_size"
+paths = Array[NodePath]([NodePath("LabelMarginContainer/HBox/Label")])
+prop_name = &"font_size"
+custom_prop_name = &"normal_font_size"
 prop_type = 3
 metadata/_custom_type_script = "uid://d342puk7dqeif"
 
@@ -350,22 +353,28 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="RichTextLabel" parent="LabelMarginContainer" unique_id=1508466368]
+[node name="HBox" type="HBoxContainer" parent="LabelMarginContainer" unique_id=407244759]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="LabelMarginContainer/HBox" unique_id=407244760]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="LabelMarginContainer/HBox" unique_id=1508466368]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/normal_font = ExtResource("7_kpqx6")
-theme_override_font_sizes/normal_font_size = 40
-theme_override_font_sizes/bold_font_size = 40
-theme_override_font_sizes/bold_italics_font_size = 40
-theme_override_font_sizes/italics_font_size = 40
-theme_override_font_sizes/mono_font_size = 40
-bbcode_enabled = true
+theme_override_fonts/font = ExtResource("7_kpqx6")
+theme_override_font_sizes/font_size = 40
 text = "HELLO WORLD"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 

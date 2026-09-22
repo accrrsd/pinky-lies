@@ -27,6 +27,11 @@
 [ext_resource type="StyleBox" uid="uid://bv8k1k7v3m2ya" path="res://2_general/resources/custom/StyleBoxBLACK.tres" id="30_sbblack"]
 [ext_resource type="Resource" uid="uid://df72k8la0mq1c" path="res://2_general/resources/custom/tween_chains/tween_parts/selfModulateNoTargetShow.tres" id="31_selfmod_show"]
 [ext_resource type="Resource" uid="uid://bvsm61d8u4v1y" path="res://2_general/resources/custom/tween_chains/tween_parts/selfModulateNoTargetHide.tres" id="32_selfmod_hide"]
+[ext_resource type="Texture2D" uid="uid://bunglcck020ik" path="res://2_general/assets/ui/icons/heart-icon.svg" id="33_heart"]
+[ext_resource type="Texture2D" uid="uid://q1vfqf3212qg" path="res://2_general/assets/ui/icons/Floppy.svg" id="34_floppy"]
+[ext_resource type="Texture2D" uid="uid://bmvst5dwgftwb" path="res://2_general/assets/ui/icons/Gallery.svg" id="35_gallery"]
+[ext_resource type="Texture2D" uid="uid://coscthsietmmh" path="res://2_general/assets/ui/icons/cogwheel.svg" id="36_cogwheel"]
+[ext_resource type="Texture2D" uid="uid://dah1lli6s2wkj" path="res://2_general/assets/ui/icons/Door.svg" id="37_door"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
@@ -401,27 +406,37 @@ alignment = 1
 [node name="StartGame" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=5430695 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "NEW STORY! ♥︎"
+icon_side = 1
+text = "NEW STORY!"
+icon = ExtResource("33_heart")
 
 [node name="LoadGame" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2073852572 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "LOAD GAME! [img=40]uid://q1vfqf3212qg[/img]"
+icon_side = 1
+text = "LOAD GAME!"
+icon = ExtResource("34_floppy")
 
 [node name="Gallery" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2056558448 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "MEMORIES [img=50]uid://bmvst5dwgftwb[/img]"
+icon_side = 1
+text = "MEMORIES"
+icon = ExtResource("35_gallery")
 
 [node name="Settings" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1418662307 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "CONFIGURATION [img=40]uid://coscthsietmmh[/img]"
+icon_side = 1
+text = "CONFIGURATION"
+icon = ExtResource("36_cogwheel")
 
 [node name="Exit" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=571986546 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "EXIT [img=40]uid://dah1lli6s2wkj[/img]"
+icon_side = 1
+text = "EXIT"
+icon = ExtResource("37_door")
 
 [node name="Settings" type="CanvasLayer" parent="." unique_id=303231344]
 visible = false

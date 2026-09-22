@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://c8b74x1j3e8y2"]
+
+[ext_resource type="Script" path="res://addons/diajogger/examples/demo_message_box.gd" id="1_msg_script"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_panel"]
+bg_color = Color(0.08, 0.08, 0.12, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.5, 0.6, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue_box"]
+bg_color = Color(0.08, 0.08, 0.12, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.72, 0.35, 0.85)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_speaker_badge"]
+bg_color = Color(0.16, 0.13, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.82, 0.4, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DemoMessageBox" type="CanvasLayer" node_paths=PackedStringArray("dialogue_box", "speaker_badge", "speaker_name_label", "message_label", "advance_glyph", "advance_button", "auto_button", "skip_button", "log_button", "menu_button")]
+layer = 100
+script = ExtResource("1_msg_script")
+dialogue_box = NodePath("UIRoot/DialogueBox")
+speaker_badge = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge")
+speaker_name_label = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge/Margin/SpeakerNameLabel")
+message_label = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/MessageRow/MessageLabel")
+advance_glyph = NodePath("UIRoot/DialogueBox/Margin/ContentVBox/MessageRow/AdvanceGlyph")
+advance_button = NodePath("AdvanceButton")
+auto_button = NodePath("UIRoot/HUDPanel/Margin/ButtonsRow/AutoButton")
+skip_button = NodePath("UIRoot/HUDPanel/Margin/ButtonsRow/SkipButton")
+log_button = NodePath("UIRoot/HUDPanel/Margin/ButtonsRow/LogButton")
+menu_button = NodePath("UIRoot/HUDPanel/Margin/ButtonsRow/MenuButton")
+
+[node name="AdvanceButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adv")
+flat = true
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HUDPanel" type="PanelContainer" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -520.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_panel")
+
+[node name="Margin" type="MarginContainer" parent="UIRoot/HUDPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="ButtonsRow" type="HBoxContainer" parent="UIRoot/HUDPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AutoButton" type="Button" parent="UIRoot/HUDPanel/Margin/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "▶ Auto [A]"
+
+[node name="SkipButton" type="Button" parent="UIRoot/HUDPanel/Margin/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "⏩ Skip [Tab]"
+
+[node name="LogButton" type="Button" parent="UIRoot/HUDPanel/Margin/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "📜 Log [H]"
+
+[node name="MenuButton" type="Button" parent="UIRoot/HUDPanel/Margin/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "⚙️ Menu [Esc]"
+
+[node name="DialogueBox" type="PanelContainer" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -280.0
+offset_right = 720.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue_box")
+
+[node name="Margin" type="MarginContainer" parent="UIRoot/DialogueBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="ContentVBox" type="VBoxContainer" parent="UIRoot/DialogueBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SpeakerRow" type="HBoxContainer" parent="UIRoot/DialogueBox/Margin/ContentVBox"]
+layout_mode = 2
+
+[node name="SpeakerBadge" type="PanelContainer" parent="UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_speaker_badge")
+
+[node name="Margin" type="MarginContainer" parent="UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 6
+
+[node name="SpeakerNameLabel" type="Label" parent="UIRoot/DialogueBox/Margin/ContentVBox/SpeakerRow/SpeakerBadge/Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 24
+text = "Speaker"
+
+[node name="MessageRow" type="HBoxContainer" parent="UIRoot/DialogueBox/Margin/ContentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MessageLabel" type="RichTextLabel" parent="UIRoot/DialogueBox/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Dialogue line text..."
+
+[node name="AdvanceGlyph" type="Label" parent="UIRoot/DialogueBox/Margin/ContentVBox/MessageRow"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 0.8)
+theme_override_font_sizes/font_size = 26
+text = "▶"

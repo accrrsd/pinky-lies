@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dxe423m06f71b"]
+
+[ext_resource type="Script" path="res://3_scenes/game/novel/ui/novel_choices.gd" id="1_choices_script"]
+
+[node name="NovelChoices" type="CanvasLayer" node_paths=PackedStringArray("choices_container", "timer_bar", "timer_label")]
+layer = 110
+visible = false
+script = ExtResource("1_choices_script")
+choices_container = NodePath("CenterContainer/ChoicesContainer")
+timer_bar = NodePath("CenterContainer/ChoicesContainer/ChoiceTimerBar")
+timer_label = NodePath("CenterContainer/ChoicesContainer/ChoiceTimerLabel")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ChoiceTimerLabel" type="Label" parent="CenterContainer/ChoicesContainer"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "⏱️ Время на выбор: 5.0с"
+horizontal_alignment = 1
+
+[node name="ChoiceTimerBar" type="ProgressBar" parent="CenterContainer/ChoicesContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 5.0
+value = 5.0
+show_percentage = false

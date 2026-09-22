@@ -20,7 +20,7 @@ config/icon="res://5_trash/imgs/icon.svg"
 Sounds="*uid://bvcu7to17csr6"
 SettingsManager="*uid://bsrqka7yu8vlq"
 SaveManager="*res://1_code/singletones/SaveManager.gd"
-DiaJogger="*res://1_code/DiaJogger/diajogger.gd"
+DiaJogger="*res://addons/diajogger/diajogger.gd"
 
 [display]
 
@@ -28,6 +28,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/diajogger/plugin.cfg")
 
 [file_customization]
 

@@ -38,16 +38,16 @@ func _change_state_body(new_state_name: String) -> void:
     printerr('State "%s" not found, in %s' % [new_state_name, get_parent()])
     return
   if new_state == current_state: return
-  if current_state: await current_state.end()
-  set_process(new_state.has_method(UPDATE_STR))
-  set_physics_process(new_state.has_method(PHYSICS_UPDATE_STR))
-  await new_state.start()
   var prev_state = current_state
   current_state = new_state
   state_changed.emit(prev_state, current_state)
+  if prev_state: await prev_state.end()
+  set_process(new_state.has_method(UPDATE_STR))
+  set_physics_process(new_state.has_method(PHYSICS_UPDATE_STR))
+  await new_state.start()
 
 func change_state(new_state_name: String) -> void:
   if is_transitioning: return
-  is_transitioning = true;
+  is_transitioning = true
   await _change_state_body(new_state_name)
-  is_transitioning = false;
+  is_transitioning = false

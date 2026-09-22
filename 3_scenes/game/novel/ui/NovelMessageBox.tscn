@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c5q3x5e2367d"]
+
+[ext_resource type="Script" path="res://3_scenes/game/novel/ui/novel_message_box.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://conspf808oufi" path="res://3_scenes/ui_kit/@ProjectSpecific/MessageBox/General/GeneralMessageBox.tscn" id="2_msg_box"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adv"]
+
+[node name="NovelMessageBox" type="CanvasLayer" node_paths=PackedStringArray("message_box", "advance_button")]
+layer = 100
+script = ExtResource("1_script")
+message_box = NodePath("GeneralMessageBox")
+advance_button = NodePath("AdvanceButton")
+
+[node name="AdvanceButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adv")
+flat = true
+
+[node name="GeneralMessageBox" parent="." instance=ExtResource("2_msg_box")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -667.0
+offset_top = -375.0
+offset_right = 667.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0

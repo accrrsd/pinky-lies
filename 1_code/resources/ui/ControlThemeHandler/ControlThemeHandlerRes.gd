@@ -25,6 +25,7 @@ func _apply_prop(prop: ControlThemePropRes, elem: Control, override_ttv: StringN
         var col = elem.get_theme_color(cpn, ttv)
         if prop.prop_name == &"modulate": elem.modulate = col
         elif prop.prop_name == &"self_modulate": elem.self_modulate = col
+        elif prop.prop_name == &"color" and "color" in elem: elem.color = col
         else: elem.add_theme_color_override(prop.prop_name, col)
     Theme.DATA_TYPE_CONSTANT: if elem.has_theme_constant(cpn, ttv):elem.add_theme_constant_override(prop.prop_name, elem.get_theme_constant(cpn, ttv))
     Theme.DATA_TYPE_FONT: if elem.has_theme_font(cpn, ttv): elem.add_theme_font_override(prop.prop_name, elem.get_theme_font(cpn, ttv))

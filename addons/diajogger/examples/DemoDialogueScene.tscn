@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://df72k8m4y1a90"]
+
+[ext_resource type="Script" path="res://addons/diajogger/examples/demo_dialogue_scene.gd" id="1_scene_script"]
+[ext_resource type="Texture2D" path="res://addons/diajogger/examples/bg_demo.jpg" id="2_bg"]
+[ext_resource type="PackedScene" path="res://addons/diajogger/examples/DemoCharacterLayer.tscn" id="3_char_layer"]
+[ext_resource type="PackedScene" path="res://addons/diajogger/examples/DemoMessageBox.tscn" id="4_msg_layer"]
+[ext_resource type="PackedScene" path="res://addons/diajogger/examples/DemoChoicesLayer.tscn" id="5_choices_layer"]
+[ext_resource type="PackedScene" path="res://addons/diajogger/examples/DemoMenuLayer.tscn" id="6_menu_layer"]
+
+[node name="DemoDialogueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_scene_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="DemoCharacterLayer" parent="." instance=ExtResource("3_char_layer")]
+
+[node name="DemoMessageBox" parent="." instance=ExtResource("4_msg_layer")]
+
+[node name="DemoChoicesLayer" parent="." instance=ExtResource("5_choices_layer")]
+
+[node name="DemoMenuLayer" parent="." instance=ExtResource("6_menu_layer")]

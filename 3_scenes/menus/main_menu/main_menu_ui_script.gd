@@ -75,8 +75,7 @@ func _setup_footer_return(layer_node_name: String) -> void:
       if btn and not btn.pressed.is_connected(_on_return_to_main_menu):
         btn.pressed.connect(_on_return_to_main_menu)
 
-func _on_start_game_pressed() -> void:
-  print("Start game pressed")
+func _on_start_game_pressed() -> void: get_tree().change_scene_to_file("res://3_scenes/game/novel/act_1/scenes/Act1Stage.tscn")
 
 func _on_load_game_pressed() -> void:
   var save_load_handler = parent.get_node_or_null("LoadGame/SaveLoadHandler")

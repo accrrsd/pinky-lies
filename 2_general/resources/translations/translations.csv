@@ -1,9 +1,11 @@
 keys,en,ru
 "NEW STORY! ♥︎","NEW STORY! ♥︎","НОВАЯ ИСТОРИЯ! ♥︎"
-"LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]","LOAD GAME! [img=40]uid://bir18ma0qw26c[/img]","ЗАГРУЗИТЬ ИГРУ! [img=40]uid://bir18ma0qw26c[/img]"
-"MEMORIES [img=50]uid://cqx00tixedbst[/img]","MEMORIES [img=50]uid://cqx00tixedbst[/img]","ВОСПОМИНАНИЯ [img=50]uid://cqx00tixedbst[/img]"
-"CONFIGURATION [img=40]uid://bqph778conedj[/img]","CONFIGURATION [img=40]uid://bqph778conedj[/img]","НАСТРОЙКИ [img=40]uid://bqph778conedj[/img]"
-"EXIT [img=40]uid://cundpwr5m5dfn[/img]","EXIT [img=40]uid://cundpwr5m5dfn[/img]","ВЫХОД [img=40]uid://cundpwr5m5dfn[/img]"
+"NEW STORY!","NEW STORY!","НОВАЯ ИСТОРИЯ!"
+"START GAME!","START GAME!","НАЧАТЬ ИГРУ!"
+"LOAD GAME!","LOAD GAME!","ЗАГРУЗИТЬ ИГРУ!"
+"MEMORIES","MEMORIES","ВОСПОМИНАНИЯ"
+"CONFIGURATION","CONFIGURATION","НАСТРОЙКИ"
+"EXIT","EXIT","ВЫХОД"
 AUDIO,AUDIO,АУДИО
 TEXT,TEXT,ТЕКСТ
 ADDITION,ADDITION,ДОПОЛНИТЕЛЬНО

@@ -178,6 +178,52 @@ corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 anti_aliasing_size = 0.3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg_btn_hover"]
+bg_color = Color(0.92, 0.88, 0.8, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.42, 0.42, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg_btn_normal"]
+bg_color = Color(0.96, 0.94, 0.88, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.78, 0.73, 0.66, 0.85)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg_btn_pressed"]
+bg_color = Color(0.88, 0.5, 0.5, 0.35)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82, 0.35, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg_cover"]
+bg_color = Color(0.8352941, 0.52156866, 0.6509804, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg_paper"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_option_disabled"]
 content_margin_left = 20.0
 content_margin_top = 8.0
@@ -382,8 +428,6 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 0.39215687)
-shadow_offset = Vector2(0, 2)
-anti_aliasing_size = 0.3
 
 [resource]
 ArrowSelector/base_type = &"Button"
@@ -409,7 +453,9 @@ BigColoredButton/constants/margin_bottom = 15
 BigColoredButton/constants/margin_left = 40
 BigColoredButton/constants/margin_right = 40
 BigColoredButton/constants/margin_top = 15
+BigColoredButton/font_sizes/font_size = 40
 BigColoredButton/font_sizes/normal_font_size = 40
+BigColoredButton/fonts/font = ExtResource("1_1883j")
 BigColoredButton/fonts/label_font = ExtResource("1_1883j")
 BigColoredButton/styles/_0_background_ = SubResource("StyleBoxFlat_1xgcy")
 BigColoredButton/styles/_0_background_hovered = SubResource("StyleBoxFlat_aya0i")
@@ -453,6 +499,17 @@ LineEdit/font_sizes/font_size = 32
 LineEdit/fonts/font = ExtResource("1_1883j")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_lineedit_focus")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_lineedit_normal")
+MessageBox/base_type = &"Control"
+MessageBox/colors/button_icon_color = Color(0.72156864, 0.79607844, 0.9019608, 1)
+MessageBox/colors/lines_color = Color(0.71999997, 0.798, 0.9, 1)
+MessageBox/colors/margin_line_color = Color(0.8745098, 0.54901963, 0.5411765, 1)
+MessageBox/colors/other_lines_color = Color(0.56078434, 0.61960787, 0.7019608, 1)
+MessageBox/colors/other_papers_color = Color(0.8, 0.8, 0.8, 1)
+MessageBox/styles/button_hover = SubResource("StyleBoxFlat_msg_btn_hover")
+MessageBox/styles/button_normal = SubResource("StyleBoxFlat_msg_btn_normal")
+MessageBox/styles/button_pressed = SubResource("StyleBoxFlat_msg_btn_pressed")
+MessageBox/styles/cover_panel = SubResource("StyleBoxFlat_msg_cover")
+MessageBox/styles/paper_panel = SubResource("StyleBoxFlat_msg_paper")
 OptionButton/colors/font_color = Color(1, 1, 1, 1)
 OptionButton/colors/font_disabled_color = Color(1, 1, 1, 0.4)
 OptionButton/colors/font_focus_color = Color(1, 1, 1, 1)

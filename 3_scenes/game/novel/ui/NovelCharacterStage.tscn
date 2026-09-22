@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cb5y3q281x7v2"]
+
+[ext_resource type="Script" path="res://3_scenes/game/novel/ui/novel_character_stage.gd" id="1_stage_script"]
+
+[node name="NovelCharacterStage" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_stage_script")
+
+[node name="StageRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftSlot" type="Control" parent="StageRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.25
+anchor_top = 1.0
+anchor_right = 0.25
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="CenterSlot" type="Control" parent="StageRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="RightSlot" type="Control" parent="StageRoot"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.75
+anchor_top = 1.0
+anchor_right = 0.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2

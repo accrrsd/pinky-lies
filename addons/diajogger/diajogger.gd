@@ -39,6 +39,7 @@ var active_document: DiaJoggerDocument
 var documents: Dictionary = {}
 var target_to_document: Dictionary = {}
 var current_target: String = ""
+var _waiting_for_choice: bool = false
 
 func _init() -> void:
   instance = self
@@ -76,6 +77,7 @@ func play(target_name: String = "", document: DiaJoggerDocument = null) -> void:
   if not target_name.is_empty():
     current_target = target_name
     caret.seek_target(target_name)
+    state_changed.emit(caret.state)
 
   _ensure_view()
   dialogue_started.emit(target_name)
@@ -92,25 +94,33 @@ func resume() -> void:
   dialogue_finished.emit(current_target)
 
 func choice(options: Array[String]) -> int:
+  _waiting_for_choice = true
   var idx: int = -1
-  if choice_handler.is_valid():
-    idx = await choice_handler.call(options)
+  if choice_handler.is_valid(): idx = await choice_handler.call(options)
   else:
     _ensure_view()
     if view != null and view.has_method("show_choice"): idx = await view.show_choice(options)
+  _waiting_for_choice = false
   var chosen_text := options[idx] if idx >= 0 and idx < options.size() else ""
   choice_made.emit(idx, chosen_text)
   return idx
 
 func select_choice(index: int) -> void:
+  if choice_handler.is_valid():
+    var target: Variant = choice_handler.get_object()
+    if target != null and target.has_method("select_choice"):
+      target.select_choice(index)
+      return
   if view != null and view.has_method("select_choice"): view.select_choice(index)
 
-func is_waiting_choice() -> bool:
-  if view != null and view.has_method("is_waiting_choice"): return view.is_waiting_choice()
-  return false
+func is_waiting_choice() -> bool: return _waiting_for_choice
 
 func stop() -> void:
+  _waiting_for_choice = false
   if runtime != null: runtime.stop()
+  if choice_handler.is_valid():
+    var target: Variant = choice_handler.get_object()
+    if target != null and target.has_method("cancel"): target.cancel()
   if view != null and view.has_method("cancel"): view.cancel()
 
 func load_file(path: String) -> DiaJoggerDocument:
@@ -159,14 +169,7 @@ func serialize_state() -> Dictionary:
     "document_path": active_document.source_path if active_document != null else "",
     "position": pos,
     "current_target": current_target,
-    "state": {
-      "speaker": caret.state.speaker if caret != null and caret.state != null else "",
-      "emotion": caret.state.emotion if caret != null and caret.state != null else "",
-      "portrait": caret.state.portrait if caret != null and caret.state != null else "",
-      "background": caret.state.background if caret != null and caret.state != null else "",
-      "music": caret.state.music if caret != null and caret.state != null else "",
-      "data": caret.state.data.duplicate(true) if caret != null and caret.state != null else {},
-    }
+    "state": caret.state.serialize() if caret != null and caret.state != null else {}
   }
 
 func restore_state(saved: Dictionary) -> void:
@@ -178,14 +181,9 @@ func restore_state(saved: Dictionary) -> void:
   if caret != null:
     caret.position = saved.get("position", 0)
     current_target = saved.get("current_target", "")
-    var st: Dictionary = saved.get("state", {})
-    caret.state.reset()
-    caret.state.speaker = st.get("speaker", "")
-    caret.state.emotion = st.get("emotion", "")
-    caret.state.portrait = st.get("portrait", "")
-    caret.state.background = st.get("background", "")
-    caret.state.music = st.get("music", "")
-    caret.state.data = st.get("data", {}).duplicate(true)
+    if caret.state != null:
+      caret.state.deserialize(saved.get("state", {}))
+      state_changed.emit(caret.state)
 
 func _ensure_view() -> void:
   if view != null or text_handler.is_valid(): return

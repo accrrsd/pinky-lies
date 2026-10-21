@@ -43,11 +43,17 @@ static func parse_string(content: String, source_path: String = "") -> DiaJogger
   var lines := content.split("\n")
   var pending := {"dirty": false, "write_wait": -1.0}
   
+  var in_comment: bool = false
   for raw_line in lines:
     var line := raw_line.strip_edges()
     if line.is_empty(): continue
-    if line.begins_with("<!--") and line.ends_with("-->"): continue
-    if line.begins_with("# ") or line.begins_with("//"): continue
+    if in_comment:
+      if line.find("-->") != -1: in_comment = false
+      continue
+    if line.begins_with("<!--"):
+      if line.find("-->") == -1: in_comment = true
+      continue
+    if line.begins_with("#") or line.begins_with("//"): continue
     if line.begins_with("\\@"):
       doc.add_event(DiaJoggerEvent.make_text(line.substr(1), pending["dirty"], pending["write_wait"]))
       pending["dirty"] = false

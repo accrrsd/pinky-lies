@@ -80,8 +80,7 @@ func add_history_entry(entry: Dictionary) -> void:
     history_records.append(entry.duplicate(true))
 
 func truncate_history_to(entry_index: int) -> void:
-  if entry_index >= 0 and entry_index < history_records.size():
-    history_records = history_records.slice(0, entry_index + 1)
+  if entry_index >= 0 and entry_index < history_records.size(): history_records = history_records.slice(0, entry_index)
 
 func show_toast(message: String) -> void:
   if not toast_label: return
@@ -123,15 +122,17 @@ func _rebuild_log_ui() -> void:
     if not sfx.is_empty():
       var sfx_btn := Button.new()
       sfx_btn.text = "🔊 " + sfx.capitalize()
-      sfx_btn.pressed.connect(func(): sfx_replay_requested.emit(sfx))
+      sfx_btn.pressed.connect(_on_sfx_replay_clicked.bind(sfx))
       row.add_child(sfx_btn)
 
     var jump_btn := Button.new()
-    jump_btn.text = "⤴ Загрузить"
+    jump_btn.text = "⤴ Load"
     jump_btn.pressed.connect(_on_jump_clicked.bind(entry, i))
     row.add_child(jump_btn)
 
     log_list.add_child(row)
+
+func _on_sfx_replay_clicked(sfx_key: String) -> void: sfx_replay_requested.emit(sfx_key)
 
 func _on_jump_clicked(entry: Dictionary, index: int) -> void:
   close_all()

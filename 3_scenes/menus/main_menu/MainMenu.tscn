@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bmvst5dwgftwb" path="res://2_general/assets/ui/icons/Gallery.svg" id="35_gallery"]
 [ext_resource type="Texture2D" uid="uid://coscthsietmmh" path="res://2_general/assets/ui/icons/cogwheel.svg" id="36_cogwheel"]
 [ext_resource type="Texture2D" uid="uid://dah1lli6s2wkj" path="res://2_general/assets/ui/icons/Door.svg" id="37_door"]
+[ext_resource type="PackedScene" uid="uid://c6y7candyboxmenu" path="res://3_scenes/menus/main_menu/CandyBoxMenu.tscn" id="38_candybox"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
@@ -419,6 +420,7 @@ icon = ExtResource("34_floppy")
 
 [node name="Gallery" parent="Buttons/AspectRatioContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2056558448 instance=ExtResource("11_055hd")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 icon_side = 1
 text = "MEMORIES"
@@ -914,38 +916,7 @@ visible = false
 [node name="SaveLoadHandler" type="Node" parent="LoadGame" unique_id=987124150]
 script = ExtResource("26_saveload_script")
 
-[node name="UiPanelHandler" parent="LoadGame" unique_id=2067601531 instance=ExtResource("12_qopwy")]
-
-[node name="HeaderLabel" type="Label" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(2067601531, 884896457) index="0" unique_id=1848526163]
-layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-theme_override_font_sizes/font_size = 50
-text = "LOAD GAME ♥︎"
-horizontal_alignment = 1
-
-[node name="GridContainer" type="HBoxContainer" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox" parent_id_path=PackedInt32Array(2067601531, 884896457) index="1" unique_id=1909052607]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 50
-
-[node name="Slot1" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=719338525 instance=ExtResource("24_ynlmi")]
-layout_mode = 2
-
-[node name="Slot2" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=135388274 instance=ExtResource("24_ynlmi")]
-layout_mode = 2
-
-[node name="Slot3" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=1985894247 instance=ExtResource("24_ynlmi")]
-layout_mode = 2
-
-[node name="Slot4" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/GridContainer" unique_id=472598309 instance=ExtResource("24_ynlmi")]
-layout_mode = 2
-
-[node name="Reset" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" parent_id_path=PackedInt32Array(2067601531, 793883986) index="0" unique_id=1396975660]
-modulate = Color(1, 1, 1, 0)
-theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
-
-[node name="Return" parent="LoadGame/UiPanelHandler/MarginContainer/PanelContainer/MarginContainer/MainVBox/Footer" parent_id_path=PackedInt32Array(2067601531, 793883986) index="1" unique_id=284827232]
-theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
+[node name="UiPanelHandler" parent="LoadGame" unique_id=2067601531 instance=ExtResource("38_candybox")]
 
 [node name="Memories" type="CanvasLayer" parent="." unique_id=303231346]
 visible = false
@@ -1312,5 +1283,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_njvh4")
 [node name="ConfirmationPopup" parent="." unique_id=987124300 instance=ExtResource("25_conf_pop")]
 
 [editable path="Settings/UiPanelHandler"]
-[editable path="LoadGame/UiPanelHandler"]
 [editable path="Memories/UiPanelHandler"]

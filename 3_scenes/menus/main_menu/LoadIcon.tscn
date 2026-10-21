@@ -1,53 +1,211 @@
-[gd_scene format=3 uid="uid://bxyy3o5reatrq"]
+[gd_scene load_steps=10 format=3 uid="uid://bxyy3o5reatrq"]
 
-[ext_resource type="Texture2D" uid="uid://dc1ybvaxxe5ib" path="res://2_general/assets/ui/icons/Cookie.svg" id="1_4obag"]
-[ext_resource type="Texture2D" uid="uid://d3r8paio6yuup" path="res://2_general/assets/ui/icons/Glaze.svg" id="2_b34ka"]
+[ext_resource type="Script" path="res://3_scenes/menus/main_menu/load_icon_script.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://o02tx2xp8d3d" path="res://2_general/assets/ui/icons/cookie/Cookie.svg" id="2_4obag"]
+[ext_resource type="Texture2D" uid="uid://dwx2a1f6pkpw2" path="res://2_general/assets/ui/icons/cookie/Glaze.svg" id="3_b34ka"]
+[ext_resource type="StyleBox" uid="uid://bv8k1k7v3m2ya" path="res://2_general/resources/custom/StyleBoxBLACK.tres" id="4_hsfgx"]
+[ext_resource type="Texture2D" uid="uid://buv32jtvt0wbo" path="res://2_general/assets/ui/icons/trash.svg" id="5_trash"]
+[ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="6_font"]
+[ext_resource type="Texture2D" uid="uid://dfsh61l1i3fjb" path="res://5_trash/imgs/00020-2798477167.png" id="7_preview"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cell"]
+bg_color = Color(0.18, 0.08, 0.14, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.48, 0.2, 0.32, 0.85)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" unique_id=252451239]
-offset_right = 384.0
-offset_bottom = 384.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shadow"]
+bg_color = Color(0, 0, 0, 0.35)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plaque"]
+bg_color = Color(0.97, 0.92, 0.88, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.18, 0.3, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[node name="LoadIcon" type="PanelContainer"]
+custom_minimum_size = Vector2(240, 350)
+offset_right = 320.0
+offset_bottom = 390.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cell")
+script = ExtResource("1_script")
+default_preview = ExtResource("7_preview")
 
-[node name="Slot1" type="PanelContainer" parent="." unique_id=719338525]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
 
-[node name="VBox" type="VBoxContainer" parent="Slot1" unique_id=731834464]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="SlotTitle" type="Label" parent="Slot1/VBox" unique_id=1843068147]
-visible = false
+[node name="CookieArea" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"ColoredLabel"
-text = "SLOT 01"
-horizontal_alignment = 1
+size_flags_vertical = 3
+ratio = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="Slot1/VBox" unique_id=235491116]
-custom_minimum_size = Vector2(0, 80)
+[node name="Slot" type="Control" parent="MarginContainer/VBoxContainer/CookieArea"]
 layout_mode = 2
-color = Color(0.15, 0.15, 0.2, 0.6)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="SlotInfo" type="Label" parent="Slot1/VBox" unique_id=1837763531]
-layout_mode = 2
-text = "Empty_Slot"
-horizontal_alignment = 1
+[node name="Shadow" type="Panel" parent="MarginContainer/VBoxContainer/CookieArea/Slot"]
+modulate = Color(1, 1, 1, 0.3)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shadow")
 
-[node name="Button" type="Button" parent="Slot1" unique_id=489643208]
+[node name="CookieVisual" type="Control" parent="MarginContainer/VBoxContainer/CookieArea/Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="MarginContainer/VBoxContainer/CookieArea/Slot/CookieVisual"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4obag")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CookieArea/Slot/CookieVisual"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 30
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/CookieArea/Slot/CookieVisual/MarginContainer"]
+clip_children = 1
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_hsfgx")
+
+[node name="Content" type="TextureRect" parent="MarginContainer/VBoxContainer/CookieArea/Slot/CookieVisual/MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="fg" type="TextureRect" parent="MarginContainer/VBoxContainer/CookieArea/Slot/CookieVisual"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_b34ka")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/CookieArea/Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="Slot1" unique_id=1808265645]
-layout_mode = 2
-texture = ExtResource("1_4obag")
-expand_mode = 1
+[node name="TrashButton" type="Button" parent="MarginContainer/VBoxContainer/CookieArea/Slot"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 38.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_trash")
+flat = true
+expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="Slot1" unique_id=1483518388]
+[node name="InfoPlaque" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-texture = ExtResource("2_b34ka")
+theme_override_styles/panel = SubResource("StyleBoxFlat_plaque")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoPlaque"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InfoPlaque/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="SlotTitle" type="Label" parent="MarginContainer/VBoxContainer/InfoPlaque/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.1, 0.24, 1)
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 20
+text = "SLOT 01"
+horizontal_alignment = 1
+
+[node name="SlotDate" type="Label" parent="MarginContainer/VBoxContainer/InfoPlaque/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.18, 0.25, 1)
+theme_override_font_sizes/font_size = 14
+text = "2026-10-17 14:53"
+horizontal_alignment = 1
+
+[node name="SlotInfo" type="Label" parent="MarginContainer/VBoxContainer/InfoPlaque/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.28, 0.38, 1)
+theme_override_font_sizes/font_size = 13
+text = "Chapter 1"
+horizontal_alignment = 1

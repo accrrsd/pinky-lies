@@ -50,12 +50,23 @@ func set_timer_visual(time_left: float, max_time: float) -> void:
     timer_bar.value = maxf(time_left, 0.0)
     timer_bar.visible = time_left > 0.0
   if timer_label:
-    timer_label.text = "⏱️ Время на выбор: %.1fс" % maxf(time_left, 0.0)
+    timer_label.text = "⏱️ Time left: %.1fs" % maxf(time_left, 0.0)
     timer_label.visible = time_left > 0.0
 
 func _on_choice_clicked(index: int) -> void:
   _selected_index = index
   choice_selected.emit(index)
+
+func select_choice(index: int) -> void: if _is_waiting: _on_choice_clicked(index)
+func is_waiting_choice() -> bool: return _is_waiting
+
+func cancel() -> void:
+  _is_waiting = false
+  _selected_index = -1
+  choice_selected.emit(-1)
+  hide()
+  _clear_buttons()
+  set_timer_visual(0.0, 0.0)
 
 func _clear_buttons() -> void:
   if not choices_container: return

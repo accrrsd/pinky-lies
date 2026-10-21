@@ -139,7 +139,7 @@ func set_choice_timer_visual(time_left: float, max_time: float) -> void:
     choice_timer_bar.value = maxf(time_left, 0.0)
     choice_timer_bar.visible = time_left > 0.0
   if choice_timer_label != null:
-    choice_timer_label.text = "⏱️ Время на выбор: %.1fс" % maxf(time_left, 0.0)
+    choice_timer_label.text = "⏱️ Time left: %.1fs" % maxf(time_left, 0.0)
     choice_timer_label.visible = time_left > 0.0
 
 func toggle_auto() -> void:
@@ -239,7 +239,7 @@ func _rebuild_log_ui() -> void:
     if not sfx.is_empty():
       var sfx_btn := Button.new()
       sfx_btn.text = "🔊 " + sfx.capitalize()
-      sfx_btn.pressed.connect(func(): play_sfx(sfx))
+      sfx_btn.pressed.connect(play_sfx.bind(sfx))
       row.add_child(sfx_btn)
     
     log_list.add_child(row)

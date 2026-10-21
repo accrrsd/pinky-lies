@@ -4,76 +4,76 @@
 @m station_theme
 
 @s Emily @e happy
-Доброе утро, Рен!
+Good morning, Ren!
 
-Мы уже заждались тебя на платформе.
+We've been waiting for you on the platform.
 
 @s Deva @e worried
-Ты опять всю ночь не спал?
+Didn't sleep all night again?
 
-Выглядишь так, будто поезд переехал твои планы на отдых.
+You look like the train just ran over your vacation plans.
 
 @s Ren
-Нормально. Я просто думал.
+I'm fine. I was just thinking.
 
 @s Emily @e surprised
-Кстати, пока мы тебя ждали, тут кое-что произошло!
+By the way, while we were waiting, something happened!
 
 @s Deva @e thinking
-Да, именно. Спроси нас, если хочешь узнать подробности.
+Yes, exactly. Ask us if you'd like to hear the details.
 
 @target Station/AskTrain
 
 @s Deva @e happy
-Наш поезд отправляется через двадцать минут с третьего пути.
+Our train leaves in twenty minutes from track three.
 
-Билеты у меня, так что не переживай.
+I have the tickets, so don't worry.
 
 @s Emily @e surprised @d sfx train
-Слышишь этот гудок?..
+Do you hear that whistle?..
 @dirty @write_wait 0.8 @d speed 0.8
-Поезд уже совсем близко!
+The train is already approaching!
 
 @s Emily @e worried
-Но расписание сегодня странное...
+Still, the timetable seems strange today...
 @dirty
-некоторые рейсы просто отменили.
+some routes were just cancelled.
 
 @target Station/AskLetter
 
 @s Emily @e surprised
-Я нашла кое-что в зале ожидания!
+I found something in the waiting lounge!
 
 @p Emily_letter
-Это старый запечатанный конверт...
+It's an old sealed envelope...
 @dirty
-На нём написано твоё имя.
+Your name is written on it.
 
 @s Deva @e worried
-И печать на нём очень странная...
+And the wax seal looks very peculiar...
 @dirty @write_wait 0.6 @e surprised
-Будто из другого города!
+As if it came from another city!
 
 @target Station/AskDeva
 
 @s Deva @e happy
-Я? Я просто рада, что мы наконец-то выбираемся из города.
+Me? I'm just happy we're finally getting out of town.
 
-Хотя то письмо меня немного настораживает.
+Although that letter does make me a bit uneasy.
 
 @target Station/Leave
 
 @s Emily @e happy
-Тогда идём на посадку!
+Let's head to boarding then!
 
 @s Deva @e surprised
-Я очень...
+I really...
 @dirty
-не хочу опоздать!
+don't want to miss it!
 @dirty @write_wait 0.5 @e happy
-Бежим скорее к платформе!
+Let's hurry to the platform!
 
 @r s
-Мы взяли чемоданы и направились к выходу на платформу.
+We grabbed our luggage and headed toward the platform exit.
 
 @r

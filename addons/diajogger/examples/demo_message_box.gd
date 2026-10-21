@@ -37,6 +37,7 @@ var is_skip: bool = false:
 var _waiting_for_input: bool = false
 var _is_typing: bool = false
 var _skip_typing: bool = false
+var _is_cancelled: bool = false
 
 func _ready() -> void:
   layer = 100
@@ -46,7 +47,16 @@ func _ready() -> void:
   if log_button: log_button.pressed.connect(func(): log_requested.emit())
   if menu_button: menu_button.pressed.connect(func(): menu_requested.emit())
 
+func cancel() -> void:
+  _is_cancelled = true
+  _is_typing = false
+  _skip_typing = true
+  _waiting_for_input = false
+  if advance_glyph: advance_glyph.hide()
+  advance_requested.emit()
+
 func display_text(text: String, state: DiaJoggerState, is_dirty: bool = false, write_wait: float = -1.0) -> void:
+  _is_cancelled = false
   show()
   if dialogue_box: dialogue_box.show()
   if advance_glyph: advance_glyph.hide()
@@ -55,6 +65,7 @@ func display_text(text: String, state: DiaJoggerState, is_dirty: bool = false, w
 
   var speed_mult: float = float(state.get_data("speed", 1.0)) if state != null else 1.0
   await _run_typewriter_step(text, is_dirty, speed_mult)
+  if _is_cancelled: return
 
   if write_wait >= 0.0:
     if is_skip: await get_tree().create_timer(0.04).timeout
@@ -63,8 +74,7 @@ func display_text(text: String, state: DiaJoggerState, is_dirty: bool = false, w
 
   if advance_glyph: advance_glyph.show()
 
-  if is_skip:
-    await get_tree().create_timer(0.04).timeout
+  if is_skip: await get_tree().create_timer(0.04).timeout
   elif is_auto:
     _waiting_for_input = true
     var timer := get_tree().create_timer(auto_delay)
@@ -109,11 +119,14 @@ func _run_typewriter_step(text: String, is_dirty: bool, speed_mult: float) -> vo
   var char_delay: float = (1.0 / typewriter_chars_per_sec) / maxf(speed_mult, 0.1)
 
   for i in range(start_char, total_chars):
-    if _skip_typing or is_skip:
+    if _skip_typing or is_skip or _is_cancelled:
       message_label.visible_characters = -1
       break
     message_label.visible_characters = i + 1
     await get_tree().create_timer(char_delay).timeout
+    if _skip_typing or is_skip or _is_cancelled:
+      message_label.visible_characters = -1
+      break
 
   _is_typing = false
   _skip_typing = false

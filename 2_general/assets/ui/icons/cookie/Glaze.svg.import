@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc1ybvaxxe5ib"
-path="res://.godot/imported/Cookie.svg-d329d2087b9bb351db8e1ee8b235ffe6.ctex"
+uid="uid://dwx2a1f6pkpw2"
+path="res://.godot/imported/Glaze.svg-0f4bf2520802ca574122867b59f75626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/icons/Cookie.svg"
-dest_files=["res://.godot/imported/Cookie.svg-d329d2087b9bb351db8e1ee8b235ffe6.ctex"]
+source_file="res://2_general/assets/ui/icons/cookie/Glaze.svg"
+dest_files=["res://.godot/imported/Glaze.svg-0f4bf2520802ca574122867b59f75626.ctex"]
 
 [params]
 

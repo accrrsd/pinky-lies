@@ -18,11 +18,11 @@ func _ready() -> void:
   
   # 3. Choice handled by GDScript
   var choice := await DiaJogger.choice([
-    "Рассказать правду",
-    "Солгать"
+    "Tell the truth",
+    "Lie"
   ])
   
   # 4. Narrative branching in GDScript
   match choice:
-    0: await DiaJogger.play("Station/Letter")
+    0: await DiaJogger.play("Station/AskLetter")
     1: print("Ren lied and walked away.")

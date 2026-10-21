@@ -75,7 +75,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
 theme_override_font_sizes/font_size = 24
-text = "⚙️ Меню паузы"
+text = "⚙️ Pause Menu"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="InGameMenu/Margin/VBox"]
@@ -84,27 +84,27 @@ layout_mode = 2
 [node name="ResumeButton" type="Button" parent="InGameMenu/Margin/VBox"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-text = "▶ Продолжить"
+text = "▶ Resume"
 
 [node name="LogButton" type="Button" parent="InGameMenu/Margin/VBox"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-text = "📜 История диалога"
+text = "📜 Dialogue History"
 
 [node name="SaveButton" type="Button" parent="InGameMenu/Margin/VBox"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-text = "💾 Быстрое сохранение [F5]"
+text = "💾 Quick Save [F5]"
 
 [node name="LoadButton" type="Button" parent="InGameMenu/Margin/VBox"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-text = "📂 Быстрая загрузка [F9]"
+text = "📂 Quick Load [F9]"
 
 [node name="ExitButton" type="Button" parent="InGameMenu/Margin/VBox"]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-text = "🚪 В главное меню"
+text = "🚪 Exit"
 
 [node name="LogModal" type="PanelContainer" parent="."]
 visible = false
@@ -140,11 +140,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
 theme_override_font_sizes/font_size = 24
-text = "📜 История диалога / Backlog"
+text = "📜 Dialogue History / Backlog"
 
 [node name="CloseButton" type="Button" parent="LogModal/Margin/VBox/Header"]
 layout_mode = 2
-text = " ✕ Закрыть "
+text = " ✕ Close "
 
 [node name="HSeparator" type="HSeparator" parent="LogModal/Margin/VBox"]
 layout_mode = 2
@@ -185,5 +185,5 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.95, 0.75, 1)
 theme_override_font_sizes/font_size = 20
-text = "💾 Сохранено!"
+text = "💾 Saved!"
 horizontal_alignment = 1

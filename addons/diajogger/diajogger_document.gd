@@ -37,5 +37,8 @@ func compute_state_at(index: int) -> DiaJoggerState:
   var limit := mini(index, events.size())
   for i in range(limit):
     var ev := events[i]
-    if ev.type == DiaJoggerEvent.Type.MARKUP or ev.type == DiaJoggerEvent.Type.DATA: state.apply(ev)
+    if ev.type == DiaJoggerEvent.Type.MARKUP: state.apply(ev)
+    elif ev.type == DiaJoggerEvent.Type.DATA:
+      if ev.key in DiaJoggerState.TRANSIENT_DATA_KEYS: continue
+      state.apply(ev)
   return state

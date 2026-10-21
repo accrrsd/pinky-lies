@@ -18,6 +18,8 @@
 extends RefCounted
 class_name DiaJoggerState
 
+const TRANSIENT_DATA_KEYS: Array[String] = ["sfx"]
+
 var speaker: String = ""
 var emotion: String = ""
 var portrait: String = ""
@@ -33,16 +35,11 @@ func apply(event: DiaJoggerEvent) -> void:
         var targets := str(event.value).strip_edges()
         if targets.is_empty(): reset()
         else: for t in targets.split(" ", false): _reset_tag(t.trim_prefix("@"))
-      "s":
-        speaker = "" if event.value == "none" else str(event.value)
-      "e":
-        emotion = "" if event.value == "none" else str(event.value)
-      "p":
-        portrait = "" if event.value == "none" else str(event.value)
-      "b":
-        background = "" if event.value == "none" else str(event.value)
-      "m":
-        music = "" if event.value == "none" else str(event.value)
+      "s": speaker = "" if event.value == "none" else str(event.value)
+      "e": emotion = "" if event.value == "none" else str(event.value)
+      "p": portrait = "" if event.value == "none" else str(event.value)
+      "b": background = "" if event.value == "none" else str(event.value)
+      "m": music = "" if event.value == "none" else str(event.value)
       _: printerr("DiaJoggerState: Unrecognized markup key: ", event.key)
   elif event.type == DiaJoggerEvent.Type.DATA:
     if event.value == "none": data.erase(event.key)
@@ -68,6 +65,25 @@ func reset() -> void:
   background = ""
   music = ""
   data.clear()
+
+func serialize() -> Dictionary:
+  return {
+    "speaker": speaker,
+    "emotion": emotion,
+    "portrait": portrait,
+    "background": background,
+    "music": music,
+    "data": data.duplicate(true)
+  }
+
+func deserialize(saved: Dictionary) -> void:
+  reset()
+  speaker = saved.get("speaker", "")
+  emotion = saved.get("emotion", "")
+  portrait = saved.get("portrait", "")
+  background = saved.get("background", "")
+  music = saved.get("music", "")
+  data = saved.get("data", {}).duplicate(true)
 
 func clone() -> DiaJoggerState:
   var copy := DiaJoggerState.new()

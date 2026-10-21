@@ -17,6 +17,7 @@ var _current_step: String = "act1"
 var _story_generation: int = 0
 var _saved_data: Dictionary = {}
 var _current_music: String = ""
+var _pending_sfx: String = ""
 
 func _ready() -> void:
   DiaJogger.set_text_handler(_on_display_text)
@@ -37,11 +38,16 @@ func _ready() -> void:
   _run_story("act1")
 
 func _on_display_text(text: String, state: DiaJoggerState, is_dirty: bool = false, write_wait: float = -1.0) -> void:
+  var sfx_name := _pending_sfx
+  if sfx_name.is_empty() and state: sfx_name = str(state.get_data("sfx", "")).strip_edges()
+  _pending_sfx = ""
+  if state and not sfx_name.is_empty(): state.data.erase("sfx")
+
   if menu_layer:
     var snapshot := {
       "speaker": state.speaker if state else "",
       "text": text,
-      "sfx": str(state.get_data("sfx", "")) if state else "",
+      "sfx": sfx_name,
       "music": state.music if state else "",
       "is_dirty": is_dirty,
       "diajogger_state": DiaJogger.serialize_state(),
@@ -58,6 +64,7 @@ func _on_state_changed(state: DiaJoggerState) -> void:
 
   var sfx := str(state.get_data("sfx", "")).strip_edges()
   if not sfx.is_empty():
+    _pending_sfx = sfx
     play_sfx(sfx)
     state.data.erase("sfx")
 
@@ -66,10 +73,14 @@ func play_music(music_key: String) -> void:
     music_player.stop()
     _current_music = ""
     return
-  if _current_music == music_key and music_player.playing: return
+  if _current_music == music_key: return
   _current_music = music_key
-  music_player.stream = SFX_TRAIN
-  music_player.play()
+  var path := "res://addons/diajogger/examples/%s.mp3" % music_key
+  if ResourceLoader.exists(path):
+    music_player.stream = load(path)
+    music_player.play()
+  else:
+    music_player.stop()
 
 func play_sfx(sfx_key: String) -> void:
   if sfx_key == "train":
@@ -77,6 +88,8 @@ func play_sfx(sfx_key: String) -> void:
     sfx_player.play()
 
 func _on_jump_to_history(entry: Dictionary) -> void:
+  if message_box: message_box.cancel()
+  if choices_layer: choices_layer.cancel()
   DiaJogger.stop()
   var dj_state: Dictionary = entry.get("diajogger_state", {})
   DiaJogger.restore_state(dj_state)
@@ -85,9 +98,8 @@ func _on_jump_to_history(entry: Dictionary) -> void:
   if not target_music.is_empty(): play_music(target_music)
 
   var target_step: String = entry.get("step", "loop")
-  _current_step = target_step
-  menu_layer.show_toast("⤴ Загружено к выбранной реплике!")
-  await DiaJogger.resume()
+  menu_layer.show_toast("⤴ Loaded to selected dialogue line!")
+  _run_story(target_step, target_step != "loop")
 
 func _unhandled_input(event: InputEvent) -> void:
   if event is InputEventKey and event.is_pressed() and not event.is_echo():
@@ -114,8 +126,8 @@ func _run_story(start_step: String, is_resumed: bool = false) -> void:
     else: await DiaJogger.play("Station/AskTrain")
     if gen != _story_generation: return
     var timed_choice := await _timed_choice([
-      "Быстро бежать на третий путь! [По умолчанию / 6с]",
-      "Остаться и ещё раз проверить билеты"
+      "Rush to track three! [Default / 6s]",
+      "Stay and double check tickets"
     ], 6.0, 0)
     if gen != _story_generation: return
     if timed_choice == 0: _current_step = "leave"
@@ -135,10 +147,10 @@ func _run_story(start_step: String, is_resumed: bool = false) -> void:
     var exploring := true
     while exploring and gen == _story_generation:
       var choice := await DiaJogger.choice([
-        "Спросить про поезд (со звуком гудка @d sfx train)",
-        "Спросить про странное письмо (с инлайн склейкой @dirty)",
-        "Спросить у Девы про поездку",
-        "Закончить разговор и идти на посадку"
+        "Ask about the train (with horn sfx @d sfx train)",
+        "Ask about the strange letter (with inline append @dirty)",
+        "Ask Deva about the trip",
+        "Wrap up conversation and head to boarding"
       ])
       if gen != _story_generation or choice < 0: return
 
@@ -148,8 +160,8 @@ func _run_story(start_step: String, is_resumed: bool = false) -> void:
           await DiaJogger.play("Station/AskTrain")
           if gen != _story_generation: return
           var timed_choice := await _timed_choice([
-            "Быстро бежать на третий путь! [По умолчанию / 6с]",
-            "Остаться и ещё раз проверить билеты"
+            "Rush to track three! [Default / 6s]",
+            "Stay and double check tickets"
           ], 6.0, 0)
           if gen != _story_generation: return
           if timed_choice == 0:
@@ -190,7 +202,7 @@ func quick_save() -> void:
   if file:
     file.store_string(JSON.stringify(save_dict, "  "))
     file.close()
-  if menu_layer: menu_layer.show_toast("💾 Сохранено! [F5]")
+  if menu_layer: menu_layer.show_toast("💾 Saved! [F5]")
 
 func quick_load() -> void:
   if _saved_data.is_empty() and FileAccess.file_exists(SAVE_PATH):
@@ -201,9 +213,11 @@ func quick_load() -> void:
       file.close()
 
   if _saved_data.is_empty():
-    if menu_layer: menu_layer.show_toast("⚠️ Нет сохранений!")
+    if menu_layer: menu_layer.show_toast("⚠️ No saves found!")
     return
 
+  if message_box: message_box.cancel()
+  if choices_layer: choices_layer.cancel()
   DiaJogger.stop()
   DiaJogger.restore_state(_saved_data.get("diajogger", {}))
   if menu_layer: menu_layer.history_records = _saved_data.get("history", []).duplicate(true)
@@ -214,7 +228,7 @@ func quick_load() -> void:
   var saved_music: String = _saved_data.get("music", "")
   if not saved_music.is_empty(): play_music(saved_music)
 
-  if menu_layer: menu_layer.show_toast("📂 Загружено! [F9]")
+  if menu_layer: menu_layer.show_toast("📂 Loaded! [F9]")
 
   var target_step: String = _saved_data.get("step", "loop")
   _run_story(target_step, target_step != "loop")

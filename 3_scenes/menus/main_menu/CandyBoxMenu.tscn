@@ -1,0 +1,245 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6y7candyboxmenu"]
+
+[ext_resource type="Theme" uid="uid://b4pbuxrcttwb3" path="res://2_general/resources/themes/MainTheme.tres" id="1_theme"]
+[ext_resource type="FontVariation" uid="uid://d1ri6w6rdmaq2" path="res://2_general/assets/fonts/bold/bold_font.tres" id="2_font"]
+[ext_resource type="PackedScene" uid="uid://bxyy3o5reatrq" path="res://3_scenes/menus/main_menu/LoadIcon.tscn" id="3_loadicon"]
+[ext_resource type="PackedScene" uid="uid://de87fvlq31ol8" path="res://3_scenes/ui_kit/PanelButton/PanelButton.tscn" id="4_panelbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box_outer"]
+bg_color = Color(0.99, 0.62, 0.76, 0.98)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.48, 0.14, 0.28, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 6
+shadow_offset = Vector2(0, 8)
+anti_aliasing_size = 0.4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tray"]
+bg_color = Color(0.24, 0.1, 0.17, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.18, 0.28, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+anti_aliasing_size = 0.4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pagination"]
+bg_color = Color(0.97, 0.91, 0.86, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.48, 0.14, 0.28, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+bg_color = Color(1, 0.97, 0.94, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.2, 0.34, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_return_btn"]
+bg_color = Color(0.992157, 0.611765, 0.764706, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.647059, 0.231373, 0.415686, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 0.3
+
+[node name="UiPanelHandler" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+ratio = 1.7778
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 60
+
+[node name="CandyBoxOuter" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_box_outer")
+
+[node name="BoxMargins" type="MarginContainer" parent="MarginContainer/CandyBoxOuter"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderBox" type="VBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HeaderLabel" type="Label" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/HeaderBox"]
+layout_mode = 2
+theme_type_variation = &"ColoredLabel"
+theme_override_font_sizes/font_size = 46
+text = "LOAD GAME ♥︎"
+horizontal_alignment = 1
+
+[node name="SubHeaderLabel" type="Label" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/HeaderBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.16, 0.3, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "✦ SWEET ASSORTED SAVES & MEMORIES ✦"
+horizontal_alignment = 1
+
+[node name="CandyTray" type="PanelContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tray")
+
+[node name="TrayMargins" type="MarginContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="HBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray/TrayMargins"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 18
+
+[node name="Slot1" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray/TrayMargins/GridContainer" instance=ExtResource("3_loadicon")]
+layout_mode = 2
+
+[node name="Slot2" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray/TrayMargins/GridContainer" instance=ExtResource("3_loadicon")]
+layout_mode = 2
+
+[node name="Slot3" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray/TrayMargins/GridContainer" instance=ExtResource("3_loadicon")]
+layout_mode = 2
+
+[node name="Slot4" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/CandyTray/TrayMargins/GridContainer" instance=ExtResource("3_loadicon")]
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LeftSpacer" type="Control" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaginationBar" type="PanelContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pagination")
+
+[node name="BarMargins" type="MarginContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="ControlsHBox" type="HBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PrevPageButton" type="Button" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins/ControlsHBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.48, 0.14, 0.28, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.25, 0.45, 1)
+theme_override_colors/font_disabled_color = Color(0.48, 0.14, 0.28, 0.3)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "<"
+flat = true
+
+[node name="PageLabel" type="Label" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins/ControlsHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.14, 0.28, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "PAGE"
+
+[node name="PageInput" type="LineEdit" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins/ControlsHBox"]
+custom_minimum_size = Vector2(65, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.14, 0.28, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.85, 0.25, 0.45, 0.6)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+text = "1"
+alignment = 1
+max_length = 3
+select_all_on_focus = true
+
+[node name="MaxPageLabel" type="Label" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins/ControlsHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.25, 0.38, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "/ 1"
+
+[node name="NextPageButton" type="Button" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/PaginationBar/BarMargins/ControlsHBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.48, 0.14, 0.28, 1)
+theme_override_colors/font_hover_color = Color(0.85, 0.25, 0.45, 1)
+theme_override_colors/font_disabled_color = Color(0.48, 0.14, 0.28, 0.3)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = ">"
+flat = true
+
+[node name="RightSide" type="HBoxContainer" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Return" parent="MarginContainer/CandyBoxOuter/BoxMargins/MainVBox/Footer/RightSide" instance=ExtResource("4_panelbtn")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_return_btn")
+text = "RETURN"

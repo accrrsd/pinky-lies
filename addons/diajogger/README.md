@@ -92,14 +92,14 @@ Instead of polluting text with complex inline bracket tags, DiaJogger uses clean
 
 ```md
 @s Emily @e surprised @d sfx train
-Слышишь этот гудок?..
+Do you hear that whistle?..
 @dirty @write_wait 0.8 @d speed 0.8
-Поезд уже совсем близко!
+The train is already approaching!
 ```
-1. `Слышишь этот гудок?..` prints with normal typewriter speed while triggering the train horn.
+1. `Do you hear that whistle?..` prints with normal typewriter speed while triggering the train horn.
 2. `@dirty` ensures the dialogue box is not wiped.
 3. `@write_wait 0.8` waits 0.8 seconds automatically (no click required).
-4. `Поезд уже совсем близко!` continues printing in the same bubble at 0.8x speed!
+4. `The train is already approaching!` continues printing in the same bubble at 0.8x speed!
 
 ### Resetting Values & "@r"
 
@@ -126,7 +126,7 @@ Tags can be combined on a single line:
 
 ```md
 @s Emily @e angry @p Emily_angry @d speed 1.2
-Ты опять не спал всю ночь?
+Didn't sleep all night again?
 ```
 
 ### Example Dialogue File (`station.md`)
@@ -138,46 +138,46 @@ Tags can be combined on a single line:
 @m station_theme
 
 @s Emily @e happy
-Доброе утро, Рен!
-Мы уже заждались тебя на платформе.
+Good morning, Ren!
+We've been waiting for you on the platform.
 
 @s Deva @e worried
-Ты опять всю ночь не спал?
-Выглядишь так, будто поезд переехал твои планы на отдых.
+Didn't sleep all night again?
+You look like the train just ran over your vacation plans.
 
 @s Ren
-Нормально. Я просто думал.
+I'm fine. I was just thinking.
 
 @target Station/AskTrain
 
 @s Deva @e happy
-Наш поезд отправляется через двадцать минут с третьего пути.
-Билеты у меня, так что не переживай.
+Our train leaves in twenty minutes from track three.
+I have the tickets, so don't worry.
 
 @s Emily @e surprised @d sfx train
-Слышишь этот гудок?..
+Do you hear that whistle?..
 @dirty @write_wait 0.8 @d speed 0.8
-Поезд уже совсем близко!
+The train is already approaching!
 
 @s Emily @e worried
-Но расписание сегодня странное...
+Still, the timetable seems strange today...
 @dirty
-некоторые рейсы просто отменили.
+some routes were just cancelled.
 
 @target Station/Leave
 
 @s Emily @e happy
-Тогда идём на посадку!
+Let's head to boarding then!
 
 @s Deva @e surprised
-Я очень...
+I really...
 @dirty
-не хочу опоздать!
+don't want to miss it!
 @dirty @write_wait 0.5 @e happy
-Бежим скорее к платформе!
+Let's hurry to the platform!
 
 @r s
-Мы взяли чемоданы и направились к выходу на платформу.
+We grabbed our luggage and headed toward the platform exit.
 
 @r
 ```
@@ -200,8 +200,8 @@ await DiaJogger.play("Station/Act 1")
 
 ```gdscript
 var choice := await DiaJogger.choice([
-  "Рассказать правду",
-  "Солгать"
+  "Tell the truth",
+  "Lie"
 ])
 
 match choice:
@@ -239,9 +239,9 @@ Because DiaJogger leaves control flow to GDScript, investigation / topic loops a
 var exploring := true
 while exploring:
   var topic := await DiaJogger.choice([
-    "Спросить про поезд",
-    "Спросить про письмо",
-    "Закончить разговор"
+    "Ask about the train",
+    "Ask about the letter",
+    "End conversation"
   ])
   match topic:
     0: await DiaJogger.play("Station/AskTrain")

@@ -9,6 +9,7 @@ class_name DemoCharacterLayer
 
 var _emily_base_y: float = 0.0
 var _deva_base_y: float = 0.0
+var _tweens: Dictionary = {}
 
 func _ready() -> void:
   layer = 10
@@ -20,21 +21,17 @@ func _ready() -> void:
 func apply_state(state: DiaJoggerState) -> void:
   if state == null: return
   var spk := state.speaker.to_lower() if state.has_speaker() else ""
-
-  if emily_sprite:
-    var is_emily := (spk == "emily" or spk.is_empty())
-    _animate_actor(emily_sprite, is_emily, _emily_base_y, state.emotion if spk == "emily" else "")
-
-  if deva_sprite:
-    var is_deva := (spk == "deva" or spk.is_empty())
-    _animate_actor(deva_sprite, is_deva, _deva_base_y, state.emotion if spk == "deva" else "")
+  if emily_sprite: _animate_actor(emily_sprite, spk == "emily", _emily_base_y, state.emotion if spk == "emily" else "")
+  if deva_sprite: _animate_actor(deva_sprite, spk == "deva", _deva_base_y, state.emotion if spk == "deva" else "")
 
 func _animate_actor(node: TextureRect, is_speaker: bool, base_y: float, emotion: String) -> void:
+  var node_id := node.get_instance_id()
+  if _tweens.has(node_id) and is_instance_valid(_tweens[node_id]): (_tweens[node_id] as Tween).kill()
+  node.position.y = base_y
   var target_mod: Color = active_modulate if is_speaker else inactive_modulate
-  var tw := create_tween().set_parallel(true)
-  tw.tween_property(node, "modulate", target_mod, tween_duration)
-
+  var tw := create_tween()
+  _tweens[node_id] = tw
+  tw.parallel().tween_property(node, "modulate", target_mod, tween_duration)
   if is_speaker and not emotion.is_empty():
-    var bounce_tw := create_tween()
-    bounce_tw.tween_property(node, "position:y", base_y - 12.0, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-    bounce_tw.tween_property(node, "position:y", base_y, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+    tw.chain().tween_property(node, "position:y", base_y - 12.0, 0.12).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+    tw.chain().tween_property(node, "position:y", base_y, 0.16).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

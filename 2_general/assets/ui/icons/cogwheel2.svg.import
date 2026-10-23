@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3r8paio6yuup"
-path="res://.godot/imported/Glaze.svg-a7974de35b35c6d15a7d08db228685c7.ctex"
+uid="uid://xkpk46va7riv"
+path="res://.godot/imported/cogwheel2.svg-949219c9a5a01bcb1038ddc04ec9ee6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2_general/assets/ui/icons/cook-old/Glaze.svg"
-dest_files=["res://.godot/imported/Glaze.svg-a7974de35b35c6d15a7d08db228685c7.ctex"]
+source_file="res://2_general/assets/ui/icons/cogwheel2.svg"
+dest_files=["res://.godot/imported/cogwheel2.svg-949219c9a5a01bcb1038ddc04ec9ee6c.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=3.0
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

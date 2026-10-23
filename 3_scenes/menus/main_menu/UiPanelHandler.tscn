@@ -48,7 +48,6 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1729974615]
-self_modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 2
 theme_type_variation = &"DefaultPanel"
 

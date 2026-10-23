@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://6wui2deutxxj" path="res://3_scenes/ui_kit/CandySlider/CandySlider.tscn" id="19_g3ek5"]
 [ext_resource type="PackedScene" uid="uid://bp6k3uh24byi5" path="res://3_scenes/ui_kit/ArrowSelector/ArrowSelector.tscn" id="21_b7guf"]
 [ext_resource type="PackedScene" uid="uid://b3l7a7kgn1irg" path="res://3_scenes/ui_kit/@ProjectSpecific/HeartButton/HeartButton.tscn" id="21_c4rxa"]
-[ext_resource type="PackedScene" uid="uid://bxyy3o5reatrq" path="res://3_scenes/menus/main_menu/LoadIcon.tscn" id="24_ynlmi"]
 [ext_resource type="PackedScene" uid="uid://cx8bve6t0q1yp" path="res://3_scenes/ui_kit/ConfirmationPopup/ConfirmationPopup.tscn" id="25_conf_pop"]
 [ext_resource type="Script" uid="uid://bf3h7rq5caox3" path="res://3_scenes/menus/main_menu/save_load_menu_script.gd" id="26_saveload_script"]
 [ext_resource type="Texture2D" uid="uid://hhcwpypmhxp5" path="res://2_general/assets/ui/icons/Pill-White.svg" id="27_pill"]
@@ -32,11 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://bmvst5dwgftwb" path="res://2_general/assets/ui/icons/Gallery.svg" id="35_gallery"]
 [ext_resource type="Texture2D" uid="uid://coscthsietmmh" path="res://2_general/assets/ui/icons/cogwheel.svg" id="36_cogwheel"]
 [ext_resource type="Texture2D" uid="uid://dah1lli6s2wkj" path="res://2_general/assets/ui/icons/Door.svg" id="37_door"]
-[ext_resource type="PackedScene" uid="uid://c6y7candyboxmenu" path="res://3_scenes/menus/main_menu/CandyBoxMenu.tscn" id="38_candybox"]
+[ext_resource type="PackedScene" uid="uid://54ur6ddtmbwo" path="res://3_scenes/menus/main_menu/CandyBoxMenu.tscn" id="38_candybox"]
 
 [sub_resource type="Resource" id="Resource_apvev"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Buttons/AspectRatioContainer")
+target_node_path = NodePath("../../Buttons/AspectRatioContainer")
 property = "modulate:a"
 start_value = 0.0
 final_value = 1.0
@@ -50,7 +49,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_iwsdl"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Buttons/AspectRatioContainer")
+target_node_path = NodePath("../../Buttons/AspectRatioContainer")
 property = "modulate:a"
 start_value = 1.0
 final_value = 0.0
@@ -64,7 +63,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_pkfxm"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Settings/UiPanelHandler")
+target_node_path = NodePath("../../Settings/UiPanelHandler")
 property = "modulate:a"
 start_value = 0.0
 final_value = 1.0
@@ -78,7 +77,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_6f7ud"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Settings/UiPanelHandler")
+target_node_path = NodePath("../../Settings/UiPanelHandler")
 property = "modulate:a"
 start_value = 1.0
 final_value = 0.0
@@ -92,7 +91,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_lg_show_prop"]
 script = ExtResource("5_kip88")
-target = NodePath("../../LoadGame/UiPanelHandler")
+target_node_path = NodePath("../../LoadGame/UiPanelHandler")
 property = "modulate:a"
 start_value = 0.0
 final_value = 1.0
@@ -106,7 +105,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_lg_hide_prop"]
 script = ExtResource("5_kip88")
-target = NodePath("../../LoadGame/UiPanelHandler")
+target_node_path = NodePath("../../LoadGame/UiPanelHandler")
 property = "modulate:a"
 start_value = 1.0
 final_value = 0.0
@@ -120,7 +119,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_mem_show_prop"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Memories/UiPanelHandler")
+target_node_path = NodePath("../../Memories/UiPanelHandler")
 property = "modulate:a"
 start_value = 0.0
 final_value = 1.0
@@ -134,7 +133,7 @@ metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="Resource" id="Resource_mem_hide_prop"]
 script = ExtResource("5_kip88")
-target = NodePath("../../Memories/UiPanelHandler")
+target_node_path = NodePath("../../Memories/UiPanelHandler")
 property = "modulate:a"
 start_value = 1.0
 final_value = 0.0

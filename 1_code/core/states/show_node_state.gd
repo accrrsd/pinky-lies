@@ -6,12 +6,16 @@ extends State
 
 func start():
   if not show_chain: return
-  var tween: Tween = show_chain.create_tween(self, default_target_node)
+  var host: Node = default_target_node if default_target_node else self
+  var tween: Tween = show_chain.create_tween(host)
+  if not tween: return
   tween.play()
   await tween.finished
 
 func end():
   if not hide_chain: return
-  var tween: Tween = hide_chain.create_tween(self, default_target_node)
+  var host: Node = default_target_node if default_target_node else self
+  var tween: Tween = hide_chain.create_tween(host)
+  if not tween: return
   tween.play()
   await tween.finished

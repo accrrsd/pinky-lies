@@ -5,7 +5,7 @@ signal trash_pressed(slot_id: int)
 
 @export var default_preview: Texture2D
 
-@export var hover_chain:TweenChainRes
+@export var hover_chain: TweenChainRes
 @export var hover_out_chain: TweenChainRes
 
 var current_slot_id: int = 1
@@ -27,7 +27,7 @@ var _hover_tween: Tween
 @onready var slot_info_label: Label = $MarginContainer/VBoxContainer/InfoPlaque/MarginContainer/VBoxContainer/SlotInfo
 
 func _ready() -> void:
-  bite_manager.init(bite_handler)
+  bite_manager.init(bite_handler, cookie_visual)
 
   if main_button:
     main_button.pressed.connect(_on_button_pressed)
@@ -36,18 +36,20 @@ func _ready() -> void:
 
   if trash_button: trash_button.pressed.connect(_on_trash_pressed)
 
-  
+
 class BiteManager:
-  var bite_material:ShaderMaterial
+  var bite_material: ShaderMaterial
   var bite_tween: Tween
   var bite_handler: Control
+  var cookie_visual: Control
 
-  func init(_bite_handler: Control) -> void:
+  func init(_bite_handler: Control, _cookie_visual: Control = null) -> void:
     bite_handler = _bite_handler
-    bite_material = bite_handler.material
+    cookie_visual = _cookie_visual
+    if bite_handler: bite_material = bite_handler.material
 
   func play_bite(local_click_pos: Vector2 = Vector2.ZERO) -> void:
-    if not bite_handler: return
+    if not bite_handler or not bite_material: return
     var gsize: Vector2 = bite_handler.size
     var corner: int = 1
     if local_click_pos != Vector2.ZERO:
@@ -84,15 +86,19 @@ class BiteManager:
     bite_material.set_shader_parameter("bite_radius_px", radius)
     bite_material.set_shader_parameter("bite_progress", 0.0)
 
+    var anim_node: Control = cookie_visual if cookie_visual else bite_handler
     if bite_tween and bite_tween.is_valid(): bite_tween.kill()
-    bite_tween = bite_handler.create_tween().set_parallel(true)
+    bite_tween = anim_node.create_tween().set_parallel(true)
     bite_tween.tween_property(bite_material, "shader_parameter/bite_progress", 1.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-    bite_handler.pivot_offset = gsize / 2.0
-    bite_tween.tween_property(bite_handler, "scale", Vector2(0.92, 0.92), 0.08).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-    bite_tween.chain().tween_property(bite_handler, "scale", Vector2.ONE, 0.14).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+    anim_node.pivot_offset = anim_node.size / 2.0
+    bite_tween.tween_property(anim_node, "scale", Vector2(0.92, 0.92), 0.08).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+    bite_tween.chain().tween_property(anim_node, "scale", Vector2.ONE, 0.14).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
   func reset() -> void:
+    if bite_tween and bite_tween.is_valid(): bite_tween.kill()
     if bite_material: bite_material.set_shader_parameter("bite_progress", 0.0)
+    var anim_node: Control = cookie_visual if cookie_visual else bite_handler
+    if anim_node: anim_node.scale = Vector2.ONE
 
 func set_slot_data(slot_id: int, p_has_save: bool, info: Dictionary) -> void:
   current_slot_id = slot_id
@@ -121,7 +127,7 @@ func play_bite_animation(local_click_pos: Vector2 = Vector2.ZERO) -> void: bite_
 func reset_bite() -> void: bite_manager.reset()
 
 func _on_button_pressed() -> void:
-  var click_pos: Vector2 = main_button.get_local_mouse_position() if main_button else Vector2.ZERO
+  var click_pos: Vector2 = bite_handler.get_local_mouse_position() if bite_handler else (main_button.get_local_mouse_position() if main_button else Vector2.ZERO)
   play_bite_animation(click_pos)
   slot_pressed.emit(current_slot_id)
 

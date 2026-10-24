@@ -155,6 +155,7 @@ steps = Array[ExtResource("4_0qxaa")]([SubResource("Resource_out_cv_pos"), SubRe
 metadata/_custom_type_script = "uid://cncc4wej5qsvr"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phl3u"]
+resource_local_to_scene = true
 shader = ExtResource("3_eptmh")
 shader_parameter/bite_progress = 0.0
 shader_parameter/bite_center_px = Vector2(0, 0)
